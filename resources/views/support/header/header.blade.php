@@ -5,8 +5,8 @@
       {{-- <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">tes</span> --}}
   </a>
   <div class="flex md:order-2 space-x-4">
-      <button type="button" class="invisible md:visible text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-3 md:mr-0">Daftar</button>
-      <button type="button" class="text-white bg-red-600 hover:bg-red-700 focus:ring-red-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-3 md:mr-0">Login</button>
+      <button type="button" class="hidden md:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-3 md:mr-0">Daftar</button>
+      <button type="button" class="hidden min-[366px]:inline text-white bg-red-600 hover:bg-red-700 focus:ring-red-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-3 md:mr-0">Login</button>
       <button data-collapse-toggle="navbar-cta" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-white rounded-lg md:hidden hover:bg-red-600 focus:outline-none duration-150" aria-controls="navbar-dropdown" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
         <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
@@ -15,10 +15,10 @@
   <div class="items-center hidden w-full md:flex md:w-auto md:order-1 md:flex-grow flex-row justify-end md:px-8" id="navbar-cta">
     <ul class="flex flex-col justify-end font-medium p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
       <li>
-        <a href="#" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0 hover:bg-red-600 duration-150" aria-current="page">Home</a>
+        <a href="#" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0" aria-current="page">Home</a>
       </li>
       <li>
-        <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-white md:border-0 md:p-0 md:w-auto hover:bg-red-600 duration-150 rounded-lg">Job List <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
+        <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-white md:border-0 md:p-0 md:w-auto">Job List <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
         <!-- Dropdown menu -->
         <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
             <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
