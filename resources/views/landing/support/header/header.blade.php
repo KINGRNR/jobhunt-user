@@ -103,7 +103,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
     $(window).scroll(function() {
-        if ($(this).scrollTop() > 1) {
+        if ($(this).scrollTop() > 10) {
             $('nav').removeClass("bg-transparent").addClass("bg-black");
         } else {
             $('nav').removeClass("bg-black").addClass("bg-transparent");
