@@ -10,6 +10,8 @@ export default {
     colors: {
       'merah': '#DC0000',
       'merah-gelap': '#850000',
+      'figma-blue-gray-50': '#F8F9FC',
+      'figma-gray-500': '#667085',
       'figma-gray-100': '#F2F4F7'
     },
     extend: {    
