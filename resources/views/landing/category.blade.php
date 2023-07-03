@@ -1,6 +1,6 @@
 <p class="m-20"><span
-        class="font-semibold text-gray-900 underline decoration-red-800 decoration-4 text-3xl">Popular</span><span
-        class="font-semibold text-red-800 text-3xl"> Category</span></p>
+        class="font-semibold text-gray-900 underline decoration-merah-gelap decoration-4 text-3xl">Popular</span><span
+        class="font-semibold text-merah-gelap text-3xl"> Category</span></p>
 <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2 m-10 sm:m-20">
     <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
 
@@ -30,7 +30,7 @@
             </p>
 
             <button type="button"
-                class=" text-white bg-red-600 hover:bg-red-700 focus:ring-red-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
+                class=" text-white bg-merah hover:bg-red-700 focus:ring-merah-gelap hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
         </div>
@@ -63,7 +63,7 @@
             </p>
 
             <button type="button"
-                class=" text-white bg-red-600 hover:bg-red-700 focus:ring-red-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
+                class=" text-white bg-merah hover:bg-red-700 focus:ring-merah-gelap hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
         </div>
@@ -96,7 +96,7 @@
             </p>
 
             <button type="button"
-                class=" text-white bg-red-600 hover:bg-red-700 focus:ring-red-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
+                class=" text-white bg-merah hover:bg-red-700 focus:ring-merah-gelap hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
         </div>
@@ -129,7 +129,7 @@
             </p>
 
             <button type="button"
-                class=" text-white bg-red-600 hover:bg-red-700 focus:ring-red-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
+                class=" text-white bg-merah hover:bg-red-700 focus:ring-merah-gelap hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
         </div>
@@ -163,7 +163,7 @@
             </p>
 
             <button type="button"
-                class=" text-white bg-red-600 hover:bg-red-700 focus:ring-red-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
+                class=" text-white bg-merah hover:bg-red-700 focus:ring-merah-gelap hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
         </div>
@@ -197,7 +197,7 @@
             </p>
 
             <button type="button"
-                class=" text-white bg-red-600 hover:bg-red-700 focus:ring-red-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
+                class=" text-white bg-merah hover:bg-red-700 focus:ring-merah-gelap hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
         </div>

@@ -7,6 +7,11 @@ export default {
     "./node_modules/flowbite/**/*.js"
   ],
   theme: {
+    colors: {
+      'merah': '#DC0000',
+      'merah-gelap': '#850000',
+      'figma-gray-100': '#F2F4F7'
+    },
     extend: {    
       fontFamily: {
       'poppins': ['"Poppins"', 'serif']

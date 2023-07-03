@@ -42,9 +42,9 @@
             <button type="button"
                 class="hidden md:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-3 md:mr-0">Daftar</button>
             <button type="button"
-                class="hidden min-[366px]:inline text-white bg-red-600 hover:bg-red-700 focus:ring-red-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-3 md:mr-0">Login</button>
+                class="hidden min-[366px]:inline text-white bg-merah hover:bg-red-700 focus:ring-merah-gelap hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-3 md:mr-0">Login</button>
             <button data-collapse-toggle="navbar-cta" type="button"
-                class="inline-flex items-center p-2 ml-3 text-sm text-white rounded-lg md:hidden hover:bg-red-600 focus:outline-none"
+                class="inline-flex items-center p-2 ml-3 text-sm text-white rounded-lg md:hidden hover:bg-merah focus:outline-none"
                 aria-controls="navbar-dropdown" aria-expanded="false">
                 <span class="sr-only">Open main menu</span>
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
