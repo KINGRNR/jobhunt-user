@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-
+<!-- banhhh tolong -->
 <head>
+    <!-- local -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
     <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
