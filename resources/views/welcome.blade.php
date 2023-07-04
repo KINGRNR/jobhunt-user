@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <!-- local -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
