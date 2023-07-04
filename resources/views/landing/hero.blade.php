@@ -11,7 +11,7 @@
                 <h1 class="mt-12 ml-0 md:ml-8 font-poppins text-4xl font-semibold leadi sm:text-5xl">Looking For
                     <span>Dream</span> Job?
                 </h1>
-                <p class="mt-20 mb-8 text-lg sm:mb-12">Dictum aliquam porta in condimentum ac integer
+                <p class="mt-20 mb-8 text-lg sm:mb-12 font-medium">Dictum aliquam porta in condimentum ac integer
                     <br class="hidden md:inline lg:hidden">turpis pulvinar, est scelerisque ligula sem
                 </p>
                 <div
