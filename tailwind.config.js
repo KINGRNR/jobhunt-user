@@ -11,6 +11,8 @@ export default {
       'merah': '#DC0000',
       'merah-gelap': '#850000',
       'figma-blue-gray-50': '#F8F9FC',
+      'figma-warning-50': '#FFFAEB',
+      'figma-warning-500': '#F79009',
       'figma-gray-500': '#667085',
       'figma-gray-100': '#F2F4F7'
     },

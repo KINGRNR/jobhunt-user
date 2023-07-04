@@ -1,4 +1,4 @@
-<section
+<section id="hero-section"
     class="relative bg-[url(https://images.unsplash.com/photo-1572021335469-31706a17aaef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVvcGxlJTIwd29ya2luZ3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80)] mb-20 bg-fixed bg-center bg-cover">
     <div class="bg-black bg-opacity-40">
         <div class="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">

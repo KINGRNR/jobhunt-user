@@ -110,3 +110,19 @@
         }
     });
 </script>
+<script>
+    $(document).ready(function() {
+    onScroll();
+});
+
+function onScroll() {   
+    var lastScrollTop, $bar = $('nav') , height = $bar.height(), 
+        $window = $(window), offset = 10;
+
+    $window.on('scroll',function()  {       
+        var scrollTop = $window.scrollTop();
+        $bar.css({ top: scrollTop > lastScrollTop && scrollTop > 512 ? -height : 0 });
+        lastScrollTop = scrollTop; 
+    });     
+}
+</script>
