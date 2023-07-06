@@ -1,13 +1,13 @@
-<div class="m-20 grow grid grid-cols-1">
+<div class="my-20 mx-10 grow grid grid-cols-1">
     <p class="mt-2 text-3xl flex justify-center font-semibold text-black">
         Featured Jobs
     </p>
-    <p class="tracking-tight mt-6 text-2xl flex justify-center font-normal text-black">
+    <p class="tracking-tight mt-6 text-2xl text-center flex justify-center font-normal text-black">
         Leading Employers already using job and talent.
     </p>
 </div>
 
-<div class="grid grid-cols-1 m-16">
+{{-- <div class="grid grid-cols-1 m-12">
     <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition mb-6 hover:shadow-lg sm:p-6">
 
         <div class="flex gap-6">
@@ -229,4 +229,4 @@
             </a>
         </div>
     </article>
-</div>
+</div> --}}

@@ -40,9 +40,9 @@
         </a>
         <div class="flex md:order-2 space-x-4">
             <button type="button"
-                class="hidden md:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-3 md:mr-0">Daftar</button>
+                class="hidden min-[450px]:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Daftar</button>
             <button type="button"
-                class="hidden min-[366px]:inline text-white bg-merah hover:bg-red-700 focus:ring-merah-gelap hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-3 md:mr-0">Login</button>
+                class="hidden min-[450px]:inline text-white bg-merah hover:bg-red-700 focus:ring-merah-gelap hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Login</button>
             <button data-collapse-toggle="navbar-cta" type="button"
                 class="inline-flex items-center p-2 ml-3 text-sm text-white rounded-lg md:hidden hover:bg-merah focus:outline-none"
                 aria-controls="navbar-dropdown" aria-expanded="false">
@@ -59,6 +59,10 @@
             id="navbar-cta">
             <ul
                 class="flex flex-col justify-end font-medium p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <li>
+                    <a href="#" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0"
+                        aria-current="page">Login</a>
+                </li>
                 <li>
                     <a href="#" class="block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:p-0"
                         aria-current="page">Home</a>
@@ -112,17 +116,21 @@
 </script>
 <script>
     $(document).ready(function() {
-    onScroll();
-});
+        onScroll();
+    });
 
-function onScroll() {   
-    var lastScrollTop, $bar = $('nav') , height = $bar.height(), 
-        $window = $(window), offset = 10;
+    function onScroll() {
+        var lastScrollTop, $bar = $('nav'),
+            height = $bar.height(),
+            $window = $(window),
+            offset = 10;
 
-    $window.on('scroll',function()  {       
-        var scrollTop = $window.scrollTop();
-        $bar.css({ top: scrollTop > lastScrollTop && scrollTop > 512 ? -height : 0 });
-        lastScrollTop = scrollTop; 
-    });     
-}
+        $window.on('scroll', function() {
+            var scrollTop = $window.scrollTop();
+            $bar.css({
+                top: scrollTop > lastScrollTop && scrollTop > 512 ? -height : 0
+            });
+            lastScrollTop = scrollTop;
+        });
+    }
 </script>

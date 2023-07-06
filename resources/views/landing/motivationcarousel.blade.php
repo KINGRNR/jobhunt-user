@@ -1,8 +1,8 @@
-<div class="mb-20 mx-20 grow grid grid-cols-1">
+<div class="my-20 mx-10 grow grid grid-cols-1">
     <p class="mt-2 text-3xl flex justify-center font-semibold text-black">
         Featured Jobs
     </p>
-    <p class="tracking-tight mt-6 text-2xl flex justify-center font-normal text-black">
+    <p class="tracking-tight mt-6 text-2xl text-center flex justify-center font-normal text-black">
         Leading Employers already using job and talent.
     </p>
 </div>
@@ -10,24 +10,24 @@
 <section class="splide" aria-label="Splide Basic HTML Example">
     <div class="m-10 -mt-10">
     <div class="splide__track">
-          <ul class="splide__list">
+          <ul class="mb-5 splide__list">
               <li class="splide__slide">
-                <div class="max-w-sm h-[492px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div class="mb-3 max-w-sm h-[492px] bg-white rounded-2xl shadow-[0_4px_20px_10px_rgba(82,109,130,0.05)]">
                     <a href="#">
-                        <img class="object-cover object-top w-96 h-60 rounded-2xl" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/230px-Hitler_portrait_crop.jpg" alt="" />
+                        <img class="object-cover object-top w-96 h-60 rounded-t-2xl" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/230px-Hitler_portrait_crop.jpg" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
-                            <h5 class="mb-3 text-lg font-bold tracking-tight text-gray-900 dark:text-white">Adolf Hitler</h5>
+                            <h5 class="mb-3 text-lg font-bold tracking-tight text-gray-900">Adolf Hitler</h5>
                         </a>
                         <p class="mb-3 text-sm font-normal">“Wer leben will der kämpfe also und wer nicht streiten will in dieser Welt des ewigen Ringens, verdient das Leben nicht.”</p>
                     </div>
                 </div>
               </li>
               <li class="splide__slide">
-                <div class="max-w-sm h-[492px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div class="mb-3 max-w-sm h-[492px] bg-white rounded-2xl shadow-[0_4px_20px_10px_rgba(82,109,130,0.05)]">
                     <a href="#">
-                        <img class="object-cover object-top w-96 h-60 rounded-2xl" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Sir_Winston_Churchill_-_19086236948.jpg/800px-Sir_Winston_Churchill_-_19086236948.jpg" alt="" />
+                        <img class="object-cover object-top w-96 h-60 rounded-t-2xl" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Sir_Winston_Churchill_-_19086236948.jpg/800px-Sir_Winston_Churchill_-_19086236948.jpg" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -38,9 +38,9 @@
                 </div>
               </li>
               <li class="splide__slide">
-                <div class="max-w-sm h-[492px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div class="mb-3 max-w-sm h-[492px] bg-white rounded-2xl shadow-[0_4px_20px_10px_rgba(82,109,130,0.05)]">
                     <a href="#">
-                        <img class="object-cover object-top w-96 h-60 rounded-2xl" src="https://static01.nyt.com/images/2018/08/25/world/25japan-print/merlin_9621004_7cba8b1b-ad6a-4bef-afa4-5d9acf8d5cd1-superJumbo.jpg" alt="" />
+                        <img class="object-cover object-top w-96 h-60 rounded-t-2xl" src="https://static01.nyt.com/images/2018/08/25/world/25japan-print/merlin_9621004_7cba8b1b-ad6a-4bef-afa4-5d9acf8d5cd1-superJumbo.jpg" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -51,9 +51,9 @@
                 </div>
               </li>
               <li class="splide__slide">
-                <div class="max-w-sm h-[492px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div class="mb-3 max-w-sm h-[492px] bg-whit rounded-2xl shadow-[0_4px_20px_10px_rgba(82,109,130,0.05)]">
                     <a href="#">
-                        <img class="object-cover object-top w-96 h-60 rounded-2xl" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/230px-Hitler_portrait_crop.jpg" alt="" />
+                        <img class="object-cover object-top w-96 h-60 rounded-t-2xl" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/230px-Hitler_portrait_crop.jpg" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -64,9 +64,9 @@
                 </div>
               </li>
               <li class="splide__slide">
-                <div class="max-w-sm h-[492px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div class="mb-3 max-w-sm h-[492px] bg-white border border-gray-200 rounded-2xl shadow-[0_4px_20px_10px_rgba(82,109,130,0.05)]">
                     <a href="#">
-                        <img class="object-cover object-top w-96 h-60 rounded-2xl" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/230px-Hitler_portrait_crop.jpg" alt="" />
+                        <img class="object-cover object-top w-96 h-60 rounded-t-2xl" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/230px-Hitler_portrait_crop.jpg" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
@@ -77,9 +77,9 @@
                 </div>
               </li>
               <li class="splide__slide">
-                <div class="max-w-sm h-[492px] bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div class="mb-3 max-w-sm h-[492px] bg-white border border-gray-200 rounded-2xl shadow-[0_4px_20px_10px_rgba(82,109,130,0.05)]">
                     <a href="#">
-                        <img class="object-cover object-top w-96 h-60 rounded-2xl" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/230px-Hitler_portrait_crop.jpg" alt="" />
+                        <img class="object-cover object-top w-96 h-60 rounded-t-2xl" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/230px-Hitler_portrait_crop.jpg" alt="" />
                     </a>
                     <div class="p-5">
                         <a href="#">
