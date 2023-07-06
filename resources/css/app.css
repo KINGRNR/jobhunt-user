@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    html {
+      font-family: Poppins, system-ui, sans-serif;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    .splide__pagination{
+      position: relative;
+      margin-top: 20px;
+    }
+
+
+    .splide__pagination__page {
+      background:#cbd5e1;
+      z-index:1;
+      transform:scale(2);
+      margin-right: 16px;
+      opacity: 1;
+     }
+
+    .splide__pagination__page.is-active {
+      background:#DC0000;
+      transform:scale(2);
+      z-index:1
+     }
+
+     
+  }
