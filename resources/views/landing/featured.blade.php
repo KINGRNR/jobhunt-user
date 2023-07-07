@@ -7,8 +7,8 @@
     </p>
 </div>
 
-{{-- <div class="grid grid-cols-1 m-12">
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition mb-6 hover:shadow-lg sm:p-6">
+<div class="grid grid-cols-1 m-12">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition mb-6 hover:shadow-lg sm:p-6">
 
         <div class="flex gap-6">
             <span class="flex-none justify-start">
@@ -44,7 +44,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition mb-6 hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition mb-6 hover:shadow-lg sm:p-6">
 
         <div class="flex gap-6">
             <span class="flex-none justify-start">
@@ -80,7 +80,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition mb-6 hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition mb-6 hover:shadow-lg sm:p-6">
 
         <div class="flex gap-6">
             <span class="flex-none justify-start">
@@ -116,7 +116,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition mb-6 hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition mb-6 hover:shadow-lg sm:p-6">
 
         <div class="flex gap-6">
             <span class="flex-none justify-start">
@@ -154,7 +154,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition mb-6 hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition mb-6 hover:shadow-lg sm:p-6">
 
         <div class="flex gap-6">
             <span class="flex-none justify-start">
@@ -192,7 +192,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition mb-6 hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition mb-6 hover:shadow-lg sm:p-6">
 
         <div class="flex gap-6">
             <span class="flex-none justify-start">
@@ -229,4 +229,4 @@
             </a>
         </div>
     </article>
-</div> --}}
+</div>

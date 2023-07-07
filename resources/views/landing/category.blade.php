@@ -2,7 +2,7 @@
         class="font-semibold text-gray-900 underline decoration-merah-gelap decoration-4 text-3xl">Popular</span><span
         class="font-semibold text-merah-gelap text-3xl"> Category</span></p>
 <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2 m-10 sm:m-20">
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -35,7 +35,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -68,7 +68,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -101,7 +101,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -134,7 +134,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -168,7 +168,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">

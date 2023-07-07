@@ -64,7 +64,7 @@
                 </div>
               </li>
               <li class="splide__slide">
-                <div class="mb-3 max-w-sm h-[492px] bg-white border border-gray-200 rounded-2xl shadow-[0_4px_20px_10px_rgba(82,109,130,0.05)]">
+                <div class="mb-3 max-w-sm h-[492px] bg-white rounded-2xl shadow-[0_4px_20px_10px_rgba(82,109,130,0.05)]">
                     <a href="#">
                         <img class="object-cover object-top w-96 h-60 rounded-t-2xl" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/230px-Hitler_portrait_crop.jpg" alt="" />
                     </a>
@@ -77,7 +77,7 @@
                 </div>
               </li>
               <li class="splide__slide">
-                <div class="mb-3 max-w-sm h-[492px] bg-white border border-gray-200 rounded-2xl shadow-[0_4px_20px_10px_rgba(82,109,130,0.05)]">
+                <div class="mb-3 max-w-sm h-[492px] bg-white rounded-2xl shadow-[0_4px_20px_10px_rgba(82,109,130,0.05)]">
                     <a href="#">
                         <img class="object-cover object-top w-96 h-60 rounded-t-2xl" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Hitler_portrait_crop.jpg/230px-Hitler_portrait_crop.jpg" alt="" />
                     </a>

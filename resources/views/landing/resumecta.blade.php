@@ -1,5 +1,5 @@
 <section id="hero-section"
-    class="relative bg-[url(https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHdvcmt8ZW58MHx8MHx8fDA%3D&w=1000&q=80)] mb-20 bg-fixed bg-center bg-cover">
+    class="relative bg-[url(https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHdvcmt8ZW58MHx8MHx8fDA%3D&w=1000&q=80)] mb-20 bg-top bg-cover">
     <div class="bg-black bg-opacity-70">
         <div class="container flex flex-col justify-center p-4 mx-auto sm:py-8 lg:py-20 lg:flex-row">
             <div class="text-white flex flex-col justify-center p-6 text-center rounded-sm">
