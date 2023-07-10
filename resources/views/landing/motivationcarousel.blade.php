@@ -1,4 +1,4 @@
-<div class="my-20 mx-10 grow grid grid-cols-1">
+<div id="motivasi" class="my-20 mx-10 grow grid grid-cols-1">
     <p class="mt-2 text-3xl flex justify-center font-semibold text-black">
         Featured Jobs
     </p>
