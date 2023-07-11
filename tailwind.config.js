@@ -8,13 +8,17 @@ export default {
   ],
   theme: {
     colors: {
-      'merah': '#DC0000',
+      'merah': '#1B61AD',
       'merah-gelap': '#850000',
       'figma-blue-gray-50': '#F8F9FC',
       'figma-warning-50': '#FFFAEB',
       'figma-warning-500': '#F79009',
+      'figma-gray-100': '#F2F4F7',
+      'figma-gray-200': '#EAECF0',
       'figma-gray-500': '#667085',
-      'figma-gray-100': '#F2F4F7'
+      'figma-yellow-secondary': '#DAA916',
+      'figma-biru-primary': '#1B61AD',
+      'figma-biru-300': '#1B61AD'
     },
     extend: {    
       fontFamily: {
@@ -25,6 +29,7 @@ export default {
       },
       screens: {
         'lg-bigger': '1280px',
+        'xl-bigger': '1400px'
       },
   },
   },

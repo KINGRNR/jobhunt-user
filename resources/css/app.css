@@ -24,10 +24,41 @@
      }
 
     .splide__pagination__page.is-active {
-      background:#DC0000;
+      background:#1B61AD;
       transform:scale(2);
       z-index:1
      }
 
+     .link-underline {
+      border-bottom-width: 0;
+      background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
+      background-size: 0 3px;
+      background-position: 0 100%;
+      background-repeat: no-repeat;
+      transition: background-size .1s ease-in-out;
+    }
+  
+    .link-underline-black {
+      background-image: linear-gradient(transparent, transparent), linear-gradient(#1B61AD, #1B61AD)
+    }
+  
+    .link-underline:hover {
+      background-size: 100% 3px;
+      background-position: 0 100%
+    }
+
+    .fade-me-in.htmx-added {
+      opacity: 0;
+    }
+  
+  .fade-me-in {
+      opacity: 1;
+      transition: opacity 0.5s ease-out;
+    }
+  
+  .fade-me-out.htmx-swapping {
+      opacity: 0;
+      transition: opacity 0.5s ease-out;
+    }
      
   }
