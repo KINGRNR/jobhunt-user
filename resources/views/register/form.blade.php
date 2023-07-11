@@ -48,9 +48,6 @@
                         placeholder="Enter your password" required>
 
                     <div class="grid grid-cols-1">
-                        <a href="#"
-                            class="text-sm text-figma-yellow-secondary font-medium hover:underline mb-4">Forgot
-                            password?</a>
                         <button type="button"
                             class="text-white bg-figma-biru-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5">SIGN UP</button>
                         <p class="text-sm text-center py-4 font-medium">Have an account? <span class="text-figma-biru-300 hover:underline"><a href="#" hx-get="/login" hx-target="#form" hx-trigger="click" hx-swap="outerHTML swap:0.1s" hx-push-url="true">Sign in</a></span> instead!</p>

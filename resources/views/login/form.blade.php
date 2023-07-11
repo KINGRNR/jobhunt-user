@@ -21,13 +21,13 @@
                 <div class="">
                     <label for="email" class="block pb-2 text-sm font-medium text-gray-900">Email address</label>
                     <input type="email" id="email"
-                        class="mb-4 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[500px] h-[52px] p-4"
+                        class="mb-4 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[80vh] h-[52px] p-4"
                         placeholder="Enter yout E-mail" required>
 
                     <label for="password"
                         class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                     <input type="password" id="password"
-                        class="mb-4 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[500px] h-[52px] p-4"
+                        class="mb-4 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-[80vh] h-[52px] p-4"
                         placeholder="Enter your password" required>
 
                     <div class="grid grid-cols-1">
@@ -35,8 +35,8 @@
                             class="text-sm text-figma-yellow-secondary font-medium hover:underline mb-4">Forgot
                             password?</a>
                         <button type="button"
-                            class="text-white bg-figma-biru-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 mr-2">SIGN IN</button>
-                        <p class="text-sm text-center py-4 font-medium">Don't have an account? <span class="text-figma-biru-300 hover:underline"><a href="#" hx-get="http://localhost:8000/register" hx-target="#form" hx-trigger="click" hx-swap="outerHTML swap:0.1s" hx-push-url="true">Sign up</a></span> now!</p>
+                            class="text-white bg-figma-biru-primary hover:bg-blue-800 duration-100 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 mr-2">SIGN IN</button>
+                        <p class="text-sm text-center py-4 font-medium">Don't have an account? <span class="text-figma-biru-300 hover:underline"><a href="#" hx-get="http://localhost:8000/register" hx-target="#form" hx-trigger="click" hx-swap="outerHTML" hx-push-url="true">Sign up</a></span> now!</p>
                         <div class="relative flex items-center">
                             <div class="flex-grow border-t-[1.5px] border-dashed border-gray-400"></div>
                             <span class="flex-shrink mx-1 text-gray-400 text-sm font-medium">or sign in with</span>
@@ -98,12 +98,14 @@
 
         </div>
     </div>
-    <div class="order-2 flex justify-center">
+    <div class="order-2 hidden lg:inline">
+    <div class="flex justify-center">
         <img
         alt="Night"
         src="https://images.unsplash.com/photo-1617195737496-bc30194e3a19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
         class=" object-cover rounded-2xl ml-12 m-4 h-[95vh] w-[100vh]"
       />
+    </div>
     </div>
 </div>
 </div>
