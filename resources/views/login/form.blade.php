@@ -20,10 +20,12 @@
 
                 <div class="mx-12 lg:mx-32 w-50vh h-auto lg:w-[80vh]">
                     <div class="flex justify-center">
+                        <form action="{{ route('login.store') }}" method="POST">
+                            @csrf
                         <div class="grow grid grid-cols-1">
                             <label for="email" class="block pb-2 text-sm font-medium text-gray-900">Email
                                 address</label>
-                            <input type="email" id="email"
+                            <input type="email" id="email" name="email"
                                 class="mb-4 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-50vh h-auto lg:w-[80vh] p-4"
                                 placeholder="Enter yout E-mail" required>
                         </div>
@@ -33,7 +35,7 @@
                         <div class="grow grid grid-cols-1">
                             <label for="password"
                                 class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                            <input type="password" id="password"
+                            <input type="password" id="password" name="password"
                                 class="mb-4 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-50vh h-auto lg:w-[80vh] p-4"
                                 placeholder="Enter your password" required>
                         </div>
@@ -44,7 +46,7 @@
                         hx-target="#form" hx-trigger="click" hx-swap="outerHTML" hx-push-url="true"
                             class="text-sm text-figma-yellow-secondary font-medium hover:underline mb-4">Forgot
                             password?</a>
-                        <button type="button"
+                        <button type="submit"
                             class="text-white bg-figma-biru-primary hover:bg-blue-800 duration-100 focus:ring-4 focus:ring-blue-300 font-medium text-sm w-50vh h-auto lg:w-[80vh] p-3">SIGN
                             IN</button>
                         <p class="text-sm text-center py-4 font-medium">Don't have an account? <span
@@ -83,6 +85,7 @@
                                 </defs>
                             </svg><span class="ml-4">Google</span></button>
                     </div>
+                </form>
                 </div>
 
             </div>
