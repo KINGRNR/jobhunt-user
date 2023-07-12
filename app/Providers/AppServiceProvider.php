@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        config(['app.locale' => 'id']);
+        config(['app.locale' => 'id']); tes
         Carbon::setLocale('id');
         date_default_timezone_set('asia/jakarta');
     }
