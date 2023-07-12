@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="mx-8 lg:mx-28 py-6 flex justify-start">
-                    <img src="svg/logoipsum-287.svg" class="w-48 h-16" alt="HTML tutorial">
+                    <img src="svg/logoipsum-287.svg" class="w-48 h-16" alt="Logo Ipsum Logo">
                 </div>
 
                 <div class="mx-12 lg:mx-32 w-50vh h-auto lg:w-[80vh]">
@@ -40,7 +40,8 @@
                     </div>
 
                     <div class="grid grid-cols-1">
-                        <a href="#"
+                        <a href="#" hx-get="/login/forgotpassword"
+                        hx-target="#form" hx-trigger="click" hx-swap="outerHTML" hx-push-url="true"
                             class="text-sm text-figma-yellow-secondary font-medium hover:underline mb-4">Forgot
                             password?</a>
                         <button type="button"
