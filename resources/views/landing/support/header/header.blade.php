@@ -39,10 +39,16 @@
             {{-- <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">tes</span> --}}
         </a>
         <div class="flex md:order-2 space-x-4">
+            @auth
+            <a href="{{ route('login.logout') }}" class="hidden min-[450px]:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Sign Out</a>
+            {{-- <button type="button"
+                class="hidden min-[450px]:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Sign Out</button> --}}
+            @else
             <button type="button"
                 class="hidden min-[450px]:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Daftar</button>
-            <button type="button"
+            <button type="button" onclick="{{route('login')}}"
                 class="hidden min-[450px]:inline text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Login</button>
+            @endauth
             <button data-collapse-toggle="navbar-cta" type="button"
                 class="inline-flex items-center p-2 ml-3 text-sm text-white rounded-lg md:hidden hover:bg-merah focus:outline-none"
                 aria-controls="navbar-dropdown" aria-expanded="false">
@@ -59,10 +65,12 @@
             id="navbar-cta">
             <ul
                 class="flex flex-col justify-end font-medium p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent bg-black">
+                @guest
                 <li class="inline min-[450px]:hidden">
                     <a href="#" class="block py-2 pl-3 pr-4 text-white md:p-0 link link-underline link-underline-black"
                         aria-current="page">Login</a>
                 </li>
+                @endguest
                 <li>
                     <a href="#motivasi" class="block py-2 pl-3 pr-4 text-white md:p-0 link link-underline link-underline-black"
                         aria-current="page">Home</a>
@@ -93,11 +101,13 @@
                                     class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
                             </li>
                         </ul>
+                        @auth
                         <div class="py-1">
-                            <a href="#"
+                            <a href="{{route('login.logout')}}"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Sign
                                 out</a>
                         </div>
+                        @endauth
                     </div>
                 </li>
             </ul>
