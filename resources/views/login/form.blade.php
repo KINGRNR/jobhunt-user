@@ -26,7 +26,7 @@
                             <label for="email" class="block pb-2 text-sm font-medium text-gray-900">Email
                                 address</label>
                             <input type="email" id="email" name="email"
-                                class="mb-4 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-50vh h-auto lg:w-[80vh] p-4"
+                                class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="Enter yout E-mail" required>
                         </div>
                     </div>
@@ -35,9 +35,11 @@
                         <div class="grow grid grid-cols-1">
                             <label for="password"
                                 class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                            <input type="password" id="password" name="password"
-                                class="mb-4 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-50vh h-auto lg:w-[80vh] p-4"
-                                placeholder="Enter your password" required>
+                                 <div class="relative">
+                                     <input type="password" id="password" name="password" class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Search" required>
+                                     <i
+                                        class="fa fa-eye text-gray-500 absolute right-2.5 top-2.5 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 cursor-pointer" id="togglePassword" aria-hidden="true"></i>
+                                 </div>
                         </div>
                     </div>
 
@@ -101,3 +103,14 @@
 </div>
 
 <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+<script>
+        const togglePassword = document.querySelector("#togglePassword");
+        const password = document.querySelector("#password");
+
+        togglePassword.addEventListener("click", function () {
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
+            password.setAttribute("type", type);
+            
+            this.classList.toggle("fa-eye-slash");
+        });
+  </script>

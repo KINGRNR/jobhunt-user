@@ -30,7 +30,7 @@
                             <label for="email"
                                 class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Enter the email address associated with your account</label>
                             <input type="email" id="email"
-                                class="mb-4 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-50vh h-20 lg:w-[80vh] p-4"
+                                class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                                 placeholder="Enter your E-mail" required>
                         </div>
                     </div>
