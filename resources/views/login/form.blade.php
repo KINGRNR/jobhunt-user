@@ -19,9 +19,9 @@
                 </div>
 
                 <div class="mx-12 lg:mx-32 w-50vh h-auto lg:w-[80vh]">
+                    <form action="{{ route('login.store') }}" method="POST">
+                        @csrf
                     <div class="flex justify-center">
-                        <form action="{{ route('login.store') }}" method="POST">
-                            @csrf
                         <div class="grow grid grid-cols-1">
                             <label for="email" class="block pb-2 text-sm font-medium text-gray-900">Email
                                 address</label>
