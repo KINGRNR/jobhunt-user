@@ -28,6 +28,7 @@ export default {
         'about-gradient': 'linear-gradient(180deg, rgba(255,255,255,1) 15%, rgba(242,244,247,1) 15%)'
       },
       screens: {
+        'lg-smallbigger': '1140px',
         'lg-bigger': '1280px',
         'xl-bigger': '1400px'
       },
