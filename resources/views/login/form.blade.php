@@ -26,8 +26,8 @@
                             <label for="email" class="block pb-2 text-sm font-medium text-gray-900">Email
                                 address</label>
                             <input type="email" id="email" name="email"
-                                class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="Enter yout E-mail" required>
+                                class="mb-4 block w-full lg:w-[400px] lg-bigger:w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                                placeholder="Enter your E-mail" required>
                         </div>
                     </div>
 
@@ -35,10 +35,10 @@
                         <div class="grow grid grid-cols-1">
                             <label for="password"
                                 class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                                 <div class="relative">
-                                     <input type="password" id="password" name="password" class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Search" required>
+                                 <div class="relative w-full">
+                                     <input type="password" id="password" name="password" class="mb-4 block w-full lg:w-[400px] lg-bigger:w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your password" required>
                                      <i
-                                        class="fa fa-eye text-gray-500 absolute right-2.5 top-2.5 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 cursor-pointer" id="togglePassword" aria-hidden="true"></i>
+                                        class="fa fa-eye text-gray-500 absolute right-2.5 lg:left-[348px] lg-bigger:left-auto lg-bigger:right-2.5 top-2.5 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 cursor-pointer" id="togglePassword" aria-hidden="true"></i>
                                  </div>
                         </div>
                     </div>
@@ -49,19 +49,19 @@
                             class="text-sm text-figma-yellow-secondary font-medium hover:underline mb-4">Forgot
                             password?</a>
                         <button type="submit"
-                            class="text-white bg-figma-biru-primary hover:bg-blue-800 duration-100 focus:ring-4 focus:ring-blue-300 font-medium text-sm w-50vh h-auto lg:w-[80vh] p-3">SIGN
+                            class="text-white bg-figma-biru-primary hover:bg-blue-800 duration-100 focus:ring-4 focus:ring-blue-300 font-medium text-sm lg:w-[400px] lg-bigger:w-full p-3">SIGN
                             IN</button>
-                        <p class="text-sm text-center py-4 font-medium">Don't have an account? <span
+                        <p class="text-sm text-center py-4 font-medium lg:w-[400px] lg-bigger:w-full">Don't have an account? <span
                                 class="text-figma-biru-300 hover:underline"><a href="#" hx-get="/register"
                                     hx-target="#form" hx-trigger="click" hx-swap="outerHTML" hx-push-url="true">Sign
                                     up</a></span> now!</p>
-                        <div class="relative flex items-center">
+                        <div class="relative flex items-center lg:w-[400px] lg-bigger:w-full">
                             <div class="flex-grow border-t-[1.5px] border-dashed border-gray-400"></div>
                             <span class="flex-shrink mx-1 text-gray-400 text-sm font-medium">or sign in with</span>
                             <div class="flex-grow border-t-[1.5px] border-dashed border-gray-400"></div>
                         </div>
                     </div>
-                    <div class="grid grid-cols-1 gap-2 py-2">
+                    <div class="grid grid-cols-1 gap-2 py-2 lg:w-[400px] lg-bigger:w-full">
                         <button type="button"
                             class="text-black bg-white border border-gray-200 hover:bg-gray-200 duration-100 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full px-3 py-3 mr-2 mb-2 flex justify-center"><svg
                                 width="24" height="24" viewBox="0 0 24 24" fill="none"
