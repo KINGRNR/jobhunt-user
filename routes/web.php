@@ -36,3 +36,7 @@ Route::get('/', function () {
 Route::get('/category', function () {
     return view('category');
 });
+
+Route::get('/login-company', function () {
+    return view('logincompany');
+});

@@ -56,7 +56,7 @@
               <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
                 <i class="fa fa-search text-gray-500"></i>
             </div>
-            <input type="text" id="input-group-1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" placeholder="name@flowbite.com">
+            <input type="text" id="input-group-1" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-4 duration-100" placeholder="Ketik untuk mencari">
         </div>
         <article class="rounded-lg bg-white p-4 shadow-sm transition mb-6 mx-8 hover:shadow-lg sm:p-6">
 
