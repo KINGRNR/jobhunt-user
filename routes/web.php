@@ -37,6 +37,6 @@ Route::get('/category', function () {
     return view('category');
 });
 
-Route::get('/login-company', function () {
-    return view('logincompany');
+Route::get('/register-company', function () {
+    return view('registercompany');
 });
