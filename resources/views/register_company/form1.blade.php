@@ -16,7 +16,7 @@
             </div>
             {{-- change whatever you want in here --}}
             <div class="flex justify-center">
-                <div class="mx-8 lg:ml-16 h-auto">
+                <div class="mx-8 md:ml-16 w-50vh h-auto md:w-[100vh]">
                     <div class="pt-5">
                         <div class="pb-12 ml-8">
                             <div class="flex items-center">
