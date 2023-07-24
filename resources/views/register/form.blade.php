@@ -17,40 +17,40 @@
                 <img src="svg/logoipsum-287.svg" class="w-48 h-16" alt="HTML tutorial">
             </div>
 
-            <div class="mx-12 lg:mx-32 w-50vh h-auto lg:w-[80vh]">
-                <div class="grow grid grid-cols-1">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-6">
+            <div class="mx-12 lg:mx-32 w-50vh h-auto lg-bigger:w-[80vh]">
+                <div class="grow grid grid-cols-1 ">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-2 lg-bigger:gap-6">
                         <div class="grid grid-cols-1">
                     <label for="email" class="block pb-2 text-sm font-medium text-gray-900">First Name</label>
                     <input type="text" id="firstName"
-                        class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                        class="mb-4 block w-full p-4 text-sm lg:max-w-48 text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Enter your first name" required>
                         </div>
 
-                        <div class="grid grid-cols-1">
+                        <div class="grid grid-cols-1 lg:w-fit">
                     <label for="email"
                         class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name</label>
                     <input type="text" id="lastName"
-                        class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                        class="mb-4 block w-full p-4 text-sm lg:max-w-48 text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Enter your last name" required>
                         </div>
                     </div>
 
                     <label for="email" class="block pb-2 text-sm font-medium text-gray-900">Email address</label>
                     <input type="email" id="email"
-                        class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                        class="mb-4 block w-full p-4 text-sm lg:w-[400px] lg-bigger:w-full text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Enter yout E-mail" required>
 
                     <label for="password"
                         class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                     <input type="password" id="password"
-                        class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
+                        class="mb-4 block w-full p-4 text-sm lg:w-[400px] lg-bigger:w-full text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                         placeholder="Enter your password" required>
 
                     <div class="grid grid-cols-1">
                         <button type="button"
-                            class="text-white bg-figma-biru-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 block w-full">SIGN UP</button>
-                        <p class="text-sm text-center py-4 font-medium">Have an account? <span class="text-figma-biru-300 hover:underline"><a href="#" hx-get="/login" hx-target="#form" hx-trigger="click" hx-swap="outerHTML" hx-push-url="true">Sign in</a></span> instead!</p>
+                            class="lg:w-[400px] lg-bigger:w-full text-white bg-figma-biru-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 block w-full">SIGN UP</button>
+                        <p class="lg:w-[400px] lg-bigger:w-full text-sm text-center py-4 font-medium">Have an account? <span class="text-figma-biru-300 hover:underline"><a href="#" hx-get="/login" hx-target="#form" hx-trigger="click" hx-swap="outerHTML" hx-push-url="true">Sign in</a></span> instead!</p>
                     </div>
                 </div>
             </div>
