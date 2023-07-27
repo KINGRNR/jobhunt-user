@@ -40,3 +40,7 @@ Route::get('/category', function () {
 Route::get('/register-company', function () {
     return view('registercompany');
 });
+
+Route::get('/detailjob', function () {
+    return view('detailjob');
+});
