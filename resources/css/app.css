@@ -7,6 +7,7 @@
       font-family: Poppins, system-ui, sans-serif;
       scroll-behavior: smooth;
       overflow-x: hidden;
+      font-display: swap;
     }
 
     .splide__pagination{
@@ -24,10 +25,49 @@
      }
 
     .splide__pagination__page.is-active {
-      background:#DC0000;
+      background:#1B61AD;
       transform:scale(2);
       z-index:1
      }
 
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: 
+#1B61AD;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: 
+#1B61AD;
+  transform-origin: bottom right;
+  transition: transform 0.15s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+    .fade-me-in.htmx-added {
+      opacity: 0;
+    }
+  
+  .fade-me-in {
+      opacity: 1;
+      transition: opacity 0.5s ease-out;
+    }
+  
+  .fade-me-out.htmx-swapping {
+      opacity: 0;
+      transition: opacity 0.5s ease-out;
+    }
      
   }

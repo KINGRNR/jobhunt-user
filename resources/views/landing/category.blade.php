@@ -1,8 +1,8 @@
-<p class="m-20"><span
-        class="font-semibold text-gray-900 underline decoration-merah-gelap decoration-4 text-3xl">Popular</span><span
-        class="font-semibold text-merah-gelap text-3xl"> Category</span></p>
+<p class="m-20 text-center lg:text-start"><span
+        class="font-semibold text-gray-900 underline decoration-merah decoration-4 text-3xl">Popular</span><span
+        class="font-semibold text-merah text-3xl"> Category</span></p>
 <div class="grid grid-cols-1 gap-4 lg:grid-cols-3 sm:grid-cols-2 m-10 sm:m-20">
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -20,7 +20,7 @@
             </span>
 
             <p>
-            <h3 class="mt-4 text-2xl font-semibold text-center text-gray-900">
+            <h3 class="mt-4 text-base md:text-xl lg-bigger:text-2xl font-semibold text-center text-gray-900">
                 Designer
             </h3>
             </p>
@@ -30,12 +30,12 @@
             </p>
 
             <button type="button"
-                class=" text-white bg-merah hover:bg-red-700 focus:ring-merah-gelap hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
+                class=" text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
         </div>
     </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -53,7 +53,7 @@
             </span>
 
             <p>
-            <h3 class="mt-4 text-2xl font-semibold text-center text-gray-900">
+            <h3 class="mt-4 text-base md:text-xl lg-bigger:text-2xl font-semibold text-center text-gray-900">
                 Sales
             </h3>
             </p>
@@ -63,12 +63,13 @@
             </p>
 
             <button type="button"
-                class=" text-white bg-merah hover:bg-red-700 focus:ring-merah-gelap hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
+            onclick="location.href='/category'"
+                class=" text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
         </div>
     </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -86,22 +87,22 @@
             </span>
 
             <p>
-            <h3 class="mt-4 text-2xl font-semibold text-center text-gray-900">
+            <h3 class="mt-4 text-base md:text-xl lg-bigger:text-2xl font-semibold text-center text-gray-900">
                 Software Engineering
             </h3>
             </p>
 
-            <p class="mt-2 text-center text-black">
+            <p class="mt-2 text-center text-base text-black">
                 4 Open Position
             </p>
 
             <button type="button"
-                class=" text-white bg-merah hover:bg-red-700 focus:ring-merah-gelap hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
+                class=" text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
         </div>
     </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -119,7 +120,7 @@
             </span>
 
             <p>
-            <h3 class="mt-4 text-2xl font-semibold text-center text-gray-900">
+            <h3 class="mt-4 text-base md:text-xl lg-bigger:text-2xl font-semibold text-center text-gray-900">
                 Construction
             </h3>
             </p>
@@ -129,12 +130,12 @@
             </p>
 
             <button type="button"
-                class=" text-white bg-merah hover:bg-red-700 focus:ring-merah-gelap hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
+                class=" text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
         </div>
     </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -153,7 +154,7 @@
             </span>
 
             <p>
-            <h3 class="mt-4 text-2xl font-semibold text-center text-gray-900">
+            <h3 class="mt-4 text-base md:text-xl lg-bigger:text-2xl font-semibold text-center text-gray-900">
                 Marketing
             </h3>
             </p>
@@ -163,12 +164,12 @@
             </p>
 
             <button type="button"
-                class=" text-white bg-merah hover:bg-red-700 focus:ring-merah-gelap hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
+                class=" text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
         </div>
     </article>
-    <article class="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition hover:shadow-lg sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -187,7 +188,7 @@
             </span>
 
             <p>
-            <h3 class="mt-4 text-2xl font-semibold text-center text-gray-900">
+            <h3 class="mt-4 text-base md:text-xl lg-bigger:text-2xl font-semibold text-center text-gray-900">
                 Quality Control
             </h3>
             </p>
@@ -197,7 +198,7 @@
             </p>
 
             <button type="button"
-                class=" text-white bg-merah hover:bg-red-700 focus:ring-merah-gelap hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
+                class=" text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
         </div>
