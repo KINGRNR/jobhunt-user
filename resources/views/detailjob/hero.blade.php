@@ -4,7 +4,7 @@
         <div class="container flex flex-col justify-center p-6 mx-auto py-20 lg:py-24 lg:flex-row lg:justify-between">
             <div
                 class="text-white flex flex-col justify-center p-6 rounded-sm md:max-w-md xl:max-w-lg md:text-left">
-                <p class="ml-0 font-poppins text-2xl font-semibold sm:text-3xl">Detail Category
+                <p class="ml-0 font-poppins text-2xl font-semibold sm:text-3xl">Detail Job
                 </p>
                 <div class="mt-4 mb-8 text-lg sm:mb-12 font-medium">
                     <ol class="inline-flex items-center space-x-1 md:space-x-3">
@@ -21,7 +21,7 @@
                             <svg class="w-3 h-3 text-gray-400 mx-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
                               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
                             </svg>
-                            <a href="#" class="ml-1 text-xl font-medium text-white md:ml-2">Detail Category</a>
+                            <a href="#" class="ml-1 text-xl font-medium text-white md:ml-2">Detail Job</a>
                           </div>
                         </li>
                       </ol>

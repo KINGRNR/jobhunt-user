@@ -36,3 +36,11 @@ Route::get('/', function () {
 Route::get('/category', function () {
     return view('category');
 });
+
+Route::get('/register-company', function () {
+    return view('registercompany');
+});
+
+Route::get('/detailjob', function () {
+    return view('detailjob');
+});

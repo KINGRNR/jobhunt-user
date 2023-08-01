@@ -67,17 +67,17 @@
                 class="flex flex-col justify-end font-medium p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent bg-black">
                 @guest
                 <li class="inline min-[450px]:hidden">
-                    <a href="#" class="block py-2 pl-3 pr-4 text-white md:p-0 link link-underline link-underline-black"
+                    <a href="#" class="block py-2 pl-3 pr-4 text-white md:p-0 hover-underline-animation"
                         aria-current="page">Login</a>
                 </li>
                 @endguest
                 <li>
-                    <a href="#motivasi" class="block py-2 pl-3 pr-4 text-white md:p-0 link link-underline link-underline-black"
+                    <a href="#motivasi" class="block py-2 pl-3 pr-4 text-white md:p-0 hover-underline-animation"
                         aria-current="page">Home</a>
                 </li>
                 <li>
                     <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                        class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-white md:border-0 md:p-0 md:w-auto link link-underline link-underline-black">Job
+                        class="flex items-center justify-between w-full py-2 pl-3 pr-4  text-white md:border-0 md:p-0 md:w-auto hover-underline-animation">Job
                         List <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="white" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -138,7 +138,7 @@
         $window.on('scroll', function() {
             var scrollTop = $window.scrollTop();
             $bar.css({
-                top: scrollTop > lastScrollTop && scrollTop > 512 ? -height : 0
+                top: scrollTop > lastScrollTop && scrollTop > 300 ? -height : 0
             });
             lastScrollTop = scrollTop;
         });

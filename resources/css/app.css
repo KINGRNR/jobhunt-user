@@ -30,23 +30,31 @@
       z-index:1
      }
 
-     .link-underline {
-      border-bottom-width: 0;
-      background-image: linear-gradient(transparent, transparent), linear-gradient(#fff, #fff);
-      background-size: 0 3px;
-      background-position: 0 100%;
-      background-repeat: no-repeat;
-      transition: background-size .1s ease-in-out;
-    }
-  
-    .link-underline-black {
-      background-image: linear-gradient(transparent, transparent), linear-gradient(#1B61AD, #1B61AD)
-    }
-  
-    .link-underline:hover {
-      background-size: 100% 3px;
-      background-position: 0 100%
-    }
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: 
+#1B61AD;
+}
+
+.hover-underline-animation:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: 
+#1B61AD;
+  transform-origin: bottom right;
+  transition: transform 0.15s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
 
     .fade-me-in.htmx-added {
       opacity: 0;
@@ -61,5 +69,9 @@
       opacity: 0;
       transition: opacity 0.5s ease-out;
     }
+
+  .gridd-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
      
   }

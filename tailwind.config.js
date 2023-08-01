@@ -18,7 +18,8 @@ export default {
       'figma-gray-500': '#667085',
       'figma-yellow-secondary': '#DAA916',
       'figma-biru-primary': '#1B61AD',
-      'figma-biru-300': '#1B61AD'
+      'figma-biru-300': '#1B61AD',
+      'figma-agakbiru' : '#106088'
     },
     extend: {    
       fontFamily: {
