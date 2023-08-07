@@ -9,9 +9,17 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    public function validator(array $data)
+    public function validator(array $data, $tipe = 'login')
     {
+        if ($tipe == 'login') {
+            return Validator::make($data, [
+                'email' => ['required', 'string', 'email'],
+                'password' => ['required', 'string', 'min:8'],
+            ]);
+        }
         return Validator::make($data, [
+            'firstName' => ['required', 'string'],
+            'lastName' => ['required', 'string'],
             'email' => ['required', 'string', 'email'],
             'password' => ['required', 'string', 'min:8'],
         ]);
@@ -63,5 +71,27 @@ class AuthController extends Controller
     {
         Auth::logout();
         return redirect()->route('index');
+    }
+
+    public function register(Request $request)
+    {
+        // print_r($request->all());
+        $validator = $this->validator($request->all(), 'register');
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 400);
+        }
+
+        User::create([
+            'name' => $request->firstName . ' ' . $request->lastName,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'users_role_id' => 'BfiwyVUDrXOpmStr'
+        ]);
+
+        return response()->json([
+            'success' => true, 
+            'redirect' => route('login'), 
+            'message' => 'Successfully register user.'
+        ]);
     }
 }
