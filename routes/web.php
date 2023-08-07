@@ -35,11 +35,11 @@ Route::get('/', function () {
 
 Route::get('/category', function () {
     return view('category');
-});
+})->name('category');
 
 Route::get('/register-company', function () {
     return view('registercompany');
-});
+})->name('registercompany');
 
 Route::get('/detailjob', function () {
     return view('detailjob');

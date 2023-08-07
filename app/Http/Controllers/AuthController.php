@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -36,8 +37,18 @@ class AuthController extends Controller
         }
 
         if (Auth::attempt($request->only('email', 'password'))) {
+            $user = User::Where('email', $request->email)->firstOrFail();
             $request->session()->regenerate();
-            return redirect()->route('index');
+            switch ($user->users_role_id) {
+                case 'BfiwyVUDrXOpmStr':
+                    return redirect()->route('index');
+                case 'FOV4Qtgi5lcQ9kZ':
+                    return redirect()->route('registercompany');
+                case 'FOV4Qtgi5lcQ9kCY':
+                    return redirect()->route('category');
+                default:
+                    return response()->json(['data' => $user], 422);
+            }
         } else {
             return response()->json([
                 'errors' => 'false'
