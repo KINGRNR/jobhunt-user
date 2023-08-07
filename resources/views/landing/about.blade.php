@@ -6,12 +6,6 @@
         type="video/mp4">
     Your browser does not support the video tag.
 </video>
-<video style="display: none" class="w-[429px] h-[480px] lg-bigger:w-[536px] lg-bigger:h-[560px] rounded-xl object-cover mb-0 lg:mb-20" controls autoplay>
-    <source
-        src="{{ asset('video.mp4') }}"
-        type="video/mp4">
-    Your browser does not support the video tag.
-</video>
 </div>
 {{-- hack incoming --}}
 <div class="mt-20 relative lg:absolute grid grid-cols-1 lg:grid-cols-2">
