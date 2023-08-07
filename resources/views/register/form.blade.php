@@ -106,19 +106,27 @@
             },
             error: function (xhr, status, error) {
                 var errors = xhr.responseJSON.errors;
-                for (var key in errors) {
-                    if (errors.hasOwnProperty(key)) {
-                        var errorMessage = errors[key][0];
-                        var inputElement = document.getElementById(key);
-                        if (inputElement) {
-                            Toast.fire({
-                                icon: 'error',
-                                title: errorMessage
-                            });
+
+                if (errors) {
+                    for (var key in errors) {
+                        if (errors.hasOwnProperty(key)) {
+                            var errorMessage = errors[key][0];
+                            var inputElement = document.getElementById(key);
+                            if (inputElement) {
+                                Toast.fire({
+                                    icon: 'error',
+                                    title: errorMessage
+                                });
+                            }
                         }
                     }
+                } else {
+                    Toast.fire({
+                        icon: 'error',
+                        title: 'An error occurred. Please try again later.'
+                    });
                 }
-            },
+            }
         });
     });
 </script>
