@@ -75,23 +75,37 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
-        // print_r($request->all());
-        $validator = $this->validator($request->all(), 'register');
-        if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 400);
+        try {
+            // print_r($request->all());
+            $validator = $this->validator($request->all(), 'register');
+            if ($validator->fails()) {
+                return response()->json(['errors' => $validator->errors()], 400);
+            }
+
+            $user = User::create([
+                'name' => $request->firstName . ' ' . $request->lastName,
+                'email' => $request->email,
+                'password' => bcrypt($request->password),
+                'users_role_id' => 'BfiwyVUDrXOpmStr'
+            ]);
+
+            if ($user) {
+                return response()->json([
+                    'success' => true, 
+                    'redirect' => route('login'), 
+                    'message' => 'Successfully registered user.'
+                ]);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'User registration failed.'
+                ], 500);
+            }
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'An error occurred during user registration.'
+            ], 500);
         }
-
-        User::create([
-            'name' => $request->firstName . ' ' . $request->lastName,
-            'email' => $request->email,
-            'password' => bcrypt($request->password),
-            'users_role_id' => 'BfiwyVUDrXOpmStr'
-        ]);
-
-        return response()->json([
-            'success' => true, 
-            'redirect' => route('login'), 
-            'message' => 'Successfully register user.'
-        ]);
     }
 }
