@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-class Roles extends Model
+class Role extends Model
 {
     protected $table        = 'roles';
     protected $primaryKey   = 'role_id';

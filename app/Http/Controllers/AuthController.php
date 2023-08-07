@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DetailUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -49,17 +50,28 @@ class AuthController extends Controller
             $request->session()->regenerate();
             switch ($user->users_role_id) {
                 case 'BfiwyVUDrXOpmStr':
-                    return redirect()->route('index');
+                    return response()->json([
+                        'success' => true, 
+                        'redirect' => route('index'), 
+                    ]);;
                 case 'FOV4Qtgi5lcQ9kZ':
-                    return redirect()->route('registercompany');
+                    return response()->json([
+                        'success' => true, 
+                        'redirect' => route('registercompany'), 
+                    ]);
                 case 'FOV4Qtgi5lcQ9kCY':
-                    return redirect()->route('category');
+                    Auth::logout();
+                    return response()->json([
+                        'success' => false, 
+                        'redirect' => route('index'), 
+                        'message' => 'Session false', 
+                    ]);
                 default:
                     return response()->json(['data' => $user], 422);
             }
         } else {
             return response()->json([
-                'errors' => 'false'
+                'success' => false
             ], 422);
         }
     }
@@ -79,7 +91,7 @@ class AuthController extends Controller
             // print_r($request->all());
             $validator = $this->validator($request->all(), 'register');
             if ($validator->fails()) {
-                return response()->json(['errors' => $validator->errors()], 400);
+                return response()->json(['message' => $validator->errors()], 400);
             }
 
             $user = User::create([

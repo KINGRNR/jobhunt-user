@@ -99,10 +99,10 @@
             },
             success: function (res) {
                 window.location.href = res.redirect;
-                Toast.fire({
-                    icon: 'success',
-                    title: res.message,
-                });
+                // Toast.fire({
+                //     icon: 'success',
+                //     title: res.message,
+                // });
             },
             error: function (xhr, status, error) {
                 var errors = xhr.responseJSON.errors;
