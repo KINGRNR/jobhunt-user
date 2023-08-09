@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,8 @@ Route::middleware(['guest'])->group(function () {
         return view('forgotpass');
     });
 });
+
+Route::get('/jobs', [JobController::class, 'index']);
 
 Route::get('/', function () {
     return view('welcome');
