@@ -14,6 +14,7 @@
             success: function(response) {
                 jobs = response.jobs;
                 searchJob();
+                console.log(response);
             },
             error: function(error) {
                 console.log(error);
@@ -28,11 +29,20 @@
     });
 
     function searchJob() {
+        console.time('searchJob');
         var input = $('#input-group-1').val().toLowerCase();
         var jobList = $('#daftar_pekerjaan');
         var selectedJobType = $('input[name="job_type"]:checked').val();
-        jobList.empty();
+        var searchValue = document.getElementById("input-group-1").value.trim();
 
+        if (searchValue === "") {
+            $('#loading-spinner').css('display', 'none');
+
+        }
+        $('#loading-spinner').css('display', '');
+
+        jobList.empty();
+        var jobFound = false;
         $.each(jobs, function(i, v) {
             if ((selectedJobType === '' || selectedJobType === v.job_type) &&
                 (v.job_name.toLowerCase().includes(input) || v.job_description.toLowerCase().includes(input) ||
@@ -78,7 +88,105 @@
 </article>
                 `;
                 jobList.append(html);
+                jobFound = true;
             }
         });
+        if (!jobFound) {
+            jobList.html(
+                '<p class="text-figma-gray-500">Tidak ada pekerjaan untuk ditampilkan atau set Job Type ke All</p>');
+        }
+        setTimeout(function() {
+            $('#loading-spinner').css('display', 'none');
+
+        }, 300);
+        const responseTime = console.timeEnd('searchJob'); 
+    updateSearchInfo(jobFound ? jobs.length : 0, responseTime);
+
+    }
+
+    function updateSearchInfo(loadedDataCount, responseTime) {
+        const dropdown = document.getElementById('search-info');
+        dropdown.innerHTML = ''; // Hapus konten sebelumnya
+        if (loadedDataCount > 0) {
+            const infoText = document.createElement('p');
+            console.log(responseTime);
+            infoText.className = 'text-gray-700 text-xs mb-2';
+            infoText.innerHTML =
+                `Data Terload: <span id="loaded-data-count">${loadedDataCount}</span><br>Response Time: <span id="response-time">${responseTime} ms</span>`;
+            dropdown.appendChild(infoText);
+        }
+    }
+
+    function handleInput() {
+        const inputElement = document.getElementById('input-group-1');
+        const dropdown = document.getElementById('search-dropdown');
+
+        const keyword = inputElement.value.trim();
+        if (keyword === '') {
+            dropdown.innerHTML = '';
+            dropdown.classList.add('hidden');
+            return;
+        }
+        const suggestions = jobs.filter(job => {
+            return job.job_name.toLowerCase().includes(keyword.toLowerCase()) ||
+                job.job_description.toLowerCase().includes(keyword.toLowerCase()) ||
+                job.company_name.toLowerCase().includes(keyword.toLowerCase());
+        });
+
+        dropdown.innerHTML = '';
+        if (suggestions.length === 0) {
+            const noResultsItem = document.createElement('div');
+            noResultsItem.textContent = 'Pekerjaan tidak ditemukan';
+            noResultsItem.className = 'p-2 text-red-500';
+            dropdown.appendChild(noResultsItem);
+        } else {
+            for (const suggestion of suggestions) {
+                const suggestionItem = document.createElement('div');
+                suggestionItem.className = 'p-2 flex cursor-pointer hover:bg-gray-100';
+
+                const thumbnail = document.createElement('img');
+                thumbnail.src = 'https://dummyimage.com/40x40/000/fff';
+                thumbnail.alt = 'Job Thumbnail';
+                thumbnail.className = 'w-10 h-10 rounded-full mr-3';
+                suggestionItem.appendChild(thumbnail);
+
+                const jobInfo = document.createElement('div');
+                jobInfo.className = 'flex flex-col justify-center';
+
+                const jobTitle = document.createElement('div');
+                jobTitle.textContent = suggestion.job_name;
+                jobTitle.className = 'text-lg font-semibold';
+                jobInfo.appendChild(jobTitle);
+
+                const companyInfo = document.createElement('div');
+                companyInfo.textContent = suggestion.company_name;
+                companyInfo.className = 'text-sm text-gray-600';
+                jobInfo.appendChild(companyInfo);
+
+                suggestionItem.appendChild(jobInfo);
+
+                suggestionItem.onclick = () => {
+                    inputElement.value = suggestion.job_name;
+                    dropdown.classList.add('hidden');
+                    searchJob();
+                };
+
+                const jobTypeBadge = document.createElement('span');
+                jobTypeBadge.innerHTML =
+                    `<span class="relative bg-figma-blue-gray-50 text-blue-800 text-sm flex items-center justify-center font-medium w-36 h-12 lg:h-10 rounded">${suggestion.job_type === '1' ? 'Full Time' : suggestion.job_type === '2' ? 'Part Time' : suggestion.job_type === '3' ? 'Intern' : ''}</span>`;
+                jobTypeBadge.className = 'ml-auto';
+                suggestionItem.appendChild(jobTypeBadge);
+
+                suggestionItem.onclick = () => {
+                    inputElement.value = suggestion.job_name;
+                    dropdown.classList.add('hidden');
+                    searchJob();
+                };
+
+                dropdown.appendChild(suggestionItem);
+            }
+        }
+
+        dropdown.classList.remove('hidden');
     }
 </script>
