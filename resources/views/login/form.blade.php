@@ -19,8 +19,7 @@
                 </div>
 
                 <div class="mx-12 lg:mx-32 w-50vh h-auto lg:w-[80vh]">
-                    <form action="{{ route('login.store') }}" method="POST">
-                        @csrf
+                    <form id="form-login">
                     <div class="flex justify-center">
                         <div class="grow grid grid-cols-1">
                             <label for="email" class="block pb-2 text-sm font-medium text-gray-900">Email
@@ -103,6 +102,8 @@
 </div>
 
 <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
         const togglePassword = document.querySelector("#togglePassword");
         const password = document.querySelector("#password");
@@ -112,5 +113,48 @@
             password.setAttribute("type", type);
             
             this.classList.toggle("fa-eye-slash");
+        });
+
+        $('#form-login').on('submit', function submit(e) {
+            e.preventDefault();
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+
+            var formData = $(this).serialize();
+            $.ajax({
+                type: "POST",
+                url: "{{ route('login.store') }}",
+                data: formData,
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                success: function (res) {
+                    window.location.href = res.redirect;
+                },
+                error: function (xhr, status, error) {
+                    var errors = xhr.responseJSON.errors;
+
+                    if (errors) {
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'Invalid email or password.'
+                        });
+                    } else {
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'An error occurred. Please try again later.'
+                        });
+                    }
+                }
+            });
         });
   </script>

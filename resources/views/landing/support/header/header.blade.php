@@ -40,13 +40,13 @@
         </a>
         <div class="flex md:order-2 space-x-4">
             @auth
-            <a href="{{ route('login.logout') }}" class="hidden min-[450px]:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Sign Out</a>
+            <button onclick="window.location='{{ route('logout') }}'" class="hidden min-[450px]:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Sign Out</button>
             {{-- <button type="button"
                 class="hidden min-[450px]:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Sign Out</button> --}}
             @else
-            <button type="button"
+            <button type="button" onclick="onclick="window.location='{{ route('register') }}'""
                 class="hidden min-[450px]:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Daftar</button>
-            <button type="button" onclick="{{route('login')}}"
+            <button type="button" onclick="window.location='{{ route('login') }}'"
                 class="hidden min-[450px]:inline text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Login</button>
             @endauth
             <button data-collapse-toggle="navbar-cta" type="button"
@@ -103,7 +103,7 @@
                         </ul>
                         @auth
                         <div class="py-1">
-                            <a href="{{route('login.logout')}}"
+                            <a href="{{route('logout')}}"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Sign
                                 out</a>
                         </div>
