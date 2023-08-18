@@ -16,7 +16,7 @@
                 </p>
                 <div
                     class="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 md:justify-start -mt-6">
-                    <button type="button"
+                    <button type="button" onclick="window.location='{{ route('registercompany') }}'"
                         class="text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mr-3 md:mr-0"><i
                             class="fa fa-users" aria-hidden="true"></i> &nbspJoin as a company</button>
                 </div>
