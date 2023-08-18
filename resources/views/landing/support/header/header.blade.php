@@ -44,7 +44,7 @@
             {{-- <button type="button"
                 class="hidden min-[450px]:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Sign Out</button> --}}
             @else
-            <button type="button" onclick="onclick="window.location='{{ route('register') }}'""
+            <button type="button" onclick="window.location='{{ route('register') }}'"
                 class="hidden min-[450px]:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Daftar</button>
             <button type="button" onclick="window.location='{{ route('login') }}'"
                 class="hidden min-[450px]:inline text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Login</button>
