@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    @include('register_company.form1')
+    @include('register_company.defaultreg')
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.js"></script>
 

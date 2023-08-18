@@ -111,13 +111,13 @@ class AuthController extends Controller
                 return response()->json([
                     'success' => false,
                     'message' => 'User registration failed.'
-                ], 500);
+                ], 400);
             }
         } catch (\Exception $e) {
             return response()->json([
                 'success' => false,
                 'message' => 'An error occurred during user registration.'
-            ], 500);
+            ], 400);
         }
     }
 }
