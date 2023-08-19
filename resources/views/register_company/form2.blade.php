@@ -71,46 +71,46 @@
                         <div class="">
                             <div class="grow grid grid-cols-1">
                                 <div class="grid grid-cols-1">
-                                    <label for="email" class="block pb-2 text-sm font-medium text-gray-900">Company
+                                    <label for="company" class="block pb-2 text-sm font-medium text-gray-900">Company
                                         Name</label>
-                                    <input type="text" id="email"
+                                    <input type="text" id="company" name="name"
                                         class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                        placeholder="Enter company name" required>
+                                        placeholder="Enter company name" >
                                 </div>
 
                                 <div class="grow grid grid-cols-1">
                                     <label class="block pb-2 text-sm font-medium text-gray-900" for="file_input">Upload
                                         file</label>
-                                    <input
+                                    <input name="file"
                                         class="block w-full text-sm text-gray-500 border border-gray-200 rounded-lg cursor-pointer focus:outline-none mb-4"
                                         id="file_input" type="file">
                                 </div>
 
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-6">
                                     <div class="grid grid-cols-1">
-                                        <label for="email"
+                                        <label for="website"
                                             class="block pb-2 text-sm font-medium text-gray-900">Website</label>
-                                        <input type="text" id="email"
+                                        <input type="text" id="website" name="website"
                                             class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                            placeholder="https://" required>
+                                            placeholder="https://" >
                                     </div>
 
                                     <div class="grow grid grid-cols-1">
-                                        <label for="email"
+                                        <label for="linkedln"
                                             class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Linkedln</label>
                                         <div class="relative w-full">
-                                            <input type="text" id="password"
+                                            <input type="text" id="linkedln" name="linkedln"
                                                 class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                                placeholder="https://" required>
+                                                placeholder="https://" >
                                         </div>
                                     </div>
                                 </div>
 
-                                <label for="password"
+                                <label for="alamat"
                                     class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
-                                <input type="text" id="password"
+                                <input type="text" id="alamat" name="alamat"
                                     class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                    placeholder='ex "Jl.Bunga Anggrek Blok B no 29"' required>
+                                    placeholder='ex "Jl.Bunga Anggrek Blok B no 29"' >
 
                                     <div class="flex justify-between items-center mx-4 space-x-4">
                                         <button type="button"
