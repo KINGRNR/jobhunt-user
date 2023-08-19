@@ -131,19 +131,30 @@
 
             var formData = $(this).serialize();
             
-            // $.ajax({
-            //     type: "POST",
-            //     url: "{{ route('login.store') }}",
-            //     data: formData,
-            //     headers: {
-            //         'X-CSRF-TOKEN': '{{ csrf_token() }}'
-            //     },
-            //     success: function (res) {
-            //         // window.location.href = res.redirect;
-            //     },
-            //     error: function (xhr, status, error) {
-            //         var errors = xhr.responseJSON.errors;
-            //     }
-            // });
+            $.ajax({
+                type: "POST",
+                url: "{{ route('login.store') }}",
+                data: formData,
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                success: function (res) {
+                    window.location.href = res.redirect;
+                },
+                error: function (xhr, status, error) {
+                    var errors = xhr.responseJSON.errors;
+                    if (errors) {
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'Invalid email or password.'
+                        });
+                    } else {
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'An error occurred. Please try again later.'
+                        });
+                    }
+                }
+            });
         });
   </script>
