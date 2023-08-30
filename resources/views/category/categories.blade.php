@@ -93,7 +93,8 @@
     <div class="order-2 col-span-3">
         <div class="grid grid-cols-1">
             <div class="flex">
-                <p class="m-8 font-semibold text-3xl">Designer</p>
+                {{-- dinamis --}}
+                <p class="m-8 font-semibold text-3xl" id="judul_kategori">Tidak Berkategori</p>
             </div>
             <div class="flex">
                 <p class="mx-8 mb-8 text-gray-500">Lorem Ipsum is simply dummy text of the printing and typesetting
