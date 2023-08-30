@@ -25,11 +25,10 @@
             </h3>
             </p>
 
-            <p class="mt-2 text-center text-black">
-                3 Open Position
+            <p class="mt-2 text-center text-black" id="kategori1">
             </p>
 
-            <button type="button"
+            <button type="button" onclick="redirectKategori(this)" data-id="1"
                 class=" text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
@@ -58,11 +57,10 @@
             </h3>
             </p>
 
-            <p class="mt-2 text-center text-black">
-                7 Open Position
+            <p class="mt-2 text-center text-black" id="kategori2">
             </p>
 
-            <button type="button" onclick="location.href='/category'"
+            <button type="button" onclick="redirectKategori(this)" data-id="2"
                 class=" text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
@@ -91,11 +89,10 @@
             </h3>
             </p>
 
-            <p class="mt-2 text-center text-base text-black">
-                4 Open Position
+            <p class="mt-2 text-center text-base text-black" id="kategori3">
             </p>
 
-            <button type="button"
+            <button type="button" onclick="redirectKategori(this)" data-id="3"
                 class=" text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
@@ -124,11 +121,10 @@
             </h3>
             </p>
 
-            <p class="mt-2 text-center text-black">
-                1 Open Position
+            <p class="mt-2 text-center text-black" id="kategori4">
             </p>
 
-            <button type="button"
+            <button type="button" onclick="redirectKategori(this)" data-id="4"
                 class=" text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
@@ -158,11 +154,10 @@
             </h3>
             </p>
 
-            <p class="mt-2 text-center text-black">
-                7 Open Position
+            <p class="mt-2 text-center text-black" id="kategori5">
             </p>
 
-            <button type="button"
+            <button type="button" onclick="redirectKategori(this)" data-id="5"
                 class=" text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
@@ -192,11 +187,10 @@
             </h3>
             </p>
 
-            <p class="mt-2 text-center text-black">
-                2 Open Position
+            <p class="mt-2 text-center text-black" id="kategori6">
             </p>
 
-            <button type="button"
+            <button type="button" onclick="redirectKategori(this)" data-id="6"
                 class=" text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
@@ -226,11 +220,10 @@
             </h3>
             </p>
 
-            <p class="mt-2 text-center text-black">
-                2 Open Position
+            <p class="mt-2 text-center text-black" id="kategori7">
             </p>
 
-            <button type="button"
+            <button type="button" onclick="redirectKategori(this)" data-id="7"
                 class=" text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
@@ -260,14 +253,15 @@
             </h3>
             </p>
 
-            <p class="mt-2 text-center text-black">
-                2 Open Position
+            <p class="mt-2 text-center text-black" id="kategori8">
             </p>
 
-            <button type="button"
+            <button type="button" onclick="redirectKategori(this)" data-id="8"
                 class=" text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center mx-7 my-5 rounded-lg">View
                 More</button>
             </a>
         </div>
     </article>
 </div>
+
+@include('landing.javascript')

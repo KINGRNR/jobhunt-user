@@ -1,17 +1,56 @@
 <script>
     var jobs = [];
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
     $(() => {
         init()
     });
     init = () => {
+        loadPage();
         loaddata();
+    }
+    switch (id) {
+        case '1':
+            kategoriName = "Teknologi Informasi";
+            break;
+        case '2':
+            kategoriName = "Ekonomi";
+            break;
+        case '3':
+            kategoriName = "Teknik & Industri";
+            break;
+        case '4':
+            kategoriName = "Seni & Sastra";
+            break;
+        case '5':
+            kategoriName = "Pendidikan";
+            break;
+        case '6':
+            kategoriName = "Perhotelan & Travel";
+            break;
+        case '7':
+            kategoriName = "Food & Beverage";
+            break;
+        case '8':
+            kategoriName = "Other";
+            break;
+        default:
+            break;
+    }
+    loadPage = () => {
+        $(`#judul_kategori`).html(kategoriName);
     }
     loaddata = () => {
         $.ajax({
             url: '/jobs',
-            type: 'GET',
+            type: 'POST',
+            data: {
+                _token: '{{ csrf_token() }}',
+                id: id
+            },
             dataType: 'json',
             success: function(response) {
+
                 jobs = response.jobs;
                 searchJob();
                 console.log(response);
@@ -45,7 +84,8 @@
         var jobFound = false;
         $.each(jobs, function(i, v) {
             if ((selectedJobType === '' || selectedJobType === v.job_type) &&
-                (v.job_name.toLowerCase().includes(input) || v.job_description.toLowerCase().includes(input) ||
+                (v.job_name.toLowerCase().includes(input) || v.job_description.toLowerCase().includes(
+                        input) ||
                     v.company_name.toLowerCase().includes(input))) {
                 var html = `
                 <article class="rounded-lg bg-white p-4 shadow-sm transition mb-6 mx-8 hover:shadow-lg sm:p-6">
@@ -93,14 +133,15 @@
         });
         if (!jobFound) {
             jobList.html(
-                '<p class="text-figma-gray-500">Tidak ada pekerjaan untuk ditampilkan atau set Job Type ke All</p>');
+                '<p class="text-figma-gray-500">Tidak ada pekerjaan untuk ditampilkan atau set Job Type ke All</p>'
+            );
         }
         setTimeout(function() {
             $('#loading-spinner').css('display', 'none');
 
         }, 300);
-        const responseTime = console.timeEnd('searchJob'); 
-     updateSearchInfo(jobFound ? jobs.length : 0, responseTime);
+        const responseTime = console.timeEnd('searchJob');
+        updateSearchInfo(jobFound ? jobs.length : 0, responseTime);
 
     }
 
