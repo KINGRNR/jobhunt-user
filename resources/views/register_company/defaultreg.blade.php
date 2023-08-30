@@ -16,9 +16,11 @@
                 {{-- back button --}}
 
                 {{-- change whatever you want in here --}}
-                @include('register_company.form1')
-                @include('register_company.form2')
-                @include('register_company.form3')
+                <form id="form-register-company">
+                    @include('register_company.form1')
+                    @include('register_company.form2')
+                    @include('register_company.form3')
+                </form>
 
             </div>
         </div>
@@ -32,6 +34,7 @@
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/htmx.org@1.9.2"></script>
 <script>
     const togglePassword = document.querySelector("#togglePassword");
@@ -73,5 +76,102 @@
             showStep(currentStep);
         });
 
+        formatNumb('telp');
+        formatNumb('since');
     });
+
+    $('#form-register-company').on('submit', function submit(e) {
+        e.preventDefault();
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        formData = new FormData($(this)[0]);
+
+        // Mengumpulkan semua nilai input ke dalam objek
+        var inputs = {
+            email: $('input[name=email]').val(),
+            password: $('input[name=password]').val(),
+            telp: $('input[name=telp]').val(),
+            since: $('input[name=since]').val(),
+            deskripsi: $('textarea[name=deskripsi]').val(),
+            linkedln: $('input[name=linkedln]').val(),
+            alamat: $('input[name=alamat]').val(),
+            website: $('input[name=website]').val(),
+            name: $('input[name=name]').val(),
+            position: $('input[name=position]').val()
+        };
+
+        // Memeriksa apakah ada input yang kosong
+        var isEmpty = Object.values(inputs).some(value => value === '');
+
+        if (isEmpty) {
+            Toast.fire({
+                icon: 'error',
+                title: 'Input is empty. Check your input again.'
+            });
+        } else {
+            $.ajax({
+                type: "POST",
+                url: "{{ route('register.company') }}",
+                data: formData,
+                processData: false, 
+                contentType: false,
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                success: function (res) {
+                    // window.location.href = res.redirect;
+                },
+                error: function (xhr, status, error) {
+                    var errors = xhr.responseJSON.errors;
+    
+                    if (errors) {
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'Invalid email or password.'
+                        });
+                    } else {
+                        Toast.fire({
+                            icon: 'error',
+                            title: 'An error occurred. Please try again later.'
+                        });
+                    }
+                }
+            });
+        }
+    });
+
+
+    function formatNumb(id) {
+        $(`input[name=${id}]`).on('input', function (e) {
+            e.preventDefault();
+
+            // Get the raw input value (without commas)
+            // const rawValue = $(this).val().replace(/,/g, '');
+            const rawValue = $(this).val();
+
+            // Convert the raw value to a number
+            const numberValue = parseFloat(rawValue);
+
+            // Check if the input is a valid number and not Infinity
+            if (!isNaN(numberValue) && isFinite(numberValue)) {
+                // Format the number with thousands separators
+                const formattedValue = numberValue.toLocaleString();
+
+                // Update the input value with the formatted number
+                $(this).val(numberValue);
+            } else {
+                $(this).val('');
+            }
+        });
+    }
 </script>

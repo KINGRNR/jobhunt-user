@@ -1,6 +1,6 @@
 <div id="form1" class="form-step">
     <div class="mx-8 my-4 lg:mx-14 lg:my-8">
-        <button type="button"
+        <button type="button" onclick="window.location='{{ route('index') }}'"
             class="text-white bg-figma-gray-200 hover:bg-gray-400 duration-100 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full px-3 py-3 text-center mr-2 mb-2"><svg
                 width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16 7H3.83L9.42 1.41L8 0L0 8L8 16L9.41 14.59L3.83 9H16V7Z" fill="#323232" />
@@ -72,39 +72,39 @@
                                     <div class="grid grid-cols-1">
                                         <label for="email"
                                             class="block pb-2 text-sm font-medium text-gray-900">Email</label>
-                                        <input type="text" id="email"
+                                        <input type="text" id="email" name="email"
                                             class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                            placeholder="Enter your email" required>
+                                            placeholder="Enter your email" >
                                     </div>
 
                                     <div class="grow grid grid-cols-1">
-                                        <label for="email"
+                                        <label for="password"
                                             class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                                         <div class="relative w-full">
-                                            <input type="password" id="password"
+                                            <input type="password" id="password" name="password"
                                                 class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                                placeholder="Enter your password" required>
+                                                placeholder="Enter your password" >
                                             <i class="fa fa-eye text-gray-500 absolute right-2.5  lg-bigger:left-auto lg-bigger:right-2.5 top-2.5 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 cursor-pointer"
                                                 id="togglePassword" aria-hidden="true"></i>
                                         </div>
                                     </div>
                                 </div>
 
-                                <label for="email"
+                                <label for="position"
                                     class="block pb-2 text-sm font-medium text-gray-900">Position</label>
-                                <input type="email" id="email"
+                                <input type="position" id="position" name="position"
                                     class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                    placeholder="Enter position" required>
+                                    placeholder="Enter position" >
 
-                                <label for="password"
-                                    class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                                <input type="password" id="password"
+                                <label for="phone"
+                                    class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Phone</label>
+                                <input type="phone" id="phone" name="telp" maxlength="14"
                                     class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                    placeholder="Enter your password" required>
+                                    placeholder="Enter your phone" >
 
                                 <div class="grid grid-cols-1">
                                     <button type="button"
-                                        class="next-button text-white bg-figma-biru-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 block w-full" id="next-button">Next</button>
+                                        class="next-button text-white bg-figma-biru-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 block w-full duration-75" id="next-button">Next</button>
                                 </div>
                             </div>
                         </div>

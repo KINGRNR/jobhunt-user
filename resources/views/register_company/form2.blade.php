@@ -1,7 +1,7 @@
 <div id="form2" class="form-step hidden">
     {{-- back button --}}
     <div class="mx-8 my-4 lg:mx-14 lg:my-8">
-        <button type="button"
+        <button type="button" onclick="window.location='{{ route('index') }}'"
             class="text-white bg-figma-gray-200 hover:bg-gray-400 duration-100 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full px-3 py-3 text-center mr-2 mb-2"><svg
                 width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M16 7H3.83L9.42 1.41L8 0L0 8L8 16L9.41 14.59L3.83 9H16V7Z" fill="#323232" />
@@ -71,52 +71,52 @@
                         <div class="">
                             <div class="grow grid grid-cols-1">
                                 <div class="grid grid-cols-1">
-                                    <label for="email" class="block pb-2 text-sm font-medium text-gray-900">Company
+                                    <label for="company" class="block pb-2 text-sm font-medium text-gray-900">Company
                                         Name</label>
-                                    <input type="text" id="email"
+                                    <input type="text" id="company" name="name"
                                         class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                        placeholder="Enter company name" required>
+                                        placeholder="Enter company name" >
                                 </div>
 
                                 <div class="grow grid grid-cols-1">
                                     <label class="block pb-2 text-sm font-medium text-gray-900" for="file_input">Upload
                                         file</label>
-                                    <input
+                                    <input name="file"
                                         class="block w-full text-sm text-gray-500 border border-gray-200 rounded-lg cursor-pointer focus:outline-none mb-4"
                                         id="file_input" type="file">
                                 </div>
 
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-6">
                                     <div class="grid grid-cols-1">
-                                        <label for="email"
+                                        <label for="website"
                                             class="block pb-2 text-sm font-medium text-gray-900">Website</label>
-                                        <input type="text" id="email"
+                                        <input type="text" id="website" name="website"
                                             class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                            placeholder="https://" required>
+                                            placeholder="https://" >
                                     </div>
 
                                     <div class="grow grid grid-cols-1">
-                                        <label for="email"
+                                        <label for="linkedln"
                                             class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Linkedln</label>
                                         <div class="relative w-full">
-                                            <input type="text" id="password"
+                                            <input type="text" id="linkedln" name="linkedln"
                                                 class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                                placeholder="https://" required>
+                                                placeholder="https://" >
                                         </div>
                                     </div>
                                 </div>
 
-                                <label for="password"
+                                <label for="alamat"
                                     class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
-                                <input type="text" id="password"
+                                <input type="text" id="alamat" name="alamat"
                                     class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                    placeholder='ex "Jl.Bunga Anggrek Blok B no 29"' required>
+                                    placeholder='ex "Jl.Bunga Anggrek Blok B no 29"' >
 
-                                    <div class="flex justify-between items-center mx-4 space-x-4">
+                                    <div class="flex justify-between items-center space-x-4">
                                         <button type="button"
-                                            class="back-button text-white bg-figma-gray-200 hover:bg-gray-400 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 w-1/2">Back</button>
+                                            class="back-button text-gray-900 bg-figma-gray-200 hover:bg-gray-400 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 w-1/2 duration-75">Back</button>
                                         <button type="button"
-                                            class="next-button text-white bg-figma-biru-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 w-1/2" id="next-button">Next</button>
+                                            class="next-button text-white bg-figma-biru-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 w-1/2 duration-75" id="next-button">Next</button>
                                     </div>
                             </div>
                         </div>

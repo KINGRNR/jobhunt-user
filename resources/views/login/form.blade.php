@@ -130,6 +130,7 @@
             })
 
             var formData = $(this).serialize();
+            
             $.ajax({
                 type: "POST",
                 url: "{{ route('login.store') }}",
@@ -142,7 +143,6 @@
                 },
                 error: function (xhr, status, error) {
                     var errors = xhr.responseJSON.errors;
-
                     if (errors) {
                         Toast.fire({
                             icon: 'error',

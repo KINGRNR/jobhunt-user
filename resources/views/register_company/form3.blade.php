@@ -1,7 +1,7 @@
 <div id="form3" class="form-step hidden">
     {{-- back button --}}
 <div class="mx-8 my-4 lg:mx-14 lg:my-8">
-    <button type="button"
+    <button type="button" onclick="window.location='{{ route('index') }}'"
         class="text-white bg-figma-gray-200 hover:bg-gray-400 duration-100 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full px-3 py-3 text-center mr-2 mb-2"><svg
             width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16 7H3.83L9.42 1.41L8 0L0 8L8 16L9.41 14.59L3.83 9H16V7Z" fill="#323232" />
@@ -70,23 +70,22 @@
                 <div>
                     <div class="">
                         <div class="grid grid-cols-1">
-                            <label for="email" class="block pb-2 text-sm font-medium text-gray-900">Company
-                                Name</label>
-                            <input type="text" id="email"
+                            <label for="since" class="block pb-2 text-sm font-medium text-gray-900">Since </label>
+                            <input type="text" id="since" name="since"
                                 class="grow mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                placeholder="Enter company name" required>
+                                placeholder="Enter company name" >
 
-                            <label for="password"
-                                class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Address</label>
-                            <textarea id="password"
+                            <label for="deskripsi" name="deskripsi"
+                                class="block pb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                            <textarea id="deskripsi" name="deskripsi"
                                 class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                placeholder='ex "Jl.Bunga Anggrek Blok B no 29"' required></textarea>
+                                placeholder='ex "Jl.Bunga Anggrek Blok B no 29"' ></textarea>
 
-                                <div class="flex justify-between items-center mx-4 space-x-4">
+                                <div class="flex justify-between items-center space-x-4">
                                     <button type="button"
-                                        class="back-button text-white bg-figma-gray-200 hover:bg-gray-400 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 w-1/2">Back</button>
-                                    <button type="button"
-                                        class="text-white bg-figma-biru-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 w-1/2" id="submit">Sign Up</button>
+                                        class="back-button text-gray-900 bg-figma-gray-200 hover:bg-gray-400 focus:ring-4 focus:ring-gray-300 font-medium text-sm px-5 py-2.5 w-1/2 duration-75">Back</button>
+                                    <button type="submit"
+                                        class="text-white bg-figma-biru-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 w-1/2 duration-75" id="submit">Sign Up</button>
                                 </div>
                         </div>
                     </div>

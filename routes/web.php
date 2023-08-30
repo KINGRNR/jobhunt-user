@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 
@@ -48,3 +49,5 @@ Route::get('/register-company', function () {
 Route::get('/detailjob', function () {
     return view('detailjob');
 });
+
+Route::post('/register/company', [CompanyController::class, 'store'])->name('register.company');
