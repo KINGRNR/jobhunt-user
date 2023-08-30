@@ -40,31 +40,33 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $validator = $this->validator($request->all());
-    
+
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 400);
         }
 
         if (Auth::attempt($request->only('email', 'password'))) {
-            $user = User::Where('email', $request->email)->firstOrFail();
+            $user = User::where('email', $request->email)->firstOrFail();
+            session(['user' => $user]);
             $request->session()->regenerate();
+
             switch ($user->users_role_id) {
                 case 'BfiwyVUDrXOpmStr':
                     return response()->json([
-                        'success' => true, 
-                        'redirect' => route('index'), 
+                        'success' => true,
+                        'redirect' => route('index'),
                     ]);;
                 case 'FOV4Qtgi5lcQ9kZ':
                     return response()->json([
-                        'success' => true, 
-                        'redirect' => route('registercompany'), 
+                        'success' => true,
+                        'redirect' => route('registercompany'),
                     ]);
                 case 'FOV4Qtgi5lcQ9kCY':
                     Auth::logout();
                     return response()->json([
-                        'success' => false, 
-                        'redirect' => route('index'), 
-                        'message' => 'Session false', 
+                        'success' => false,
+                        'redirect' => route('index'),
+                        'message' => 'Session false',
                     ]);
                 default:
                     return response()->json(['data' => $user], 422);
@@ -103,8 +105,8 @@ class AuthController extends Controller
 
             if ($user) {
                 return response()->json([
-                    'success' => true, 
-                    'redirect' => route('login'), 
+                    'success' => true,
+                    'redirect' => route('login'),
                     'message' => 'Successfully registered user.'
                 ]);
             } else {
