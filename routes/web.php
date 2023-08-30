@@ -35,7 +35,9 @@ Route::middleware(['guest'])->group(function () {
     });
 });
 
-Route::get('/jobs', [JobController::class, 'index']);
+Route::post('/jobs', [JobController::class, 'index']);
+Route::get('/jobscount', [JobController::class, 'jobscount']);
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -52,5 +54,9 @@ Route::get('/register-company', function () {
 Route::get('/detailjob', function () {
     return view('detailjob');
 });
+Route::get('/resume', function () {
+    return view('resume');
+});
+
 
 Route::post('/register/company', [CompanyController::class, 'store'])->name('register.company');
