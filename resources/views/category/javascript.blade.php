@@ -111,9 +111,9 @@
             const infoText = document.createElement('p');
             console.log(responseTime);
             infoText.className = 'text-gray-700 text-xs mb-2';
-            infoText.innerHTML =
-                `Data Terload: <span id="loaded-data-count">${loadedDataCount}</span><br>Response Time: <span id="response-time">${responseTime} ms</span>`;
-            dropdown.appendChild(infoText);
+            // infoText.innerHTML =
+            //     `Data Terload: <span id="loaded-data-count">${loadedDataCount}</span><br>Response Time: <span id="response-time">${responseTime} ms</span>`;
+            // dropdown.appendChild(infoText);
         }
     }
 
