@@ -110,11 +110,11 @@
                     <input type="text" id="input-group-1"
                         class="bg-white border border-gray-300 text-gray-900 text-sm rounded-full focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-4 py-4 duration-100"
                         placeholder="Ketik untuk mencari" oninput="handleInput()">
-                    <button type="submit"
+                    {{-- <button type="submit"
                         class="absolute right-0 top-0 h-full bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-r-full px-4 py-2"
                         onclick="searchJob()">
                         Cari
-                    </button>
+                    </button> --}}
                 </div>
                 <div id="search-dropdown"
                     class="w-1/2 max-w-md bg-white border border-gray-300 border-t-0 z-10 absolute left-0 mt-1 hidden rounded-lg shadow-md">
