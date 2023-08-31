@@ -50,4 +50,8 @@ Route::get('/detailjob', function () {
     return view('detailjob');
 });
 
+Route::get('/resume', function () {
+    return view('resume');
+});
+
 Route::post('/register/company', [CompanyController::class, 'store'])->name('register.company');
