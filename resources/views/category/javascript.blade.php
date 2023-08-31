@@ -1,5 +1,6 @@
 <script>
     var jobs = [];
+    var kodeKategori = [];
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
     $(() => {
@@ -10,29 +11,37 @@
         loaddata();
     }
     switch (id) {
-        case '1':
+        case 'jbhnt-ti1cci':
             kategoriName = "Teknologi Informasi";
+            kodeKategori = '1';
             break;
-        case '2':
+        case 'jbhnt-ekjjh2':
             kategoriName = "Ekonomi";
+            kodeKategori = '2';
             break;
-        case '3':
+        case 'jbhnt-TekIjkaa3':
             kategoriName = "Teknik & Industri";
+            kodeKategori = '3';
             break;
-        case '4':
+        case 'jbhnt-SSjsj4':
             kategoriName = "Seni & Sastra";
+            kodeKategori = '4';
             break;
-        case '5':
+        case 'jbhnt-pddknJsst5':
             kategoriName = "Pendidikan";
+            kodeKategori = '5';
             break;
-        case '6':
+        case 'jbhnt-perTrav6':
             kategoriName = "Perhotelan & Travel";
+            kodeKategori = '6';
             break;
-        case '7':
+        case 'jbhnt-FoBevarss7':
             kategoriName = "Food & Beverage";
+            kodeKategori = '7';
             break;
-        case '8':
+        case 'jbhnt-shwallss8':
             kategoriName = "Other";
+            kodeKategori = '8';
             break;
         default:
             break;
@@ -46,7 +55,7 @@
             type: 'POST',
             data: {
                 _token: '{{ csrf_token() }}',
-                id: id
+                id: kodeKategori
             },
             dataType: 'json',
             success: function(response) {
@@ -88,7 +97,7 @@
                         input) ||
                     v.company_name.toLowerCase().includes(input))) {
                 var html = `
-                <article class="rounded-lg bg-white p-4 shadow-sm transition mb-6 mx-8 hover:shadow-lg sm:p-6">
+                <article class="rounded-lg bg-white p-4 shadow-sm transition mb-6 mx-8 hover:shadow-lg sm:p-6" onclick="detailJob()" style="cursor: pointer; user-select: none;">
 
             <div class="grid grid-cols-2 lg:flex gap-6">
             <span class="flex justify-center order-3 lg:order-1 col-span-2">
@@ -144,7 +153,9 @@
         updateSearchInfo(jobFound ? jobs.length : 0, responseTime);
 
     }
-
+    function detailJob(){
+        location.href = '/detailjob';
+    }
     function updateSearchInfo(loadedDataCount, responseTime) {
         const dropdown = document.getElementById('search-info');
         dropdown.innerHTML = ''; // Hapus konten sebelumnya
