@@ -97,7 +97,7 @@
                         input) ||
                     v.company_name.toLowerCase().includes(input))) {
                 var html = `
-                <article class="rounded-lg bg-white p-4 shadow-sm transition mb-6 mx-8 hover:shadow-lg sm:p-6" onclick="detailJob()" style="cursor: pointer; user-select: none;">
+                <article class="rounded-lg bg-white p-4 shadow-sm transition mb-6 mx-8 hover:shadow-lg sm:p-6" onclick="detailJob(this)" data-id="${v.job_id}" style="cursor: pointer; user-select: none;">
 
             <div class="grid grid-cols-2 lg:flex gap-6">
             <span class="flex justify-center order-3 lg:order-1 col-span-2">
@@ -153,8 +153,9 @@
         updateSearchInfo(jobFound ? jobs.length : 0, responseTime);
 
     }
-    function detailJob(){
-        location.href = '/detailjob';
+    function detailJob(trigger){
+        const params = trigger.getAttribute('data-id');
+        location.href = '/detailjob?id=' + params;
     }
     function updateSearchInfo(loadedDataCount, responseTime) {
         const dropdown = document.getElementById('search-info');
