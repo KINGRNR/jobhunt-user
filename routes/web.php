@@ -36,6 +36,8 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::post('/jobs', [JobController::class, 'index']);
+Route::post('/jobs_detail', [JobController::class, 'detail_job']);
+
 Route::get('/jobscount', [JobController::class, 'jobscount']);
 
 

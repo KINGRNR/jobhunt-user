@@ -1,6 +1,6 @@
 <nav class="fixed top-0 left-0 right-0 bg-transparent duration-150 z-50">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="https://flowbite.com/" class="flex items-center">
+        <a href="/" class="flex items-center">
             <svg id="logo-77" width="105" height="40" viewBox="0 0 105 40" fill="white"
                 xmlns="http://www.w3.org/2000/svg">
                 <path class="ccustom"

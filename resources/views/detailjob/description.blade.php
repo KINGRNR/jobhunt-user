@@ -37,3 +37,5 @@
         </article>
     </div>
 </div>
+
+@include('detailjob.javascript')
