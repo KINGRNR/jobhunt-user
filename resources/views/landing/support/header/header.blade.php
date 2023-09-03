@@ -1,6 +1,6 @@
 <nav class="fixed top-0 left-0 right-0 bg-transparent duration-150 z-50">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="https://flowbite.com/" class="flex items-center">
+        <a href="/" class="flex items-center">
             <svg id="logo-77" width="105" height="40" viewBox="0 0 105 40" fill="white"
                 xmlns="http://www.w3.org/2000/svg">
                 <path class="ccustom"
@@ -75,24 +75,23 @@
 
                         <!-- Name and Email -->
                         <div>
-                            <div>{{ auth()->user()->name }}</div>
-                            <div class="font-medium truncate">{{ Str::limit(auth()->user()->email, 20) }}</div>
+                            <div class="font-semibold">{{ auth()->user()->name }}</div>
+                            <div class="text-gray-600 truncate">{{ Str::limit(auth()->user()->email, 20) }}</div>
                         </div>
                     </div>
-                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownProfileButton">
-                        <li class="flex items-center"> <!-- Menambahkan class "flex" dan "items-center" -->
+                    <ul class="py-2 text-sm text-gray-600 dark:text-gray-200" aria-labelledby="dropdownProfileButton">
+                        <li class=""> <!-- JANGAN ASAL KOMEN LAH ANYING -->
                             <a href="#"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profil</a>
-                        </li>
-                        <li class="flex items-center">
+                                class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i class="fa fa-user-o mx-3"></i>Profil</a>
+                        </li> 
+                        <li class="">
                             <a href="#"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Riwayat
-                                Lamaran</a>
+                                class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i class="fa fa-history mx-3"></i>Riwayat Lamaran</a>
                         </li>
-                        <li class="flex items-center">
+                        <li class="">
                             <a onclick="window.location='{{ route('logout') }}'"
-                                class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                                style="cursor: pointer;">Keluar</a>
+                                class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"
+                                style="cursor: pointer;"><i class="fa fa-sign-out mx-3"></i>Keluar</a>
                         </li>
                     </ul>
                 </div>

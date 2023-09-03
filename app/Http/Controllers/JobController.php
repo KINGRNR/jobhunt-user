@@ -14,6 +14,12 @@ class JobController extends Controller
         $jobs = DB::table('v_job')->where('job_category', $id)->get();
         return response()->json(['jobs' => $jobs]);
     }
+    public function detail_job(Request $request)
+    {
+        $id = $request->input('id');
+        $jobs = DB::table('v_job')->where('job_id', $id)->get();
+        return response()->json(['jobs' => $jobs]);
+    }
     public function jobscount()
     {
         $jobCounts = DB::table('v_job')
