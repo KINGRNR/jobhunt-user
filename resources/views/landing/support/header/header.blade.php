@@ -83,7 +83,7 @@
                         <li class=""> <!-- JANGAN ASAL KOMEN LAH ANYING -->
                             <a href="#"
                                 class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i class="fa fa-user-o mx-3"></i>Profil</a>
-                        </li>
+                        </li> 
                         <li class="">
                             <a href="#"
                                 class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i class="fa fa-history mx-3"></i>Riwayat Lamaran</a>

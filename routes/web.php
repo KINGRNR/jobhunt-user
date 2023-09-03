@@ -58,9 +58,8 @@ Route::get('/resume', function () {
     return view('resume');
 });
 
-
-Route::get('/resume', function () {
-    return view('resume');
+Route::get('/resumepreview', function () {
+    return view('resumepreview');
 });
 
 Route::post('/register/company', [CompanyController::class, 'store'])->name('register.company');
