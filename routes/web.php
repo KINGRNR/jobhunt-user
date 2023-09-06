@@ -62,4 +62,8 @@ Route::get('/resumepreview', function () {
     return view('resumepreview');
 });
 
+Route::get('/userprofile', function () {
+    return view('userprofile');
+});
+
 Route::post('/register/company', [CompanyController::class, 'store'])->name('register.company');
