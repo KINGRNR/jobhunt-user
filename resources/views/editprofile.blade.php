@@ -11,7 +11,7 @@
 
 <body>
     @include('landing.support.header.header')
-    @include('resumepreview.preview')
+    @include('editprofile.form')
     @include('landing.support.footer.footer')
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.js"></script>
