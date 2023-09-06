@@ -8,7 +8,7 @@
                 <div>
                     <button data-modal-hide="popup-modal" type="button"
                         class="text-black bg-white focus:ring-4 focus:outline-none focus:ring-figma-biru-300 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-44 mt-36">
-                        <i class="fa fa-arrow-left"></i>&nbsp;Back to Menu
+                        Reset
                     </button>
                 </div>
                 <div class="flex justify-center z-40">
@@ -19,7 +19,7 @@
                 <div class="">
                     <button data-modal-hide="popup-modal" type="button"
                         class="text-white bg-figma-biru-300 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-gray-200 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-44 mt-36">
-                        Edit Data&nbsp;<i class="fa fa-pencil"></i></button>
+                        Simpan
                 </div>
             </div>
         </div>
