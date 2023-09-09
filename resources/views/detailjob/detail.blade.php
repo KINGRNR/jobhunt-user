@@ -40,9 +40,26 @@
 </article>
 
 <div class="">
-    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="submit"
+    {{-- <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="submit"
     class="text-white bg-figma-biru-primary hover:bg-blue-800 duration-100 focus:ring-4 focus:ring-blue-300 font-medium w-auto p-4 my-12 mx-12"><i class="fa fa-plus"></i>
-    Tambah Laporan</button>
+    Tambah Laporan</button> --}}
+    <button data-popover-target="popover-bottom" data-popover-placement="bottom" type="button" class="text-white bg-figma-biru-primary hover:bg-blue-800 duration-100 focus:ring-4 focus:ring-blue-300 font-medium w-auto p-4 my-12 mx-12">Tambah Laporan</button>
+<div data-popover id="popover-bottom" role="tooltip" class="absolute z-10 invisible inline-block w-[25%] text-sm transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-md opacity-0">
+    <div class="px-3 py-2">
+        <p>To apply for this job, email your details to <span class="text-blue-500">ini@gmail.com</span></p>
+    </div>
+    <hr class="mx-5">
+    <div class="px-3 py-2">
+        <p>You can apply to this job and others using your online resume. Click the link below to submit your online resume and email your application to this employer.</p>
+    </div>
+    <div class="flex justify-center">
+    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="submit"
+    class="text-figma-biru-primary bg-white border border-figma-biru-primary hover:bg-figma-biru-primary hover:text-white duration-100 focus:ring-4 focus:ring-blue-300 font-medium w-[100%] p-3 mx-5 my-4"><i class="fa fa-plus"></i>
+    Submit Resume & Apply</button>
+    </div>
+    <div data-popper-arrow></div>
+</div>
+</div>
 </div>
 </div>
 

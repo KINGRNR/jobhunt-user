@@ -8,7 +8,7 @@
         <p class="pt-20 font-semibold text-4xl text-figma-biru-primary">About Us</p>
         </div>
         <div class="flex justify-center lg:justify-start">
-            <p class="pb-20 leading-loose px-8 mr-8 lg:px-0">Lorem ipsum dolor sit amet consectetur. Aliquam leo nunc in amet. Quisque sagittis massa mi parturient. Lacus rutrum ultricies egestas id fusce eget. Consequat enim neque faucibus eget. Mauris pharetra vestibulum interdum tortor. Mi posuere morbi sagittis dis. Pretium integer eget aliquam libero mollis ut amet duis. Lorem ipsum dolor sit amet consectetur. Aliquam leo nunc in amet. Quisque sagittis massa mi parturient. Lacus rutrum ultricies egestas id fusce eget. Consequat enim neque faucibus eget. Mauris pharetra vestibulum interdum tortor. Mi posuere morbi sagittis dis. Pretium integer eget aliquam libero mollis ut amet duis.</p>
+            <p class="pb-20 leading-loose px-8 mr-0 lg:mr-8 lg:px-0">Lorem ipsum dolor sit amet consectetur. Aliquam leo nunc in amet. Quisque sagittis massa mi parturient. Lacus rutrum ultricies egestas id fusce eget. Consequat enim neque faucibus eget. Mauris pharetra vestibulum interdum tortor. Mi posuere morbi sagittis dis. Pretium integer eget aliquam libero mollis ut amet duis. Lorem ipsum dolor sit amet consectetur. Aliquam leo nunc in amet. Quisque sagittis massa mi parturient. Lacus rutrum ultricies egestas id fusce eget. Consequat enim neque faucibus eget. Mauris pharetra vestibulum interdum tortor. Mi posuere morbi sagittis dis. Pretium integer eget aliquam libero mollis ut amet duis.</p>
         </div>
     </div>
 </div>
