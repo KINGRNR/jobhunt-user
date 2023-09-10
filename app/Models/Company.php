@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
     use HasFactory;
+    protected $table = 'company';
+    public $timestamps = false;
     protected $fillable = [
-        // 'company_id',
         'company_name',
         'company_website',
         'company_linkedin',
@@ -22,4 +23,20 @@ class Company extends Model
         'company_active',
         // 'company_password',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($model) {
+            $lastEmployee = static::latest('company_id')->first();
+            $model->company_id = $lastEmployee ? $lastEmployee->company_id + 1 : 1;
+        });
+
+        static::saving(function ($model) {
+            if (static::where('company_name', $model->company_name)->exists()) {
+                throw new \Exception('Company name already exists.');
+            }
+        });
+    }
 }

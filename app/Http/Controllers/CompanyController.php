@@ -12,6 +12,8 @@ class CompanyController extends Controller
         try {
             if ($request->hasFile('file')) {
                 $file = $request->file('file')->store('/file/company', 'public');
+            } else {
+                $file = null;
             }
 
             $company = Company::create([
@@ -23,18 +25,20 @@ class CompanyController extends Controller
                 'company_number' => $request->telp,
                 'company_position' => $request->position,
                 'company_logo' => $file,
-                'company_role_id' => 'FOV4Qtgi5lcQ9kZ'
+                // 'company_user_id' => ,
+                'company_role_id' => 'FOV4Qtgi5lcQ9kZ',
+                'company_active' => '1'
             ]);
 
             return response()->json([
                 'success' => true,
-                'data' => $company,
+                'message' => 'Company created successfully.',
             ]);
         } catch (\Throwable $th) {
             return response()->json([
                 'success' => false,
                 'message' => $th->getMessage(),
-            ]);
+            ], 400);
             // throw $th;
         }
     }
