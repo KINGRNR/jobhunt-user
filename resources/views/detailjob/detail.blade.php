@@ -1,3 +1,42 @@
+<style>
+    .loading-spinner-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        /* Ubah z-index sesuai kebutuhan */
+    }
+
+    .loading-spinner {
+        border: 2px solid #ccc;
+        border-top: 2px solid #007bff;
+        /* Ganti warna sesuai kebutuhan */
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<div class="loading-spinner-overlay" id="loading-spinner" style="">
+    <div class="loading-spinner"></div>
+    <p>Loading Data</p>
+</div>
 <div class="grid grid-cols-4 mt-6">
     <article class="p-4 mb-6 mx-8 sm:p-6 col-span-3">
 
@@ -18,21 +57,21 @@
         </span>
 
         <div class="grid grid-cols-1 order-2">
-            <p class="mt-2 text-2xl font-bold text-black">
-                UI/UX Designer web PT MCCA
+            <p class="mt-2 text-2xl font-bold text-black" id="title_job">
+                -
             </p>
-            <p class="mt-2 text-xl font-semibold text-black">
-                PT MCCA
+            <p class="mt-2 text-xl font-semibold text-black" id="company_name">
+                -
             </p>
             <div class="grid grid-cols-1 lg:flex justify-center lg:gap-6">
-            <p class="mt-2 font-normal text-figma-gray-500">
-            <i class="fa fa-link">&nbsp;</i>https://jobhuntuser.com
+            <p class="mt-2 font-normal text-figma-gray-500" >
+            <i class="fa fa-link">&nbsp;</i>-
             </p>
-            <p class="mt-2 font-normal text-figma-gray-500">
-                <i class="fa fa-phone">&nbsp;</i>0857-8486-1117
+            <p class="mt-2 font-normal text-figma-gray-500" id="company_num">
+                <i class="fa fa-phone">&nbsp;</i>-
             </p>
-            <p class="mt-2 font-normal text-figma-gray-500">
-                <i class="fa fa-envelope">&nbsp;</i>mcdonaldsuperior@gmail.com
+            <p class="mt-2 font-normal text-figma-gray-500" id="company_email">
+                <i class="fa fa-envelope">&nbsp;</i>-
             </p>
             </div>
         </div>
@@ -88,3 +127,4 @@
         </div>
     </div>
 </div>
+@include('detailjob.javascript')
