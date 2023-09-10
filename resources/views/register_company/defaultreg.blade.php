@@ -94,7 +94,7 @@
             }
         })
 
-        formData = new FormData($(this)[0]);
+        var formData = new FormData($('#form-register-company')[0]);
 
         // Mengumpulkan semua nilai input ke dalam objek
         var inputs = {
