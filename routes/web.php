@@ -64,4 +64,12 @@ Route::get('/resumepreview', function () {
     return view('resumepreview');
 });
 
+Route::get('/userprofile', function () {
+    return view('userprofile');
+});
+
+Route::get('/editprofile', function () {
+    return view('editprofile');
+});
+
 Route::post('/register/company', [CompanyController::class, 'store'])->name('register.company');
