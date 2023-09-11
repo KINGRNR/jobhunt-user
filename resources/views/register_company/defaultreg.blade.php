@@ -94,9 +94,8 @@
             }
         })
 
-        formData = new FormData($(this)[0]);
+        var formData = new FormData($('#form-register-company')[0]);
 
-        // Mengumpulkan semua nilai input ke dalam objek
         var inputs = {
             email: $('input[name=email]').val(),
             password: $('input[name=password]').val(),
@@ -110,7 +109,6 @@
             position: $('input[name=position]').val()
         };
 
-        // Memeriksa apakah ada input yang kosong
         var isEmpty = Object.values(inputs).some(value => value === '');
 
         if (isEmpty) {
@@ -129,22 +127,21 @@
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
                 success: function (res) {
-                    // window.location.href = res.redirect;
+                    Toast.fire({
+                        icon: 'success',
+                        title: res.message
+                    });
+                    setTimeout(function() {
+                        $('#form-register-company')[0].reset();
+                        window.location.href = '/login';
+                    }, 4000);
                 },
                 error: function (xhr, status, error) {
-                    var errors = xhr.responseJSON.errors;
-    
-                    if (errors) {
-                        Toast.fire({
-                            icon: 'error',
-                            title: 'Invalid email or password.'
-                        });
-                    } else {
-                        Toast.fire({
-                            icon: 'error',
-                            title: 'An error occurred. Please try again later.'
-                        });
-                    }
+                    var message = xhr.responseJSON.message;
+                    Toast.fire({
+                        icon: 'error',
+                        title: message
+                    });
                 }
             });
         }
