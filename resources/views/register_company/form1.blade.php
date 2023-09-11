@@ -104,7 +104,7 @@
 
                                 <div class="grid grid-cols-1">
                                     <button type="button"
-                                        class="next-button text-white bg-figma-biru-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 block w-full" id="next-button">Next</button>
+                                        class="next-button text-white bg-figma-biru-primary hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium text-sm px-5 py-2.5 block w-full duration-75" id="next-button">Next</button>
                                 </div>
                             </div>
                         </div>

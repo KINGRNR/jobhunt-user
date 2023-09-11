@@ -1,3 +1,42 @@
+<style>
+    .loading-spinner-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        /* Ubah z-index sesuai kebutuhan */
+    }
+
+    .loading-spinner {
+        border: 2px solid #ccc;
+        border-top: 2px solid #007bff;
+        /* Ganti warna sesuai kebutuhan */
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<div class="loading-spinner-overlay" id="loading-spinner" style="">
+    <div class="loading-spinner"></div>
+    <p>Loading Data</p>
+</div>
 <div class="grid grid-cols-4 mt-6">
     <article class="p-4 mb-6 mx-8 sm:p-6 col-span-3">
 
@@ -18,21 +57,21 @@
         </span>
 
         <div class="grid grid-cols-1 order-2">
-            <p class="mt-2 text-2xl font-bold text-black">
-                UI/UX Designer web PT MCCA
+            <p class="mt-2 text-2xl font-bold text-black" id="title_job">
+                -
             </p>
-            <p class="mt-2 text-xl font-semibold text-black">
-                PT MCCA
+            <p class="mt-2 text-xl font-semibold text-black" id="company_name">
+                -
             </p>
             <div class="grid grid-cols-1 lg:flex justify-center lg:gap-6">
-            <p class="mt-2 font-normal text-figma-gray-500">
-            <i class="fa fa-link">&nbsp;</i>https://jobhuntuser.com
+            <p class="mt-2 font-normal text-figma-gray-500" >
+            <i class="fa fa-link">&nbsp;</i>-
             </p>
-            <p class="mt-2 font-normal text-figma-gray-500">
-                <i class="fa fa-phone">&nbsp;</i>0857-8486-1117
+            <p class="mt-2 font-normal text-figma-gray-500" id="company_num">
+                <i class="fa fa-phone">&nbsp;</i>-
             </p>
-            <p class="mt-2 font-normal text-figma-gray-500">
-                <i class="fa fa-envelope">&nbsp;</i>mcdonaldsuperior@gmail.com
+            <p class="mt-2 font-normal text-figma-gray-500" id="company_email">
+                <i class="fa fa-envelope">&nbsp;</i>-
             </p>
             </div>
         </div>
@@ -40,9 +79,26 @@
 </article>
 
 <div class="">
-    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="submit"
+    {{-- <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="submit"
     class="text-white bg-figma-biru-primary hover:bg-blue-800 duration-100 focus:ring-4 focus:ring-blue-300 font-medium w-auto p-4 my-12 mx-12"><i class="fa fa-plus"></i>
-    Tambah Laporan</button>
+    Tambah Laporan</button> --}}
+    <button data-popover-target="popover-bottom" data-popover-placement="bottom" type="button" class="text-white bg-figma-biru-primary hover:bg-blue-800 duration-100 focus:ring-4 focus:ring-blue-300 font-medium w-auto p-4 my-12 mx-12">Tambah Laporan</button>
+<div data-popover id="popover-bottom" role="tooltip" class="absolute z-10 invisible inline-block w-[25%] text-sm transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-md opacity-0">
+    <div class="px-3 py-2">
+        <p>To apply for this job, email your details to <span class="text-blue-500">ini@gmail.com</span></p>
+    </div>
+    <hr class="mx-5">
+    <div class="px-3 py-2">
+        <p>You can apply to this job and others using your online resume. Click the link below to submit your online resume and email your application to this employer.</p>
+    </div>
+    <div class="flex justify-center">
+    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="submit"
+    class="text-figma-biru-primary bg-white border border-figma-biru-primary hover:bg-figma-biru-primary hover:text-white duration-100 focus:ring-4 focus:ring-blue-300 font-medium w-[100%] p-3 mx-5 my-4"><i class="fa fa-plus"></i>
+    Submit Resume & Apply</button>
+    </div>
+    <div data-popper-arrow></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -71,3 +127,4 @@
         </div>
     </div>
 </div>
+@include('detailjob.javascript')
