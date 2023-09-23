@@ -73,3 +73,7 @@ Route::get('/editprofile', function () {
 });
 
 Route::post('/register/company', [CompanyController::class, 'store'])->name('register.company');
+
+Route::get('/registerchoice', function () {
+    return view('registerchoice');
+});
