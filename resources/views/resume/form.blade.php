@@ -1,3 +1,5 @@
+<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
 <section
     class="bg-[url(https://hbr.org/resources/images/article_assets/2020/03/Mar20_12_115049941.jpg)] bg-center bg-cover h-72">
     <div class="bg-black bg-opacity-50 h-72">
@@ -237,4 +239,10 @@
             placeholder: 'Select an option'
         });
     });
+</script>
+
+<script>
+    tinymce.init({
+  selector: 'textarea#deskripsi'
+});
 </script>
