@@ -21,7 +21,7 @@ class Company extends Model
         'company_logo',
         'company_role_id',
         'company_active',
-        // 'company_password',
+        'company_user_id'
     ];
 
     protected static function boot()

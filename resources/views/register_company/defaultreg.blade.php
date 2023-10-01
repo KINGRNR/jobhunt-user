@@ -127,22 +127,23 @@
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
                 success: function (res) {
-                    Toast.fire({
-                        icon: 'success',
-                        title: res.message
-                    });
-                    setTimeout(function() {
-                        $('#form-register-company')[0].reset();
-                        window.location.href = '/login';
-                    }, 4000);
+                    console.log(res);
+                    if (res.success == false) {
+                        Toast.fire({
+                            icon: 'error',
+                            title: res.message
+                        });
+                    } else {
+                        Toast.fire({
+                            icon: 'success',
+                            title: res.message
+                        });
+                        // setTimeout(function() {
+                        //     $('#form-register-company')[0].reset();
+                        //     window.location.href = '/login';
+                        // }, 4000);
+                    }
                 },
-                error: function (xhr, status, error) {
-                    var message = xhr.responseJSON.message;
-                    Toast.fire({
-                        icon: 'error',
-                        title: message
-                    });
-                }
             });
         }
     });
