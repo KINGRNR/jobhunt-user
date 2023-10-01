@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -16,6 +17,13 @@ class CompanyController extends Controller
                 $file = null;
             }
 
+            $user = User::create([
+                'email' => $request->email,
+                'photo_profile' => $file,
+                'password' => bcrypt($request->password),
+                'users_role_id' => 'FOV4Qtgi5lcQ9kZ'
+            ]);
+            
             $company = Company::create([
                 'company_name' => $request->name,
                 'company_website' => $request->website,
@@ -25,7 +33,7 @@ class CompanyController extends Controller
                 'company_number' => $request->telp,
                 'company_position' => $request->position,
                 'company_logo' => $file,
-                // 'company_user_id' => ,
+                'company_user_id' => $user->id,
                 'company_role_id' => 'FOV4Qtgi5lcQ9kZ',
                 'company_active' => '1'
             ]);
@@ -38,7 +46,7 @@ class CompanyController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => $th->getMessage(),
-            ], 400);
+            ]);
             // throw $th;
         }
     }
