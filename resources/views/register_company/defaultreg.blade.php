@@ -142,6 +142,7 @@
                         //     $('#form-register-company')[0].reset();
                         //     window.location.href = '/login';
                         // }, 4000);
+                        window.location.href = '/login';
                     }
                 },
             });

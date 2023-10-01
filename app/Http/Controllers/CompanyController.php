@@ -12,12 +12,14 @@ class CompanyController extends Controller
     {
         try {
             if ($request->hasFile('file')) {
-                $file = $request->file('file')->store('/file/company', 'public');
+                $file = $request->file('file')->store('file/company', 'eksternal_storage');
             } else {
                 $file = null;
             }
-
+            // dd($request);
             $user = User::create([
+                'name' => $request->name,
+                'fullname' => $request->name,
                 'email' => $request->email,
                 'photo_profile' => $file,
                 'password' => bcrypt($request->password),
