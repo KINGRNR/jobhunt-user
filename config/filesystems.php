@@ -43,7 +43,10 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
-
+        'eksternal_storage' => [
+            'driver' => 'local',
+            'root' => env('APP_DIRECTORY'),
+        ],
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
