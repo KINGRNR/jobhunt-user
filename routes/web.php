@@ -77,3 +77,7 @@ Route::post('/register/company', [CompanyController::class, 'store'])->name('reg
 Route::get('/registerchoice', function () {
     return view('registerchoice');
 });
+
+Route::get('/landing', function () {
+    return view('landingadmin');
+});
