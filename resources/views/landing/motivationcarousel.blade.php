@@ -7,7 +7,7 @@
     </p>
 </div>
 
-<section class="splide" aria-label="Splide Basic HTML Example">
+<section class="splide" aria-label="Motivation">
     <div class="m-10 -mt-10">
     <div class="splide__track">
           <ul class="mb-5 splide__list">
