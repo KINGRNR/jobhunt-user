@@ -120,8 +120,10 @@
                             var errorMessage = errors[key][0];
                             var inputElement = document.getElementById(key);
                             if (inputElement) {
-                                Toast.fire({
+                                Swal.fire({
                                     icon: 'error',
+                                    showConfirmButton: false,
+                                    timer: 3500,
                                     title: errorMessage
                                 });
                             }
