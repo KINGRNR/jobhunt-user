@@ -142,18 +142,12 @@
                     window.location.href = res.redirect;
                 },
                 error: function (xhr, status, error) {
-                    var errors = xhr.responseJSON.errors;
-                    if (errors) {
-                        Toast.fire({
-                            icon: 'error',
-                            title: 'Invalid email or password.'
-                        });
-                    } else {
-                        Toast.fire({
-                            icon: 'error',
-                            title: 'An error occurred. Please try again later.'
-                        });
-                    }
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Invalid email or password.',
+                        showConfirmButton: false,
+                        timer: 3500,
+                    });
                 }
             });
         });
