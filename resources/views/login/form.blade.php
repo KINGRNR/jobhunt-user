@@ -144,8 +144,8 @@
                 error: function (xhr, status, error) {
                     Swal.fire({
                         icon: 'error',
-                        title: 'Invalid email or password.',
-                        showConfirmButton: false,
+                        text: 'Invalid email or password.',
+                        showConfirmButton: true,
                         timer: 3500,
                     });
                 }

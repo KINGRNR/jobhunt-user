@@ -12,7 +12,7 @@ class CompanyController extends Controller
     {
         try {
             if ($request->hasFile('file')) {
-                $file = $request->file('file')->store('file/company', 'eksternal_storage');
+                $file = $request->file('file')->store('file/company/', 'eksternal_storage');
             } else {
                 $file = null;
             }
