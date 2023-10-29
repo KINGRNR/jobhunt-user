@@ -37,8 +37,8 @@
     <div class="loading-spinner"></div>
     <p>Loading Data</p>
 </div>
-<div class="grid grid-cols-4">
-    <div class="order-1 flex">
+<div class="grid grid-cols-1 md:grid-cols-4">
+    <div class="md:order-1 flex md:order-none">
         <div class="bg-figma-agakbiru pr-36 max-h-[630px]">
             <div class="block ml-12 my-12">
                 <p class="mb-8 text-xl font-semibold text-white">Job Type</p>
@@ -90,7 +90,7 @@
             </form>
         </div>
     </div>
-    <div class="order-2 col-span-3">
+    <div class="md:order-2 col-span-3">
         <div class="grid grid-cols-1">
             <div class="flex">
                 {{-- dinamis --}}
