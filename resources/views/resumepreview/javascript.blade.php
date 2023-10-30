@@ -38,9 +38,9 @@
             <div class="container flex flex-col justify-center p-6 mx-auto lg:justify-between">
                 <div class="flex flex-col justify-center p-6 rounded-sm md:max-w-md xl:max-w-lg md:text-left mt-4 mb-20">
                 </div>
-                <div class="flex justify-between">
+                <div class="z-10 flex justify-between">
                     <div>
-                        <button data-modal-hide="popup-modal" type="button"
+                        <button data-modal-hide="popup-modal" type="button" onclick="changePage()"
                             class="text-black bg-white focus:ring-4 focus:outline-none focus:ring-figma-biru-300 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-44 mt-36">
                             <i class="fa fa-arrow-left"></i>&nbsp;Edit Resume
                         </button>
@@ -143,5 +143,8 @@
                 console.log(error);
             }
         });
+    }
+    changePage = () => {
+        window.location.href = '/resume';
     }
 </script>
