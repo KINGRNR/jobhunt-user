@@ -350,7 +350,7 @@
                                 icon: (response.success) ? 'success' : "error",
                                 confirmButtonText: "Oke!",
                             }).then(() => {
-                               window.location.href('/resumepreview');
+                               window.location.href= '/resumepreview';
                             });
                         }
                     },
