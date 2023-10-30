@@ -26,6 +26,7 @@
             </p>
 
             <p class="mt-2 text-center text-black" id="kategori1">
+                No job available
             </p>
 
             <button type="button" onclick="redirectKategori(this)" data-id="1"
@@ -58,6 +59,7 @@
             </p>
 
             <p class="mt-2 text-center text-black" id="kategori2">
+                No job available
             </p>
 
             <button type="button" onclick="redirectKategori(this)" data-id="2"
@@ -90,6 +92,7 @@
             </p>
 
             <p class="mt-2 text-center text-base text-black" id="kategori3">
+                No job available
             </p>
 
             <button type="button" onclick="redirectKategori(this)" data-id="3"
@@ -122,6 +125,7 @@
             </p>
 
             <p class="mt-2 text-center text-black" id="kategori4">
+                No job available
             </p>
 
             <button type="button" onclick="redirectKategori(this)" data-id="4"
@@ -155,6 +159,7 @@
             </p>
 
             <p class="mt-2 text-center text-black" id="kategori5">
+                No job available
             </p>
 
             <button type="button" onclick="redirectKategori(this)" data-id="5"
@@ -188,6 +193,7 @@
             </p>
 
             <p class="mt-2 text-center text-black" id="kategori6">
+                No job available
             </p>
 
             <button type="button" onclick="redirectKategori(this)" data-id="6"
@@ -221,6 +227,7 @@
             </p>
 
             <p class="mt-2 text-center text-black" id="kategori7">
+                No job available
             </p>
 
             <button type="button" onclick="redirectKategori(this)" data-id="7"
@@ -254,6 +261,7 @@
             </p>
 
             <p class="mt-2 text-center text-black" id="kategori8">
+                No job available
             </p>
 
             <button type="button" onclick="redirectKategori(this)" data-id="8"
