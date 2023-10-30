@@ -109,7 +109,8 @@
                                         <p class="font-semibold">Professional Title</p>
                                     </div>
                                     <div class=" col-span-3">
-                                        <input type="text" id="resume_professional_title" name="resume_professional_title"
+                                        <input type="text" id="resume_professional_title"
+                                            name="resume_professional_title"
                                             class=" block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                                             placeholder="e.g “UI/UX Designer”">
                                     </div>
@@ -135,7 +136,7 @@
                                             placeholder="e.g “Jakarta” “Malang, Jawa Timur”">
                                     </div>
                                 </div>
-                                <div class="grid grid-cols-4">
+                                {{-- <div class="grid grid-cols-4">
                                     <div class="text-sm">
                                         <p class="font-semibold">Resume Category</p>
                                     </div>
@@ -144,7 +145,7 @@
                                             class=" block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                                             placeholder="">
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="grid grid-cols-8 col-span-2">
                                     <div class="text-sm">
                                         <p class="font-semibold">Your Photo</p>
@@ -173,16 +174,16 @@
                                     </div>
                                     <div class=" col-span-3">
                                         <div class="flex items-center mb-2">
-                                            <input id="resume_gender" name="resume_gender" type="radio" value="1"
-                                                name="gender"
+                                            <input id="resume_gender" name="resume_gender" type="radio"
+                                                value="1" name="gender"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                             <label for="gender"
                                                 class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Laki
                                                 - Laki</label>
                                         </div>
                                         <div class="flex items-center">
-                                            <input checked id="resume_gender" name="resume_gender" type="radio" value="0"
-                                                name="gender"
+                                            <input checked id="resume_gender" name="resume_gender" type="radio"
+                                                value="0" name="gender"
                                                 class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                             <label for="resume_gender"
                                                 class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Perempuan</label>
@@ -237,7 +238,8 @@
                                                 class="text-figma-biru-300">(optional)</span></p>
                                     </div>
                                     <div class=" col-span-7">
-                                        <input type="text" id="resume_portofolio_link" name="resume_portofolio_link"
+                                        <input type="text" id="resume_portofolio_link"
+                                            name="resume_portofolio_link"
                                             class=" block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                                             placeholder="https://">
                                     </div>
@@ -274,6 +276,7 @@
     APP_URL = "{{ getenv('APP_URL') }}/";
 
     $(document).ready(function() {
+        initResume()
         $('.select').select2({
             placeholder: 'Select an option'
         });
@@ -284,7 +287,35 @@
         .catch(error => {
             console.error(error);
         });
-
+    initResume = () => {
+        $.ajax({
+            url: '/resumeprev',
+            type: 'GET',
+            success: function(response) {
+                var data = response.resume[0];
+                if (response.resume) {
+                    $('#resume_fullname').val(data.resume_fullname);
+                    $('#resume_expected_salary').val(data.resume_expected_salary);
+                    $('#resume_second_email').val(data.resume_second_email);
+                    $('#resume_education_level').val(data.resume_education_level);
+                    $('#resume_professional_title').val(data.resume_professional_title);
+                    $('#resume_experience').val(data.resume_experience);
+                    $('#resume_address').val(data.resume_address);
+                    $('#resume_category').val(data.resume_category);
+                    $('#resume_skill').val(data.resume_skill);
+                    $('input[name="resume_gender"][value="' + data.resume_gender + '"]').prop('checked',
+                        true);
+                    $('#resume_candidate_age').val(data.resume_candidate_age);
+                    $('#resume_link').val(data.resume_link);
+                    $('#resume_content').val(data.resume_content);
+                    $('#resume_portofolio_link').val(data.resume_portofolio_link);
+                }
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
     save = () => {
         var form = "resume_form"
         var data = $('[name="' + form + '"]')[0];
