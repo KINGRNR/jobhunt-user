@@ -57,7 +57,7 @@
                                 fill="#1B61AD" />
                         </svg>
                     </div>
-                    <span class="ml-2">Hallo, {{ auth()->user()->name }}!</span>
+                    <span class="ml-2">Halo, {{ auth()->user()->name }}!</span>
                     <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 10 6">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -82,12 +82,16 @@
                     </div>
                     <ul class="py-2 text-sm text-gray-600 dark:text-gray-200" aria-labelledby="dropdownProfileButton">
                         <li class=""> <!-- JANGAN ASAL KOMEN LAH ANYING -->
-                            <a href="#"
+                            <a href="/userprofile"
                                 class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i class="fa fa-user-o mx-3"></i>Profil</a>
                         </li> 
                         <li class="">
                             <a href="#"
                                 class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i class="fa fa-history mx-3"></i>Riwayat Lamaran</a>
+                        </li>
+                        <li class="">
+                            <a href="/resumepreview" 
+                            class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i class="fa fa-pencil mx-3"></i>Resume</a>
                         </li>
                         <li class="">
                             <a onclick="window.location='{{ route('logout') }}'"

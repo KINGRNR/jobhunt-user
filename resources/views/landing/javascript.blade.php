@@ -52,7 +52,7 @@
                     const inputElement = document.getElementById(inputId);
                     console.log(inputElement);
                     if (inputElement) {
-                        if (item.count > 0) {
+                        if (item.count) {
                             inputElement.innerHTML = item.count + " Open Position";
                         } else {
                             inputElement.innerHTML = "No job available";

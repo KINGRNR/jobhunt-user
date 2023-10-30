@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\ResumeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,13 @@ Route::post('/jobs', [JobController::class, 'index']);
 Route::post('/jobs_detail', [JobController::class, 'detail_job']);
 
 Route::get('/jobscount', [JobController::class, 'jobscount']);
+Route::get('/resumeprev', [ResumeController::class, 'index']);
 
+Route::controller(ResumeController::class)->group(function () {
+    foreach (['save', 'uploadFile', 'deleteFile'] as $key => $value) {
+        Route::post('/resume/' . $value, $value);
+    }
+});
 
 Route::get('/', function () {
     return view('welcome');

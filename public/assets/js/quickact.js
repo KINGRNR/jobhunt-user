@@ -43,7 +43,7 @@ var quick = {
     },
 
     leafletMapShowStatic: function (id, lt, ln) {
-        var map = L.map(id).setView([0, 0], 2);
+        var map = L.map(id).setView([-2.5489, 118.0149], 5);
 
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -54,6 +54,7 @@ var quick = {
         function addMarkerAtCoordinates(lat, lng) {
             var marker = L.marker([lat, lng]).addTo(markers);
             var coordinates = lat + ',' + lng;
+            
             var googleMapsUrl = 'https://www.google.com/maps/search/?q=' + encodeURIComponent(coordinates);
 
 
