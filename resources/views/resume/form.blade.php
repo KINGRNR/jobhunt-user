@@ -329,10 +329,6 @@
             showCancelButton: true,
             confirmButtonText: 'Ya',
             cancelButtonText: 'Tidak',
-            customClass: {
-                container: 'your-custom-class-for-container',
-                popup: 'your-custom-class-for-popup',
-            },
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
@@ -352,10 +348,9 @@
                                 title: response.title,
                                 text: response.message,
                                 icon: (response.success) ? 'success' : "error",
-                                buttonsStyling: false,
                                 confirmButtonText: "Oke!",
                             }).then(() => {
-                                location.reload();
+                               window.location.href('/resumepreview');
                             });
                         }
                     },
