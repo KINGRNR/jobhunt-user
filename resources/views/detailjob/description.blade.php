@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 gap-1 lg:grid-cols-6 lg:gap-6 text-left mt-6">
+<div class="grid grid-cols-1 gap-1 lg:grid-cols-6 lg:gap-6 text-left lg:mt-6">
     <div class="p-4 mb-6 sm:p-6 col-span-4 md:col-span-4">
         <p class="font-semibold text-xl mb-5 text-center md:text-left">Job Description</p>
         <div class="mx-4 text-gray-800 font-normal leading-loose text-sm text-center md:text-left">
@@ -13,7 +13,7 @@
             </p>
         </div>
     </div>
-    <div class="p-4 mb-6 col-span-6 md:col-span-2">
+    <div class="p-4 col-span-6 md:col-span-2 lg:mb-6">
         <p class="font-semibold text-xl mb-5 text-center md:text-left">Job Overview</p>
         <article class="rounded-lg bg-white text-center p-4 border border-black sm:p-6 sm:text-center md:text-left lg:text-left">
             <div class="leading-8">

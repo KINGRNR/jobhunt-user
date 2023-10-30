@@ -64,7 +64,7 @@
                     -
                 </p>
                 <div class="grid grid-cols-1 lg:flex justify-center lg:gap-6">
-                    <p class="mt-2 font-normal text-figma-gray-500">
+                    <p class="mt-2 font-normal text-figma-gray-500" id="company_website">
                         <i class="fa fa-link">&nbsp;</i>-
                     </p>
                     <p class="mt-2 font-normal text-figma-gray-500" id="company_num">
@@ -74,16 +74,19 @@
                         <i class="fa fa-envelope">&nbsp;</i>-
                     </p>
                 </div>
+                <button data-popover-target="popover-bottom" data-popover-placement="bottom" type="button"
+                    class="text-white bg-figma-biru-primary hover:bg-blue-800 duration-100 focus:ring-4 focus:ring-blue-300 font-medium w-auto p-4 my-12 mx-12 md:hidden lg:hidden">Apply
+                    Job</button>
             </div>
         </div>
     </article>
 
     <div class="md:col-span-1">
         <button data-popover-target="popover-bottom" data-popover-placement="bottom" type="button"
-            class="text-white bg-figma-biru-primary hover:bg-blue-800 duration-100 focus:ring-4 focus:ring-blue-300 font-medium w-auto p-4 my-12 mx-12">Apply
+            class="text-white bg-figma-biru-primary hidden hover:bg-blue-800 duration-100 focus:ring-4 focus:ring-blue-300 font-medium w-auto p-4 my-12 mx-12 md:block lg:block">Apply
             Job</button>
         <div data-popover id="popover-bottom" role="tooltip"
-            class="absolute z-10 invisible md:visible inline-block w-[25%] text-sm transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-md opacity-0">
+            class="absolute z-10 invisible md:visible inline-block w-[100%] text-sm transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-md opacity-0 lg:w-[25%]">
             <div class="px-3 py-2">
                 <p>To apply for this job, email your details to <span class="text-blue-500">ini@gmail.com</span></p>
             </div>
@@ -93,10 +96,18 @@
                     online resume and email your application to this employer.</p>
             </div>
             <div class="flex justify-center">
-                <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="submit"
-                    class="text-figma-biru-primary bg-white border border-figma-biru-primary hover:bg-figma-biru-primary hover:text-white duration-100 focus:ring-4 focus:ring-blue-300 font-medium w-[100%] p-3 mx-5 my-4"><i
-                        class="fa fa-plus"></i>
-                    Submit Resume & Apply</button>
+                @if (auth()->user())
+                    <button data-modal-target="popup-modal-avail-resume" data-modal-toggle="popup-modal-avail-resume"
+                        type="submit"
+                        class="text-figma-biru-primary bg-white border border-figma-biru-primary hover:bg-figma-biru-primary hover:text-white duration-100 focus:ring-4 focus:ring-blue-300 font-medium w-[100%] p-3 mx-5 my-4"><i
+                            class="fa fa-plus"></i>
+                        Submit Resume & Apply</button>
+                @else
+                    <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" type="submit"
+                        class="text-figma-biru-primary bg-white border border-figma-biru-primary hover:bg-figma-biru-primary hover:text-white duration-100 focus:ring-4 focus:ring-blue-300 font-medium w-[100%] p-3 mx-5 my-4"><i
+                            class="fa fa-plus"></i>
+                        Submit Resume & Apply</button>
+                @endif
             </div>
             <div data-popper-arrow></div>
         </div>
@@ -104,6 +115,40 @@
 </div>
 </div>
 
+<div id="popup-modal-avail-resume" tabindex="-1"
+    class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full animate__animated animate__fadeIn animate__faster">
+    <div class="relative w-full max-w-md max-h-full">
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <button type="button"
+                class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                data-modal-hide="popup-modal">
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+                <span class="sr-only">Close modal</span>
+            </button>
+            <div class="p-6 text-center">
+                <h3 class="mb-2 text-lg font-normal">Available Resume</h3>
+                <p class="mb-2 text-sm">To apply for a job, you must choose ur available resume</p>
+                <select id="select-resume" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="choose" selected>Choose ur Resume</option>
+                    <option value="US">United States</option>
+                    <option value="CA">Canada</option>
+                    <option value="FR">France</option>
+                    <option value="DE">Germany</option>
+                  </select>
+                <div class="flex justify-center gap-6">
+                    <a data-modal-hide="popup-modal" href="" id="create-resume"
+                    class="text-black bg-white focus:ring-4 focus:outline-none focus:ring-figma-biru-300 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-full">Create Resume</a>
+                    <a data-modal-hide="popup-modal" href="" id="submit-resume"
+                        class="hidden text-white bg-figma-biru-300 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-gray-200 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-full">Use Resume</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="popup-modal" tabindex="-1"
     class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full animate__animated animate__fadeIn animate__faster">
     <div class="relative w-full max-w-md max-h-full">
@@ -127,12 +172,12 @@
                 <h3 class="mb-2 text-lg font-normal text-red-600">You don't have an account!</h3>
                 <p class="mb-5 text-sm">To apply for a job, you must have an account</p>
                 <div class="flex justify-center gap-6">
-                    <button data-modal-hide="popup-modal" type="button"
+                    <a data-modal-hide="popup-modal" href="/register"
                         class="text-black bg-white focus:ring-4 focus:outline-none focus:ring-figma-biru-300 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-full">
                         Daftar
-                    </button>
-                    <button data-modal-hide="popup-modal" type="button"
-                        class="text-white bg-figma-biru-300 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-gray-200 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-full">Login</button>
+                    </a>
+                    <a data-modal-hide="popup-modal" href="/login"
+                        class="text-white bg-figma-biru-300 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-gray-200 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-full">Login</a>
                 </div>
             </div>
         </div>

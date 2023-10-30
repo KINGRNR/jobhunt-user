@@ -48,6 +48,8 @@ class AuthController extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
             $user = User::where('email', $request->email)->firstOrFail();
             session(['user' => $user]);
+            session(['user_id' => $user->id]);
+
             $request->session()->regenerate();
 
             switch ($user->users_role_id) {
@@ -59,7 +61,7 @@ class AuthController extends Controller
                 case 'FOV4Qtgi5lcQ9kZ':
                     return response()->json([
                         'success' => true,
-                        'redirect' => route('registercompany'),
+                        'redirect' => route('landing'),
                     ]);
                 case 'FOV4Qtgi5lcQ9kCY':
                     Auth::logout();
