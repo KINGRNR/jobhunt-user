@@ -1,3 +1,42 @@
+<style>
+    .loading-spinner-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        /* Ubah z-index sesuai kebutuhan */
+    }
+
+    .loading-spinner {
+        border: 2px solid #ccc;
+        border-top: 2px solid #007bff;
+        /* Ganti warna sesuai kebutuhan */
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<div class="loading-spinner-overlay" id="loading-spinner" style="display: none;">
+    <div class="loading-spinner"></div>
+    <p>Loading..</p>
+</div>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 
@@ -354,6 +393,7 @@
             cancelButtonText: 'Tidak',
         }).then((result) => {
             if (result.isConfirmed) {
+                $('#loading-spinner').css('display', '')
                 $.ajax({
                     url: APP_URL + 'resume/save',
                     type: "POST",
@@ -366,11 +406,13 @@
 
                     success: function(response) {
                         if (response.success) {
+                            $('#loading-spinner').css('display', 'none');
                             Swal.fire({
                                 title: response.title,
                                 text: response.message,
                                 icon: (response.success) ? 'success' : "error",
                                 confirmButtonText: "Oke!",
+
                             }).then(() => {
                                 window.location.href = '/resumepreview';
                             });
@@ -378,6 +420,7 @@
                     },
                     error: function(response) {
                         let err_msg = response.responseJSON
+                        $('#loading-spinner').css('display', 'none');
                         Swal.fire({
                             title: err_msg.title,
                             text: err_msg.message,
