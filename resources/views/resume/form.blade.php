@@ -27,7 +27,7 @@
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="2" d="m1 9 4-4-4-4" />
                                 </svg>
-                                <a href="#" class="ml-1 text-xl font-medium text-white md:ml-2">Submit Resume</a>
+                                <a href="#" class="hidden ml-1 text-xl font-medium text-white md:ml-2">Submit Resume</a>
                             </div>
                         </li>
                     </ol>
@@ -55,7 +55,7 @@
                                     <div class="col-span-3">
                                         <input type="text" id="resume_fullname" name="resume_fullname"
                                             class="block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                            placeholder="Enter your full name">
+                                            placeholder="Enter your full name" required>
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-4">
@@ -67,11 +67,12 @@
                                     <div class="col-span-3">
                                         <select id="resume_expected_salary" name="resume_expected_salary"
                                             class="block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                                            <option selected>--Choose--</option>
+                                            <option value="-" selected>--Choose--</option>
                                             <option value="1.000.000 - 2.000.000">1.000.000 - 2.000.000</option>
                                             <option value="3.000.000 - 5.000.000">3.000.000 - 5.000.000</option>
                                             <option value="6.000.000 - 9.000.000">6.000.000 - 9.000.000</option>
                                             <option value="10.000.000 - 15.000.000">10.000.000 - 15.000.000</option>
+                                            {{-- <option value="10.000.000 - 15.000.000">10.000.000 - 15.000.000</option> --}}
                                             {{-- <option value="">Custom</option> --}}
                                         </select>
                                     </div>
@@ -94,7 +95,7 @@
                                     <div class=" col-span-3">
                                         <select id="resume_education_level" name="resume_education_level"
                                             class="block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                                            <option selected>--Choose--</option>
+                                            <option value="-" selected>--Choose--</option>
                                             <option value="0">Lulusan SD/Sederajat</option>
                                             <option value="1">Lulusan SMP/Sederajat</option>
                                             <option value="2">Lulusan SMA/Sederajat</option>
@@ -156,7 +157,11 @@
                                             id="file_input" type="file">
                                         <span class="text-gray-600">Make sure the photo is formal or polite, and the
                                             face is clearly visible</span>
+                                        <div class="mt-2">
+                                            <img id="imagePreview" class="hidden w-24 border border-2 rounded-full mt-2 " alt="Preview" />
+                                        </div>
                                     </div>
+
                                 </div>
                                 <div class="grid grid-cols-8 col-span-2">
                                     <div class="text-sm">
@@ -229,7 +234,7 @@
                                     <div class="col-span-7">
                                         <textarea id="resume_content" name="resume_content" rows="8"
                                             class="mb-4 block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500"
-                                            placeholder='''></textarea>
+                                            placeholder=''></textarea>
                                     </div>
                                 </div>
                                 <div class="grid grid-cols-8 col-span-2 mb-5">
@@ -248,10 +253,10 @@
                             <hr class="mb-10 border border-1 border-black">
                             <div class="grid grid-cols-2 gap-4">
                                 <div class="flex justify-start">
-                                    <button data-modal-hide="popup-modal" type="button"
-                                        class="text-black bg-white focus:ring-4 focus:outline-none focus:ring-figma-biru-300 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-[50%]">
-                                        Reset
-                                    </button>
+                                    <a data-modal-hide="popup-modal" href="/resumepreview"
+                                        class="text-black bg-white focus:ring-4 focus:outline-none focus:ring-figma-biru-300 border-2 border-figma-biru-300 text-sm text-center font-medium px-5 py-2.5 focus:z-10 w-[50%]">
+                                        Batal
+                                </a>
                                 </div>
                                 <div class="flex justify-end">
                                     <button data-modal-hide="popup-modal" type="submit"
@@ -281,6 +286,23 @@
             placeholder: 'Select an option'
         });
     });
+    $(document).ready(function() {
+        $("#resume_official_photo").change(function() {
+            var fileInput = document.getElementById('resume_official_photo');
+            var imagePreview = document.getElementById('imagePreview');
+            var currentImage = document.getElementById('currentImage');
+
+            if (fileInput.files && fileInput.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.classList.remove('hidden');
+                    currentImage.classList.add('hidden');
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        });
+    });
 
     ClassicEditor
         .create(document.querySelector('#resume_content'))
@@ -305,6 +327,7 @@
                     $('#resume_skill').val(data.resume_skill);
                     $('input[name="resume_gender"][value="' + data.resume_gender + '"]').prop('checked',
                         true);
+                    $('#resume_content').text(data.resume_content)
                     $('#resume_candidate_age').val(data.resume_candidate_age);
                     $('#resume_link').val(data.resume_link);
                     $('#resume_content').val(data.resume_content);
@@ -342,7 +365,6 @@
                     data: formData,
 
                     success: function(response) {
-                        console.log(response);
                         if (response.success) {
                             Swal.fire({
                                 title: response.title,
@@ -350,7 +372,7 @@
                                 icon: (response.success) ? 'success' : "error",
                                 confirmButtonText: "Oke!",
                             }).then(() => {
-                               window.location.href= '/resumepreview';
+                                window.location.href = '/resumepreview';
                             });
                         }
                     },

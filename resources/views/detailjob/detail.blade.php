@@ -97,7 +97,7 @@
             </div>
             <div class="flex justify-center">
                 @if (auth()->user())
-                    <button data-modal-target="popup-modal-avail-resume" data-modal-toggle="popup-modal-avail-resume"
+                    <button type="button" onclick="submitJob(this)" id="btn-submitjob"
                         type="submit"
                         class="text-figma-biru-primary bg-white border border-figma-biru-primary hover:bg-figma-biru-primary hover:text-white duration-100 focus:ring-4 focus:ring-blue-300 font-medium w-[100%] p-3 mx-5 my-4"><i
                             class="fa fa-plus"></i>
@@ -115,7 +115,7 @@
 </div>
 </div>
 
-<div id="popup-modal-avail-resume" tabindex="-1"
+{{-- <div id="popup-modal-avail-resume" tabindex="-1"
     class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full animate__animated animate__fadeIn animate__faster">
     <div class="relative w-full max-w-md max-h-full">
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -142,13 +142,13 @@
                 <div class="flex justify-center gap-6">
                     <a data-modal-hide="popup-modal" href="" id="create-resume"
                     class="text-black bg-white focus:ring-4 focus:outline-none focus:ring-figma-biru-300 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-full">Create Resume</a>
-                    <a data-modal-hide="popup-modal" href="" id="submit-resume"
+                    <a href="" id="submit-resume"
                         class="hidden text-white bg-figma-biru-300 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-gray-200 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-full">Use Resume</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <div id="popup-modal" tabindex="-1"
     class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full animate__animated animate__fadeIn animate__faster">
     <div class="relative w-full max-w-md max-h-full">

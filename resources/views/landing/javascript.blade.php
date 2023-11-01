@@ -5,6 +5,7 @@
     });
     init = () => {
         loadcount();
+        initResume();
     }
     redirectKategori = (button) => {
         const id = button.getAttribute('data-id');
@@ -60,6 +61,28 @@
                     }
 
                 });
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+    APP_URL = "{{ getenv('APP_URL') }}/";
+    initResume = () => {
+        $.ajax({
+            url: '/resumeprev',
+            type: 'GET',
+            success: function(response) {
+                if (response.resume == '') {
+                    $('#alert_resume').removeClass('hidden');
+                    $('#btn_resume').html(`<a  href="/resumepreview"
+                        class="text-white bg-transparent border border-white hover:text-black hover:bg-white focus:ring-red-800 hover:duration-150 font-medium text-sm px-16 py-3 text-center mr-3 md:mr-0">
+                        Create an resume</a>`)
+                } else {
+                    $('#btn_resume').html(`<a  href="/resumepreview"
+                        class="text-white bg-transparent border border-white hover:text-black hover:bg-white focus:ring-red-800 hover:duration-150 font-medium text-sm px-16 py-3 text-center mr-3 md:mr-0">
+                        Open resume</a>`)
+                }
             },
             error: function(error) {
                 console.log(error);
