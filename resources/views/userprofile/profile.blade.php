@@ -11,10 +11,10 @@
                         <i class="fa fa-arrow-left"></i>&nbsp;Back to Menu
                     </button>
                 </div>
-                <div class="flex justify-center z-40">
+                <div class="flex justify-center z-40" id="photo_profile">
                     <img class="object-cover rounded-full w-[222px] h-[222px]"
                         src="https://hbr.org/resources/images/article_assets/2020/03/Mar20_12_115049941.jpg"
-                        alt="image description">
+                        alt="image photo profile">
                 </div>
                 <div class="">
                     <button data-modal-hide="popup-modal" type="button"
@@ -26,60 +26,180 @@
     </div>
 </section>
 <hr class="mx-5 mt-36 mb-5 border border-1 border-black">
-<p class="mx-5 my-5 font-semibold text-xl">User Detail</p>
+<p class="container mx-auto my-5 font-semibold text-xl">User Detail</p>
 <hr class="mx-5 my-5 border border-1 border-black">
-<div class="mx-5 my-12 grid grid-cols-1">
+<div class="container mx-auto my-12 grid grid-cols-1">
     <div class="mb-4 grid grid-cols-6 gap-4">
-        <p class="text-gray-500">First Name</p>
-        <p class="col-span-5">tes</p>
+        <p class="text-gray-500">Full Name</p>
+        <p class="col-span-5 fullname">-</p>
     </div>
     <div class="mb-4 grid grid-cols-6 gap-4">
-        <p class="text-gray-500">Last Name</p>
-        <p class="col-span-5">tes</p>
+        <p class="text-gray-500">Username</p>
+        <p class="col-span-5" id="username">-</p>
     </div>
     <div class="mb-4 grid grid-cols-6 gap-4">
         <p class="text-gray-500">Email</p>
-        <p class="col-span-5">tes</p>
+        <p class="col-span-5" id="email">-</p>
     </div>
     <div class="mb-4 grid grid-cols-6 gap-4">
         <p class="text-gray-500">Password</p>
-        <p class="col-span-5">tes</p>
+        <p class="col-span-5">-</p>
     </div>
     <div class="mb-4 grid grid-cols-6 gap-4">
         <p class="text-gray-500">Gender</p>
-        <p class="col-span-5">tes</p>
+        <p class="col-span-5 gender">-</p>
     </div>
     <div class="mb-4 grid grid-cols-6 gap-4">
         <p class="text-gray-500">Phone Number</p>
-        <p class="col-span-5">tes</p>
+        <p class="col-span-5" id="phone">-</p>
     </div>
     <div class="mb-4 grid grid-cols-6 gap-4">
         <p class="text-gray-500">Address</p>
-        <p class="col-span-5">tes</p>
+        <p class="col-span-5 address">-</p>
     </div>
     <div class="mb-4 grid grid-cols-6 gap-4">
         <p class="text-gray-500">Region</p>
-        <p class="col-span-5">tes</p>
+        <p class="col-span-5" id="region">-</p>
     </div>
 </div>
 <hr class="mx-5 my-5 border border-1 border-black">
-<p class="mx-5 my-5 font-semibold text-xl">Skill Detail</p>
+<p class="container mx-auto mx-5 my-5 font-semibold text-xl">Skill Detail</p>
 <hr class="mx-5 my-5 border border-1 border-black">
-<div class="mx-5 my-12 grid grid-cols-1">
-    <div class="mb-4 grid grid-cols-6 gap-4">
+<div id="alert-resume-profile"
+    class="hidden container mx-auto flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+    role="alert">
+    <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+        viewBox="0 0 20 20">
+        <path
+            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+    </svg>
+    <span class="sr-only">Info</span>
+    <div class="ml-3 text-sm font-medium">
+        Buat <a href="/resume" class="font-semibold underline hover:no-underline">resume</a> untuk melengkapi Profil
+        anda.
+    </div>
+    <button type="button"
+        class="ml-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700"
+        data-dismiss-target="#alert-resume-profile" aria-label="Close">
+        <span class="sr-only">Close</span>
+        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+        </svg>
+    </button>
+</div>
+<div class="container mx-auto mx-5 my-12 grid grid-cols-1" id="detailed_skill">
+    {{-- <div class="mb-4 grid grid-cols-6 gap-4">
         <p class="text-gray-500">Qualification</p>
-        <p class="col-span-5">tes</p>
+        <p class="col-span-5">-</p>
     </div>
     <div class="mb-4 grid grid-cols-6 gap-4">
         <p class="text-gray-500">Skill</p>
-        <p class="col-span-5">tes</p>
+        <p class="col-span-5">-</p>
     </div>
     <div class="mb-4 grid grid-cols-6 gap-4">
         <p class="text-gray-500">Resume File</p>
-        <a href="#" class="col-span-5 text-blue-600">tes</a>
+        <a href="#" class="col-span-5 text-blue-600">-</a>
     </div>
     <div class="mb-4 grid grid-cols-6 gap-4">
         <p class="text-gray-500">Portofolio</p>
-        <a href="#" class="col-span-5 text-blue-600">tes</a>
-    </div>
+        <a href="#" class="col-span-5 text-blue-600">-</a>
+    </div> --}}
 </div>
+
+<script>
+    APP_URL = "{{ getenv('APP_URL') }}/";
+
+    $(() => {
+        initUserDetail()
+        initIntegrationResume()
+    });
+    initUserDetail = () => {
+        $.ajax({
+            url: '/userdata',
+            type: 'GET',
+            success: function(response) {
+                var data = response.users[0]
+                console.log(response);
+                $('#username').text(data.username);
+                $('#email').text(data.email);
+                $('#phone').text(data.phone_num);
+                $('#region').text(data.region);
+            },
+            error: function(error) {
+
+            }
+        });
+    }
+    initIntegrationResume = () => {
+        return new Promise((resolve, reject) => {
+            $.ajax({
+                url: '/resumeprev',
+                type: 'GET',
+                success: function(response) {
+                    if (response.resume == '') {
+                        $('#alert-resume-profile').removeClass('hidden');
+                    } else {
+                        var data = response.resume[0]
+                        // var gender = data.resume_gender
+                        if (data.resume_gender == 0) {
+                            gender = "Perempuan";
+                        } else {
+                            gender = "Laki-Laki"
+                        }
+                        $('.fullname').text(data.resume_fullname)
+                        $('.gender').text(gender);
+                        $('.address').text(data.resume_address);
+                        switch (data.resume_education_level) {
+                            case '1':
+                                lulusan = "Lulusan SD/Sederajat"
+                                break;
+                            case '2':
+                                lulusan = "Lulusan SMP/Sederajat";
+                                break;
+                            case '3':
+                                lulusan = "Lulusan SMA/Sederajat";
+                                break;
+                            case '4':
+                                lulusan = "Lulusan S1";
+                                break;
+                            case '5':
+                                lulusan = "Lulusan S2";
+                                break;
+                            case '6':
+                                lulusan = "Lulusan S3";
+                                break;
+                            default:
+                                break;
+                        }
+                        $('#photo_profile').html(`<img class="object-cover rounded-full w-[222px] h-[222px]"
+                        src="${APP_URL +'file/user_photo/'+ data.resume_official_photo }"
+                        alt="image photo profile">`);
+                        var html = `<div class="mb-4 grid grid-cols-6 gap-4">
+        <p class="text-gray-500">Qualification</p>
+        <p class="col-span-5">${lulusan}</p>
+    </div>
+    <div class="mb-4 grid grid-cols-6 gap-4">
+        <p class="text-gray-500">Skill</p>
+        <p class="col-span-5">${data.resume_skill}</p>
+    </div>
+    <div class="mb-4 grid grid-cols-6 gap-4">
+        <p class="text-gray-500">Resume File</p>
+        <a href="/file/company/${data.resume_file}" class="col-span-5 text-blue-600" download>Click to Download</a>
+    </div>
+    <div class="mb-4 grid grid-cols-6 gap-4">
+        <p class="text-gray-500">Portofolio Link</p>
+        <a href="${data.resume_portofolio_link}" class="col-span-5 text-blue-600">Click to Continue</a>
+    </div>`;
+                        $(`#detailed_skill`).html(html);
+
+                    }
+                    resolve();
+                },
+                error: function(error) {
+                    reject(error);
+                }
+            });
+        });
+    }
+</script>

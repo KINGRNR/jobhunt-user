@@ -5,6 +5,7 @@ use App\Http\Controllers\CompanyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ResumeController;
+use App\Http\Controllers\UserController;
 use App\Http\Middleware\loginCheck;
 
 /*
@@ -72,9 +73,10 @@ Route::get('/landing', function () {
 
 Route::middleware([loginCheck::class])->group(function () {
     Route::get('/resumeprev', [ResumeController::class, 'index']);
+    Route::get('/userdata', [UserController::class, 'index']);
 
     Route::controller(ResumeController::class)->group(function () {
-        foreach (['save', 'uploadFile', 'deleteFile'] as $key => $value) {
+        foreach (['save', 'submitJob', 'deleteFile'] as $key => $value) {
             Route::post('/resume/' . $value, $value);
         }
     });
