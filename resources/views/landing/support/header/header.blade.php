@@ -71,8 +71,7 @@
                     class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-gray-700 dark:divide-gray-600">
                     <div class="px-4 py-3 text-sm text-gray-900 dark:text-white flex items-center space-x-2">
                         <!-- Profile Photo -->
-                        <img src="file/company/{{ session('photo_name') }}" alt="Profile Photo"
-                            onerror="this.src='file/user_photo/blank.webp';" class="w-10 h-10 rounded-full">
+                        <img src="file/company/{{ session('photo_name') }}" alt="Profile Photo" class="w-10 h-10 rounded-full">
                         <!-- Name and Email -->
                         <div>
                             <div class="font-semibold">{{ auth()->user()->name }}</div>
