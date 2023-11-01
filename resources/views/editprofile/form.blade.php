@@ -30,56 +30,32 @@
 <hr class="mx-5 my-5 border border-1 border-black">
 <div class="mx-5 my-12 grid grid-cols-1">
     <div class="mb-4 grid grid-cols-8 gap-4">
-        <p class="text-gray-500">First Name</p>
+        <p class="text-gray-500">Username</p>
         {{-- jancok tailwind autis, maunya col-span-7 bangsat, col-span-5 ngeyel amat kaya bocah kontol --}}
             <input type="text" id="name" name="name"
             class="block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500 col-span-7"
-            placeholder="Enter your first name" value="kys">
-    </div>
-    <div class="mb-4 grid grid-cols-8 gap-4">
-        <p class="text-gray-500">Last Name</p>
-        <input type="text" id="name" name="name"
-        class="block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500 col-span-7"
-        placeholder="Enter your last name" value="kys">
+            placeholder="Enter your Username">
     </div>
     <div class="mb-4 grid grid-cols-8 gap-4">
         <p class="text-gray-500">Email</p>
         <input type="text" id="name" name="name"
         class="block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500 col-span-7"
-        placeholder="Enter your email" value="kys">
+        placeholder="Enter your email">
     </div>
     <div class="mb-4 grid grid-cols-8 gap-4">
         <p class="text-gray-500">Password</p>
         <input type="password" id="name" name="name"
         class="block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500 col-span-7"
-        placeholder="Enter your password" value="kys">
-    </div>
-    <div class="mb-4 grid grid-cols-8 gap-4">
-        <p class="text-gray-500">Gender</p>
-        <input type="text" id="name" name="name"
-        class="block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500 col-span-7"
-        placeholder="Enter your gender" value="kys">
-    </div>
-    <div class="mb-4 grid grid-cols-8 gap-4">
-        <p class="text-gray-500">Phone Number</p>
-        <input type="text" id="name" name="name"
-        class="block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500 col-span-7"
-        placeholder="Enter your phone number" value="kys">
-    </div>
-    <div class="mb-4 grid grid-cols-8 gap-4">
-        <p class="text-gray-500">Address</p>
-        <input type="text" id="name" name="name"
-        class="block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500 col-span-7"
-        placeholder="Enter your address" value="kys">
+        placeholder="Enter your password">
     </div>
     <div class="mb-4 grid grid-cols-8 gap-4">
         <p class="text-gray-500">Region</p>
         <input type="text" id="name" name="name"
         class="block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500 col-span-7"
-        placeholder="Enter your region" value="kys">
+        placeholder="Enter your region">
     </div>
 </div>
-<hr class="mx-5 my-5 border border-1 border-black">
+{{-- <hr class="mx-5 my-5 border border-1 border-black">
 <p class="mx-5 my-5 font-semibold text-xl">Skill Detail</p>
 <hr class="mx-5 my-5 border border-1 border-black">
 <div class="mx-5 my-12 grid grid-cols-1">
@@ -107,4 +83,4 @@
         class="block w-full p-4 text-sm text-gray-900 border border-gray-200 rounded-lg focus:ring-blue-500 focus:border-blue-500 col-span-7"
         placeholder="Enter your portofolio" value="kys">
     </div>
-</div>
+</div> --}}

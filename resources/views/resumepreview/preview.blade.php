@@ -1,3 +1,5 @@
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <div class="parent">
     <section
         class="bg-[url(https://hbr.org/resources/images/article_assets/2020/03/Mar20_12_115049941.jpg)] bg-center bg-cover h-72">
@@ -14,7 +16,7 @@
                     </div>
                     <div class="flex justify-center z-40">
                         <img class="object-cover rounded-full w-[222px] h-[222px] p-4 border border-white border-4"
-                            src="https://hbr.org/resources/images/article_assets/2020/03/Mar20_12_115049941.jpg"
+                            src=""
                             alt="image description">
                     </div>
                     <div class="">

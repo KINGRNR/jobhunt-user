@@ -1,3 +1,42 @@
+<style>
+    .loading-spinner-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        /* Ubah z-index sesuai kebutuhan */
+    }
+
+    .loading-spinner {
+        border: 2px solid #ccc;
+        border-top: 2px solid #007bff;
+        /* Ganti warna sesuai kebutuhan */
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<div class="loading-spinner-overlay" id="loading-spinner" style="display: none;">
+    <div class="loading-spinner"></div>
+    <p>Loading..</p>
+</div>
 <div id="form" class="fade-me-in">
     <div class="grid grid-cols-1 lg:grid-cols-2">
         <div class="order-1">
@@ -83,6 +122,8 @@
 <script>
     $('#form-register').on('submit', function submit(e) {
         e.preventDefault();
+        $('#loading-spinner').css('display', '')
+
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -104,33 +145,31 @@
                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
             },
             success: function(res) {
+
                 window.location.href = res.redirect;
                 // Toast.fire({
                 //     icon: 'success',
                 //     title: res.message,
                 // });
+                console.log(res);
+
             },
             error: function(xhr, status, error) {
-                var errors = xhr.responseJSON.errors;
+                var message = xhr.responseJSON.message;
+                if (message) {
+                    // Menggabungkan pesan-pesan kesalahan menjadi satu pesan
+                    var errorMessage = Object.values(message).join('<br>');
+                    $('#loading-spinner').css('display', 'none')
 
-                // console.log(status);
-                if (errors) {
-                    for (var key in errors) {
-                        if (errors.hasOwnProperty(key)) {
-                            var errorMessage = errors[key][0];
-                            var inputElement = document.getElementById(key);
-                            if (inputElement) {
-                                Swal.fire({
-                                    icon: 'error',
-                                    showConfirmButton: false,
-                                    timer: 3500,
-                                    title: errorMessage
-                                });
-                            }
-                        }
-                    }
-                } 
+                    // Menampilkan pesan kesalahan dengan Swal
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        html: errorMessage,
+                    });
+                }
             }
+
         });
     });
 </script>

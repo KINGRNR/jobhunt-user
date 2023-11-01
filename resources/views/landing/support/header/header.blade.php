@@ -71,8 +71,8 @@
                     class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-gray-700 dark:divide-gray-600">
                     <div class="px-4 py-3 text-sm text-gray-900 dark:text-white flex items-center space-x-2">
                         <!-- Profile Photo -->
-                        <img src="assets/media/avatars/blank.png" alt="Profile Photo" class="w-10 h-10 rounded-full">
-
+                        <img src="file/company/{{ session('photo_name') }}" alt="Profile Photo"
+                            onerror="this.src='file/user_photo/blank.webp';" class="w-10 h-10 rounded-full">
                         <!-- Name and Email -->
                         <div>
                             <div class="font-semibold">{{ auth()->user()->name }}</div>
@@ -81,60 +81,63 @@
                     </div>
                     <ul class="py-2 text-sm text-gray-600 dark:text-gray-200" aria-labelledby="dropdownProfileButton">
                         <li class=""> <!-- JANGAN ASAL KOMEN LAH ANYING -->
-                            <a href="/userprofile"
-                                class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i class="fa fa-user-o mx-3"></i>Profil</a>
-                        </li> 
-                        <li class="">
-                            <a href="#" 
-                                class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i class="fa fa-history mx-3"></i>Riwayat Lamaran</a>
+                            <a href="/userprofile" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i
+                                    class="fa fa-user-o mx-3"></i>Profil</a>
                         </li>
                         <li class="">
-                            <a href="/resumepreview" 
-                            class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i class="fa fa-pencil mx-3"></i>Resume</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i
+                                    class="fa fa-history mx-3"></i>Riwayat Lamaran</a>
+                        </li>
+                        <li class="">
+                            <a href="/resumepreview" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i
+                                    class="fa fa-pencil mx-3"></i>Resume</a>
                         </li>
                         <li class="">
                             <a onclick="window.location='{{ route('logout') }}'"
-                                class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"
-                                style="cursor: pointer;"><i class="fa fa-sign-out mx-3"></i>Keluar</a>
+                                class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900" style="cursor: pointer;"><i
+                                    class="fa fa-sign-out mx-3"></i>Keluar</a>
                         </li>
                     </ul>
                 </div>
 
 
                 <div id="popup-modal-home-resume" tabindex="-1"
-                class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full animate__animated animate__fadeIn animate__faster">
-                <div class="relative w-full max-w-md max-h-full">
-                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                        <button type="button"
-                            class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                            data-modal-hide="popup-modal">
-                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                viewBox="0 0 14 14">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                            </svg>
-                            <span class="sr-only">Close modal</span>
-                        </button>
-                        <div class="p-6 text-center">
-                            <h3 class="mb-2 text-lg font-normal">Available Resume</h3>
-                            <p class="mb-2 text-sm">To apply for a job, you must choose ur available resume</p>
-                            <select id="select-resume" class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <option value="choose" selected>Choose ur Resume</option>
-                                <option value="US">United States</option>
-                                <option value="CA">Canada</option>
-                                <option value="FR">France</option>
-                                <option value="DE">Germany</option>
-                              </select>
-                            <div class="flex justify-center gap-6">
-                                <a data-modal-hide="popup-modal" href="" id="create-resume"
-                                class="text-black bg-white focus:ring-4 focus:outline-none focus:ring-figma-biru-300 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-full">Create Resume</a>
-                                <a data-modal-hide="popup-modal" href="" id="submit-resume"
-                                    class="hidden text-white bg-figma-biru-300 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-gray-200 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-full">Use Resume</a>
+                    class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full animate__animated animate__fadeIn animate__faster">
+                    <div class="relative w-full max-w-md max-h-full">
+                        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                            <button type="button"
+                                class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                data-modal-hide="popup-modal">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 14 14">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                            <div class="p-6 text-center">
+                                <h3 class="mb-2 text-lg font-normal">Available Resume</h3>
+                                <p class="mb-2 text-sm">To apply for a job, you must choose ur available resume</p>
+                                <select id="select-resume"
+                                    class="mb-5 bg-gray-50 border border-gray-300 text-gray-900 mb-6 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option value="choose" selected>Choose ur Resume</option>
+                                    <option value="US">United States</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="FR">France</option>
+                                    <option value="DE">Germany</option>
+                                </select>
+                                <div class="flex justify-center gap-6">
+                                    <a data-modal-hide="popup-modal" href="" id="create-resume"
+                                        class="text-black bg-white focus:ring-4 focus:outline-none focus:ring-figma-biru-300 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-full">Create
+                                        Resume</a>
+                                    <a data-modal-hide="popup-modal" href="" id="submit-resume"
+                                        class="hidden text-white bg-figma-biru-300 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-gray-200 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-full">Use
+                                        Resume</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
                 {{-- <button type="button"
                 class="hidden min-[450px]:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Sign Out</button> --}}
@@ -198,11 +201,11 @@
                             </li>
                         </ul>
                         @auth
-                        <div class="py-1">
-                            <a onclick="window.location='{{ route('logout') }}'" style="cursor: pointer"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Sign
-                                out</a>
-                        </div>
+                            <div class="py-1">
+                                <a onclick="window.location='{{ route('logout') }}'" style="cursor: pointer"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Sign
+                                    out</a>
+                            </div>
                         @endauth
                     </div>
                 </li>
