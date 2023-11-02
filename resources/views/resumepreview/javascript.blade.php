@@ -235,6 +235,7 @@
                     },
                     data: JSON.stringify(submitJobData),
                     success: function(response) {
+                        console.log(response.success);
                         if (response.success) {
                             Swal.fire({
                                 title: response.title,
@@ -242,7 +243,16 @@
                                 icon: (response.success) ? 'success' : "error",
                                 confirmButtonText: "Sip!",
                             }).then(() => {
-                                window.location.href = '/resumepreview';
+                                window.location.href = '/';
+                            });
+                        } else {
+                            Swal.fire({
+                                title: response.title,
+                                text: response.message,
+                                icon: (response.success) ? 'success' : "error",
+                                confirmButtonText: "Oh, Oke..",
+                            }).then(() => {
+                                window.location.href = '/';
                             });
                         }
                     },
