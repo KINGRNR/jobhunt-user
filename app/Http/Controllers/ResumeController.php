@@ -17,44 +17,53 @@ class ResumeController extends Controller
         $data = DB::table('resume')->where('resume_user_id', $id)->get();
         return response()->json(['resume' => $data]);
     }
+    
     public function save(Request $request)
     {
         $id = Session::get('user_id');
+
+        $request->validate([
+            'resume_official_photo' => 'nullable|image|max:3000|mimes:jpeg,jpg,png',
+            'resume_file' => 'nullable|max:3000|mimes:pdf,doc,docx',
+        ]);
+
         $data = $request->except(['_token', 'resume_official_photo', 'resume_file']);
         $data['resume_user_id'] = $id;
         $data['resume_active'] = 1;
 
         $existingResume = Resume::where('resume_user_id', $id)->first();
 
-        if ($existingResume) {
-            $existingResume->delete();
-        }
-
+        // Handle the photo upload
         if ($request->hasFile('resume_official_photo')) {
-            if (!empty($existingResume->resume_official_photo)) {
-                unlink(public_path('file/user_photo/' . $existingResume->resume_official_photo));
-            }
             $photoFile = $request->file('resume_official_photo');
             $photoName = Str::random(15) . '_' . time() . '.' . $photoFile->getClientOriginalExtension();
-            $photoFile->move(public_path('file/user_photo/'), $photoName);
-            $data['resume_official_photo'] = $photoName;
-        } else if (isset($existingResume->resume_official_photo)) {
-            $data['resume_official_photo'] = $existingResume->resume_official_photo;
+
+            if ($photoFile->move(public_path('file/user_photo/'), $photoName)) {
+                $data['resume_official_photo'] = $photoName;
+
+                // Delete the existing photo if it exists
+                if ($existingResume && $existingResume->resume_official_photo) {
+                    unlink(public_path('file/user_photo/' . $existingResume->resume_official_photo));
+                    $existingResume->resume_official_photo = null; // Update the existing resume to clear the photo
+                }
+            }
         }
 
+        // Handle the resume file upload
         if ($request->hasFile('resume_file')) {
-            if (!empty($existingResume->resume_file)) {
-                unlink(public_path('file/user_photo/' . $existingResume->resume_file));
-            }
             $resumeFile = $request->file('resume_file');
             $resumeName = Str::random(15) . '_' . time() . '.' . $resumeFile->getClientOriginalExtension();
-            $resumeFile->move(public_path('file/user_photo/'), $resumeName);
-            $data['resume_file'] = $resumeName;
-        } else if (isset($existingResume->resume_file)) {
-            $data['resume_file'] = $existingResume->resume_file;
+
+            if ($resumeFile->move(public_path('file/resume_file/'), $resumeName)) {
+                $data['resume_file'] = $resumeName;
+            }
         }
-        // print_r($data);exit;
-        Resume::create($data);
+
+        if ($existingResume) {
+            $existingResume->update($data);
+        } else {
+            Resume::create($data);
+        }
 
         return response()->json([
             'success' =>  true,
@@ -64,6 +73,8 @@ class ResumeController extends Controller
             'code' => 201
         ]);
     }
+
+
     public function submitJob(Request $request)
     {
 
@@ -91,6 +102,5 @@ class ResumeController extends Controller
                 'message' => 'Terjadi Kesalahan di Sistem!',
             ]);
         }
-        print_r($data);
     }
 }

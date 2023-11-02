@@ -48,33 +48,36 @@
                             }
                         });
                     } else {
-
                         var data = response.resume[0]
                         var gender = data.resume_gender
                         var lulusan = []
                         switch (data.resume_education_level) {
-                            case '1':
+                            case '0':
                                 lulusan = "Lulusan SD/Sederajat"
                                 break;
-                            case '2':
+                            case '1':
                                 lulusan = "Lulusan SMP/Sederajat";
                                 break;
-                            case '3':
+                            case '2':
                                 lulusan = "Lulusan SMA/Sederajat";
                                 break;
-                            case '4':
+                            case '3':
                                 lulusan = "Lulusan S1";
                                 break;
-                            case '5':
+                            case '4':
                                 lulusan = "Lulusan S2";
                                 break;
-                            case '6':
+                            case '5':
                                 lulusan = "Lulusan S3";
                                 break;
                             default:
                                 break;
                         }
-
+                        if (data.resume_gender == 0) {
+                            gender = "Perempuan";
+                        } else {
+                            gender = "Laki-Laki"
+                        }
                         var html = `<section
         class="bg-[url(https://hbr.org/resources/images/article_assets/2020/03/Mar20_12_115049941.jpg)] bg-center bg-cover h-72">
         <div class="bg-black bg-opacity-50 h-72">
@@ -151,6 +154,16 @@
                     <p class="col-span-5">${data.resume_content}</p>
                 </div>
                 <div class="mb-5 grid grid-cols-6 gap-4">
+                    <p class="text-gray-500">Resume File</p>
+                    <a data-modal-hide="popup-modal" href="/file/resume_file/${data.resume_file}" class="text-white text-center bg-figma-biru-300 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-gray-200 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-44">
+                                        Detail File
+                                </a>
+                </div>
+                <div class="mb-5 grid grid-cols-6 gap-4">
+                    <p class="text-gray-500">Resume Link</p>
+                    <p class="col-span-5">${data.resume_link}</p>
+                </div>
+                <div class="mb-5 grid grid-cols-6 gap-4">
                     <p class="text-gray-500">Portofolio Link</p>
                     <p class="col-span-5">${data.resume_portofolio_link}</p>
                 </div>
@@ -165,7 +178,7 @@
                             </div>
                             <div class="text-sm mb-5">
                                 <p class="font-semibold"><i class="fa fa-venus-mars">&nbsp;</i>Gender</p>
-                                <p class="ml-5 text-gray-600">k</p>
+                                <p class="ml-5 text-gray-600">${gender}</p>
                             </div>
                             <div class="text-sm mb-5">
                                 <p class="font-semibold"><i class="fa fa-graduation-cap">&nbsp;</i>Qualification</p>
@@ -216,7 +229,7 @@
                     url: APP_URL + 'resume/submitJob',
                     type: "POST",
                     processData: false,
-                    contentType: 'application/json', // Mengatur tipe konten ke JSON
+                    contentType: 'application/json',
                     headers: {
                         'X-CSRF-TOKEN': csrfToken,
                     },
