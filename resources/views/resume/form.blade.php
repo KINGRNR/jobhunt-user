@@ -36,6 +36,7 @@
 <div class="loading-spinner-overlay" id="loading-spinner" style="display: none;">
     <div class="loading-spinner"></div>
     <p>Loading..</p>
+
 </div>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
@@ -66,7 +67,8 @@
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="2" d="m1 9 4-4-4-4" />
                                 </svg>
-                                <a href="#" class="hidden ml-1 text-xl font-medium text-white md:ml-2">Submit Resume</a>
+                                <a href="#" class="hidden ml-1 text-xl font-medium text-white md:ml-2">Submit
+                                    Resume</a>
                             </div>
                         </li>
                     </ol>
@@ -195,9 +197,12 @@
                                             class="block w-full text-sm text-gray-500 border border-gray-200 rounded-lg cursor-pointer focus:outline-none mb-2"
                                             id="file_input" type="file">
                                         <span class="text-gray-600">Make sure the photo is formal or polite, and the
-                                            face is clearly visible</span>
+                                            face is clearly visible<span class="text-figma-biru-300">(Maks. 5mb,
+                                                png,jpeg,jpg)</span></span>
                                         <div class="mt-2">
-                                            <img id="imagePreview" class="hidden w-24 border border-2 rounded-full mt-2 " alt="Preview" />
+                                            <img id="imagePreview"
+                                                class="hidden w-24 border border-2 rounded-full mt-2 "
+                                                alt="Preview" />
                                         </div>
                                     </div>
 
@@ -295,7 +300,7 @@
                                     <a data-modal-hide="popup-modal" href="/resumepreview"
                                         class="text-black bg-white focus:ring-4 focus:outline-none focus:ring-figma-biru-300 border-2 border-figma-biru-300 text-sm text-center font-medium px-5 py-2.5 focus:z-10 w-[50%]">
                                         Batal
-                                </a>
+                                    </a>
                                 </div>
                                 <div class="flex justify-end">
                                     <button data-modal-hide="popup-modal" type="submit"
@@ -324,8 +329,6 @@
         $('.select').select2({
             placeholder: 'Select an option'
         });
-    });
-    $(document).ready(function() {
         $("#resume_official_photo").change(function() {
             var fileInput = document.getElementById('resume_official_photo');
             var imagePreview = document.getElementById('imagePreview');
@@ -382,8 +385,24 @@
         var form = "resume_form"
         var data = $('[name="' + form + '"]')[0];
         var formData = new FormData(data);
-        console.log(formData);
+        var inputElements = $('input[type="text"], select').not('input[type="file"]');
+        var isEmpty = false;
+        inputElements.each(function() {
+            if ($(this).val() === "") {
+                isEmpty = true;
+                return false;
+            }
+        });
 
+        if (isEmpty) {
+            Swal.fire({
+                title: 'Error',
+                text: 'Harap isi semua input.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+            return false;
+        } else {
         Swal.fire({
             title: 'Konfirmasi',
             text: 'Pastikan Data yang di inputkan sudah benar',
@@ -420,19 +439,22 @@
                     },
                     error: function(response) {
                         let err_msg = response.responseJSON
+                        console.log(err_msg)
                         $('#loading-spinner').css('display', 'none');
                         Swal.fire({
                             title: err_msg.title,
                             text: err_msg.message,
                             icon: (err_msg.success) ? 'success' : "error",
-                            buttonsStyling: false,
                             confirmButtonText: "Oke!",
-                        }).then(() => {
-                            location.reload();
                         });
                     }
                 });
             }
         });
+    }
+}
+
+    function validateForm() {
+      
     }
 </script>
