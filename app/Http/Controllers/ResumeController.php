@@ -17,7 +17,7 @@ class ResumeController extends Controller
         $data = DB::table('resume')->where('resume_user_id', $id)->get();
         return response()->json(['resume' => $data]);
     }
-    
+
     public function save(Request $request)
     {
         $id = Session::get('user_id');
@@ -77,10 +77,24 @@ class ResumeController extends Controller
 
     public function submitJob(Request $request)
     {
-
         try {
             $id = Session::get('user_id');
             $req = $request->post();
+
+            $existingEntry = ApplyJob::where('job_apply_job_id', $req['data_id'])
+                ->where('job_apply_resume_id', $req['data_resume'])
+                ->where('job_apply_status', '<>', 2) 
+                ->first();
+
+            if ($existingEntry) {
+                return response()->json([
+                    'success' => false,
+                    'status' => 'error',
+                    'title' => 'Gagal!',
+                    'message' => 'Anda sudah pernah Apply di pekerjaan ini dengan status masih pengajuan / sudah diterima.',
+                ]);
+            }
+
             $data['job_apply_status'] = 0;
             $data['job_apply_job_id'] = $req['data_id'];
             $data['job_apply_resume_id'] = $req['data_resume'];
@@ -88,16 +102,16 @@ class ResumeController extends Controller
             $operation = ApplyJob::create($data);
 
             return response()->json([
-                'success' =>  true,
-                'status' =>  'Success',
+                'success' => true,
+                'status' => 'Success',
                 'title' => 'Sukses!',
                 'message' => 'Pengajuan Berhasil Dibuat, Tunggu Kabar Baik dari perusahaan terkait!',
                 'code' => 201
             ]);
         } catch (\Throwable $th) {
             return response()->json([
-                'success' =>  false,
-                'status' =>  'error',
+                'success' => false,
+                'status' => 'error',
                 'title' => 'Gagal!',
                 'message' => 'Terjadi Kesalahan di Sistem!',
             ]);
