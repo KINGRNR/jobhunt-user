@@ -54,6 +54,7 @@ class AuthController extends Controller
             }
             session(['user' => $user]);
             session(['user_id' => $user->id]);
+            session(['user_role' => $user->users_role_id]);
 
             $request->session()->regenerate();
 
