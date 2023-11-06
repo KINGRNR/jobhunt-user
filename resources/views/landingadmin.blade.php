@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    @include('landing.support.header.header')
+    @include('landing.support.header.header_comp')
     @include('landing.admin.chart')
     @include('landing.support.footer.footer')
     
