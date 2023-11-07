@@ -109,5 +109,8 @@ Route::middleware([loginCheck::class])->group(function () {
         Route::get('/company/detailjob', function () {
             return view('indexcompany.detailjob');
         });
+        Route::get('/company/detailpelamar', function () {
+            return view('indexcompany.detailpelamar');
+        });
     });
 });

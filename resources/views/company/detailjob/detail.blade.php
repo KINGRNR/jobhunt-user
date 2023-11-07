@@ -79,26 +79,38 @@
                     Job</button> --}}
             </div>
         </div>
-        
+
     </article>
     <div class="grid grid-cols-1 mt-10 mr-10 lg:flex gap-6">
 
-        <span class="relative bg-figma-blue-gray-50 text-blue-800 text-sm flex items-center justify-center font-medium w-36 h-14 lg:h-10 rounded">Full
+        <span
+            class="relative bg-figma-blue-gray-50 text-blue-800 text-sm flex items-center justify-center font-medium w-36 h-14 lg:h-10 rounded">Full
             Time</span>
-        <span class="relative bg-green-100 text-green-600 text-sm flex items-center justify-center font-medium w-36 h-14 lg:h-10 rounded">Disetujui</span>
-            <button  data-dropdown-toggle="dropdown" class="relative bg-gray-200 text-sm flex items-center justify-center font-medium w-10 h-10  rounded rounded-full" style=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="6" viewBox="0 0 24 6" fill="none">
-                <path d="M3 0.142578C3.39397 0.142578 3.78407 0.21648 4.14805 0.360065C4.51203 0.50365 4.84274 0.714106 5.12132 0.979416C5.3999 1.24473 5.62087 1.5597 5.77164 1.90634C5.9224 2.25298 6 2.62452 6 2.99972C6 3.37493 5.9224 3.74646 5.77164 4.0931C5.62087 4.43975 5.3999 4.75472 5.12132 5.02003C4.84274 5.28534 4.51203 5.49579 4.14805 5.63938C3.78407 5.78296 3.39397 5.85686 3 5.85686C2.20435 5.85686 1.44129 5.55585 0.87868 5.02003C0.31607 4.48421 0 3.75748 0 2.99972C0 2.24196 0.31607 1.51523 0.87868 0.979416C1.44129 0.443598 2.20435 0.142578 3 0.142578ZM12 0.142578C12.394 0.142578 12.7841 0.21648 13.1481 0.360065C13.512 0.50365 13.8427 0.714106 14.1213 0.979416C14.3999 1.24473 14.6209 1.5597 14.7716 1.90634C14.9224 2.25298 15 2.62452 15 2.99972C15 3.37493 14.9224 3.74646 14.7716 4.0931C14.6209 4.43975 14.3999 4.75472 14.1213 5.02003C13.8427 5.28534 13.512 5.49579 13.1481 5.63938C12.7841 5.78296 12.394 5.85686 12 5.85686C11.2044 5.85686 10.4413 5.55585 9.87868 5.02003C9.31607 4.48421 9 3.75748 9 2.99972C9 2.24196 9.31607 1.51523 9.87868 0.979416C10.4413 0.443598 11.2044 0.142578 12 0.142578ZM21 0.142578C21.394 0.142578 21.7841 0.21648 22.1481 0.360065C22.512 0.50365 22.8427 0.714106 23.1213 0.979416C23.3999 1.24473 23.6209 1.5597 23.7716 1.90634C23.9224 2.25298 24 2.62452 24 2.99972C24 3.37493 23.9224 3.74646 23.7716 4.0931C23.6209 4.43975 23.3999 4.75472 23.1213 5.02003C22.8427 5.28534 22.512 5.49579 22.1481 5.63938C21.7841 5.78296 21.394 5.85686 21 5.85686C20.2044 5.85686 19.4413 5.55585 18.8787 5.02003C18.3161 4.48421 18 3.75748 18 2.99972C18 2.24196 18.3161 1.51523 18.8787 0.979416C19.4413 0.443598 20.2044 0.142578 21 0.142578Z" fill="#667085"></path>
-              </svg></button>
-              <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-                <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-                  <li>
-                    <a href="#" class="block px-4 py-2 text-blue-800 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa fa-pencil mx-3"></i>Edit</a>
-                  </li>
-                  <li>
-                    <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i class="fa fa-trash mx-3"></i>Delete</a>
-                  </li>
-                </ul>
-            </div>
+        <span
+            class="relative bg-green-100 text-green-600 text-sm flex items-center justify-center font-medium w-36 h-14 lg:h-10 rounded">Disetujui</span>
+        <button data-dropdown-toggle="dropdown"
+            class="relative bg-gray-200 text-sm flex items-center justify-center font-medium w-10 h-10  rounded rounded-full"
+            style=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="6" viewBox="0 0 24 6"
+                fill="none">
+                <path
+                    d="M3 0.142578C3.39397 0.142578 3.78407 0.21648 4.14805 0.360065C4.51203 0.50365 4.84274 0.714106 5.12132 0.979416C5.3999 1.24473 5.62087 1.5597 5.77164 1.90634C5.9224 2.25298 6 2.62452 6 2.99972C6 3.37493 5.9224 3.74646 5.77164 4.0931C5.62087 4.43975 5.3999 4.75472 5.12132 5.02003C4.84274 5.28534 4.51203 5.49579 4.14805 5.63938C3.78407 5.78296 3.39397 5.85686 3 5.85686C2.20435 5.85686 1.44129 5.55585 0.87868 5.02003C0.31607 4.48421 0 3.75748 0 2.99972C0 2.24196 0.31607 1.51523 0.87868 0.979416C1.44129 0.443598 2.20435 0.142578 3 0.142578ZM12 0.142578C12.394 0.142578 12.7841 0.21648 13.1481 0.360065C13.512 0.50365 13.8427 0.714106 14.1213 0.979416C14.3999 1.24473 14.6209 1.5597 14.7716 1.90634C14.9224 2.25298 15 2.62452 15 2.99972C15 3.37493 14.9224 3.74646 14.7716 4.0931C14.6209 4.43975 14.3999 4.75472 14.1213 5.02003C13.8427 5.28534 13.512 5.49579 13.1481 5.63938C12.7841 5.78296 12.394 5.85686 12 5.85686C11.2044 5.85686 10.4413 5.55585 9.87868 5.02003C9.31607 4.48421 9 3.75748 9 2.99972C9 2.24196 9.31607 1.51523 9.87868 0.979416C10.4413 0.443598 11.2044 0.142578 12 0.142578ZM21 0.142578C21.394 0.142578 21.7841 0.21648 22.1481 0.360065C22.512 0.50365 22.8427 0.714106 23.1213 0.979416C23.3999 1.24473 23.6209 1.5597 23.7716 1.90634C23.9224 2.25298 24 2.62452 24 2.99972C24 3.37493 23.9224 3.74646 23.7716 4.0931C23.6209 4.43975 23.3999 4.75472 23.1213 5.02003C22.8427 5.28534 22.512 5.49579 22.1481 5.63938C21.7841 5.78296 21.394 5.85686 21 5.85686C20.2044 5.85686 19.4413 5.55585 18.8787 5.02003C18.3161 4.48421 18 3.75748 18 2.99972C18 2.24196 18.3161 1.51523 18.8787 0.979416C19.4413 0.443598 20.2044 0.142578 21 0.142578Z"
+                    fill="#667085"></path>
+            </svg></button>
+        <div id="dropdown"
+            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                <li>
+                    <a href="#"
+                        class="block px-4 py-2 text-blue-800 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i
+                            class="fa fa-pencil mx-3"></i>Edit</a>
+                </li>
+                <li>
+                    <a data-modal-target="modal-delete" data-modal-toggle="modal-delete" style="cursor: pointer;"
+                        class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"><i
+                            class="fa fa-trash mx-3"></i>Delete</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
 </div>
@@ -169,6 +181,37 @@
                     <a data-modal-hide="popup-modal" href="/login"
                         class="text-white bg-figma-biru-300 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-gray-200 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-full">Login</a>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal-delete" tabindex="-1"
+    class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-md max-h-full">
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+            <button type="button"
+                class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                data-modal-hide="modal-delete">
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+                <span class="sr-only">Close modal</span>
+            </button>
+            <div class="p-6 text-center">
+                <img src="../file/logo/warning.png" class="mx-auto" alt="">
+
+                <h3 class="mb-2 text-lg font-bold text-gray-500 dark:text-gray-400">Are you sure?</h3>
+                <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Job that you delete cannot be
+                    recovered</h3>
+
+                <button data-modal-hide="modal-delete" type="button"
+                    class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">Cancel</button>
+                <button data-modal-hide="modal-delete" type="button"
+                    class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                    Yes, Delete now
+                </button>
             </div>
         </div>
     </div>
