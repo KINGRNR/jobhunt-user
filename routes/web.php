@@ -103,6 +103,10 @@ Route::middleware([loginCheck::class])->group(function () {
             return view('indexcompany.landingcompany');
         });
 
+        Route::get('/company', function () {
+            return view('indexcompany.landingcompany');
+        });
+
         Route::get('/company/jobvacancy', function () {
             return view('indexcompany.jobvacancy');
         });
@@ -111,6 +115,12 @@ Route::middleware([loginCheck::class])->group(function () {
         });
         Route::get('/company/detailpelamar', function () {
             return view('indexcompany.detailpelamar');
+        });
+        Route::get('/company/formjob', function () {
+            return view('indexcompany.formjob');
+        });
+        Route::get('/company/profile', function () {
+            return view('indexcompany.companyprofile');
         });
     });
 });
