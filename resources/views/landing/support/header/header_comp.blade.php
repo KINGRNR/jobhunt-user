@@ -64,10 +64,30 @@
                     </svg>
                 </button>
 
-
+                <button id="dropdownProfileButton" 
+                class="text-black focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative"
+                type="button">
+                <div class=" w-6 h-6 rounded-full bg-black flex justify-center items-center left-1/2 -ml-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                        fill="none">
+                        <path
+                            d="M9.35677 7.58317C10.9216 7.58317 12.1901 6.31464 12.1901 4.74984C12.1901 3.18503 10.9216 1.9165 9.35677 1.9165C7.79196 1.9165 6.52344 3.18503 6.52344 4.74984C6.52344 6.31464 7.79196 7.58317 9.35677 7.58317Z"
+                            fill="#1B61AD" />
+                        <path
+                            d="M9.35677 15.3747C12.0952 15.3747 14.3151 14.1061 14.3151 12.5413C14.3151 10.9765 12.0952 9.70801 9.35677 9.70801C6.61836 9.70801 4.39844 10.9765 4.39844 12.5413C4.39844 14.1061 6.61836 15.3747 9.35677 15.3747Z"
+                            fill="#1B61AD" />
+                    </svg>
+                </div>
+                <span class="ml-2">Halo, {{ auth()->user()->name }}!</span>
+                <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 10 6">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 4 4 4-4" />
+                </svg>
+            </button>
 
                 <!-- Dropdown menu -->
-                <div id="dropdownProfile"
+                {{-- <div id="dropdownProfile"
                     class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-gray-700 dark:divide-gray-600">
                     <div class="px-4 py-3 text-sm text-gray-900 dark:text-black flex items-center space-x-2">
                         <!-- Profile Photo -->
@@ -97,7 +117,7 @@
                                     class="fa fa-sign-out mx-3"></i>Keluar</a>
                         </li>
                     </ul>
-                </div>
+                </div> --}}
 
 
                 <div id="popup-modal-home-resume" tabindex="-1"

@@ -7,6 +7,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\loginCheck;
+use App\Http\Middleware\roleCheck;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,27 +73,41 @@ Route::get('/landing', function () {
 
 
 Route::middleware([loginCheck::class])->group(function () {
-    Route::get('/resumeprev', [ResumeController::class, 'index']);
-    Route::get('/userdata', [UserController::class, 'index']);
+    Route::middleware([roleCheck::class])->group(function () {
+        Route::get('/resumeprev', [ResumeController::class, 'index']);
+        Route::get('/userdata', [UserController::class, 'index']);
 
-    Route::controller(ResumeController::class)->group(function () {
-        foreach (['save', 'submitJob', 'deleteFile'] as $key => $value) {
-            Route::post('/resume/' . $value, $value);
-        }
-    });
-    Route::get('/resume', function () {
-        return view('resume');
-    });
+        Route::controller(ResumeController::class)->group(function () {
+            foreach (['save', 'submitJob', 'deleteFile'] as $key => $value) {
+                Route::post('/resume/' . $value, $value);
+            }
+        });
+        Route::get('/resume', function () {
+            return view('resume');
+        });
 
-    Route::get('/resumepreview', function () {
-        return view('resumepreview');
-    });
+        Route::get('/resumepreview', function () {
+            return view('resumepreview');
+        });
 
-    Route::get('/userprofile', function () {
-        return view('userprofile');
-    });
+        Route::get('/userprofile', function () {
+            return view('userprofile');
+        });
 
-    Route::get('/editprofile', function () {
-        return view('editprofile');
+        Route::get('/editprofile', function () {
+            return view('editprofile');
+        });
+
+        //company
+        Route::get('/company/landing', function () {
+            return view('indexcompany.landingcompany');
+        });
+
+        Route::get('/company/jobvacancy', function () {
+            return view('indexcompany.jobvacancy');
+        });
+        Route::get('/company/detailjob', function () {
+            return view('indexcompany.detailjob');
+        });
     });
 });
