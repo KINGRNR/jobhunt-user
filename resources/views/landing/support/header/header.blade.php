@@ -1,3 +1,17 @@
+<head>
+    <title>Job Hunters | Users</title>
+
+    <!-- local -->
+    <link rel="icon" type="image/png" href="/file/logo/user.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href=" https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css " rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    @vite(['resources/css/app.css'])
+</head>
 <nav class="fixed top-0 left-0 right-0 bg-transparent duration-150 z-50">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" class="flex items-center">
@@ -108,8 +122,8 @@
                             <button type="button"
                                 class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                                 data-modal-hide="popup-modal">
-                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 14 14">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 14 14">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                                 </svg>
@@ -302,7 +316,8 @@
                                     <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400"><span
                                             class="font-semibold text-gray-900 dark:text-white">Bonnie Green</span> and
                                         <span class="font-medium text-gray-900 dark:text-white">141 others</span> love
-                                        your story. See it and view more stories.</div>
+                                        your story. See it and view more stories.
+                                    </div>
                                     <div class="text-xs text-blue-600 dark:text-blue-500">44 minutes ago</div>
                                 </div>
                             </a>

@@ -1,3 +1,15 @@
+
+<head>
+    <title>Job Hunters | Company</title>
+
+    <!-- local -->
+    <link rel="icon" type="image/png" href="../file/logo/company.png">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+    @vite(['resources/css/app.css'])
+</head>
+
 <nav class="text-black fixed top-0 left-0 right-0 bg-white duration-150 z-50">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/company/landing" class="flex items-center">
@@ -65,7 +77,7 @@
                 </button>
 
                 <button id="dropdownProfileButton"
-                    class="text-white focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative"
+                    class="text-white focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative "
                     style="background-color: #1B61AD;" type="button"><svg class="" style=""
                         xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <g clip-path="url(#clip0_2115_2158)">
@@ -84,11 +96,12 @@
                 </button>
 
                 <!-- Dropdown menu -->
-                {{-- <div id="dropdownProfile"
+                <div id="dropdownProfile"
                     class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-gray-700 dark:divide-gray-600">
                     <div class="px-4 py-3 text-sm text-gray-900 dark:text-black flex items-center space-x-2">
                         <!-- Profile Photo -->
-                        <img src="file/company/{{ session('photo_name') }}" alt="Profile Photo" class="w-10 h-10 rounded-full">
+                        <img src="file/company/{{ session('photo_name') }}" alt="Profile Photo"
+                            class="w-10 h-10 rounded-full">
                         <!-- Name and Email -->
                         <div>
                             <div class="font-semibold">{{ auth()->user()->name }}</div>
@@ -97,16 +110,8 @@
                     </div>
                     <ul class="py-2 text-sm text-gray-600 dark:text-gray-200" aria-labelledby="dropdownProfileButton">
                         <li class=""> <!-- JANGAN ASAL KOMEN LAH ANYING -->
-                            <a href="/userprofile" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i
-                                    class="fa fa-user-o mx-3"></i>Profil</a>
-                        </li>
-                        <li class="">
-                            <a href="#" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i
-                                    class="fa fa-history mx-3"></i>Riwayat Lamaran</a>
-                        </li>
-                        <li class="">
-                            <a href="/resumepreview" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i
-                                    class="fa fa-pencil mx-3"></i>Resume</a>
+                            <a href="/" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i
+                                    class="fa fa-user-o mx-3"></i>Company Profile</a>
                         </li>
                         <li class="">
                             <a onclick="window.location='{{ route('logout') }}'"
@@ -114,7 +119,7 @@
                                     class="fa fa-sign-out mx-3"></i>Keluar</a>
                         </li>
                     </ul>
-                </div> --}}
+                </div>
 
 
                 <div id="popup-modal-home-resume" tabindex="-1"
@@ -124,8 +129,8 @@
                             <button type="button"
                                 class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-black"
                                 data-modal-hide="popup-modal">
-                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                                    viewBox="0 0 14 14">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 14 14">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
                                 </svg>
@@ -288,7 +293,8 @@
                                     <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400"><span
                                             class="font-semibold text-gray-900 dark:text-white">Bonnie Green</span> and
                                         <span class="font-medium text-gray-900 dark:text-white">141 others</span> love
-                                        your story. See it and view more stories.</div>
+                                        your story. See it and view more stories.
+                                    </div>
                                     <div class="text-xs text-blue-600 dark:text-blue-500">44 minutes ago</div>
                                 </div>
                             </a>
