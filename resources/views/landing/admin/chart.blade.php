@@ -29,7 +29,7 @@
             </div>
             <div class="flex-auto p-4">
                 <div class="flex flex-row">
-                    <div class="flex-none w-2/3 max-w-full px-3 p-4">
+                    <div class="flex-none max-w-full px-3 p-4">
 
                         <p class="mb-0 font-sans text-sm font-semibold leading-normal dark:text-white dark:opacity-60">
                             Total Lowongan dibuka
@@ -55,7 +55,7 @@
             </div>
             <div class="flex-auto p-4">
                 <div class="flex flex-row">
-                    <div class="flex-none w-2/3 max-w-full px-3">
+                    <div class="flex-none max-w-full px-3">
                         <div>
                             <p
                                 class="mb-0 font-sans text-sm font-semibold leading-normal dark:text-white dark:opacity-60">
@@ -93,7 +93,7 @@
             </div>
             <div class="flex-auto p-4">
                 <div class="flex flex-row">
-                    <div class="flex-none w-2/3 max-w-full px-3">
+                    <div class="flex-none max-w-full px-3">
                         <div>
                             <p
                                 class="mb-0 font-sans text-sm font-semibold leading-normal dark:text-white dark:opacity-60">
