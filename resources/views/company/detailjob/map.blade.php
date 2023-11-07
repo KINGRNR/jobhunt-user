@@ -1,0 +1,3 @@
+<div class="p-4 mb-6 z-10 mx-8 w-75 h-64 sm:p-6" id="map-job">
+    {{-- <iframe class="w-full h-64" src="https://www.openstreetmap.org/export/embed.html?bbox=112.52926826477052%2C-7.933095307724252%2C112.59501457214357%2C-7.879706021125525&amp;layer=mapnik&amp;marker=-7.906401528041067%2C112.56214141845703" style="border: 1px solid black"></iframe><br/><small><a href="https://www.openstreetmap.org/?mlat=-7.9064&amp;mlon=112.5621#map=14/-7.9064/112.5621">View Larger Map</a></small> --}}
+</div>
