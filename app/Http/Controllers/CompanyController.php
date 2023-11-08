@@ -21,7 +21,6 @@ class CompanyController extends Controller
                 'name' => $request->name,
                 'fullname' => $request->name,
                 'email' => $request->email,
-                'photo_profile' => $file,
                 'password' => bcrypt($request->password),
                 'users_role_id' => 'FOV4Qtgi5lcQ9kZ'
             ]);
@@ -37,7 +36,8 @@ class CompanyController extends Controller
                 'company_logo' => $file,
                 'company_user_id' => $user->id,
                 'company_role_id' => 'FOV4Qtgi5lcQ9kZ',
-                'company_active' => '1'
+                'company_active' => '1',
+                'company_photo' => $file
             ]);
 
             return response()->json([

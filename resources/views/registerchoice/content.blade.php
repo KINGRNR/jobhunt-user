@@ -202,7 +202,7 @@
 
 
 {{-- real content --}}
-<div class="">
+<div class="container mx-auto">
     <div class="flex justify-center">
         <p class="mt-[8.5%] font-semibold text-3xl"><span class="text-figma-biru-300">Hello</span>, we are glad you are here!</p>
     </div>
@@ -211,7 +211,7 @@
     </div>
 
     <div class="grid grid-cols-2 gap-20 mx-20 mt-10 aspect-auto">
-    <article data-popover-target="popover-bottom" data-popover-placement="bottom" class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
+    <article data-popover-target="popover-bottom" data-popover-placement="bottom" class="border rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -234,7 +234,7 @@
         </div>
     </article>
 
-    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
+    <article class="border rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
