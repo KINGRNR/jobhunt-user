@@ -44,27 +44,28 @@ Route::post('/jobs_detail', [JobController::class, 'detail_job']);
 
 Route::get('/jobscount', [JobController::class, 'jobscount']);
 
+Route::middleware(['roleCheck:BfiwyVUDrXOpmStr'])->group(function () {
+    Route::get('/', function () {
+        return view('welcome');
+    })->name('index');
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('index');
+    Route::get('/category', function () {
+        return view('category');
+    })->name('category');
 
-Route::get('/category', function () {
-    return view('category');
-})->name('category');
+    Route::get('/register-company', function () {
+        return view('registercompany');
+    })->name('registercompany');
 
-Route::get('/register-company', function () {
-    return view('registercompany');
-})->name('registercompany');
+    Route::get('/detailjob', function () {
+        return view('detailjob');
+    });
 
-Route::get('/detailjob', function () {
-    return view('detailjob');
-});
-
-Route::post('/register/company', [CompanyController::class, 'store'])->name('register.company');
-
-Route::get('/registerchoice', function () {
-    return view('registerchoice');
+    Route::post('/register/company', [CompanyController::class, 'store'])->name('register.company');
+    
+    Route::get('/registerchoice', function () {
+        return view('registerchoice');
+    });
 });
 
 Route::get('/landing', function () {
@@ -73,7 +74,7 @@ Route::get('/landing', function () {
 
 
 Route::middleware([loginCheck::class])->group(function () {
-    Route::middleware([roleCheck::class])->group(function () {
+    Route::group(['middleware' => ['roleCheck:BfiwyVUDrXOpmStr']], function(){
         Route::get('/resumeprev', [ResumeController::class, 'index']);
         Route::get('/userdata', [UserController::class, 'index']);
 
@@ -97,11 +98,12 @@ Route::middleware([loginCheck::class])->group(function () {
         Route::get('/editprofile', function () {
             return view('editprofile');
         });
+    });
 
-        //company
+    Route::group(['middleware' => ['roleCheck:FOV4Qtgi5lcQ9kZ']], function(){
         Route::get('/company/landing', function () {
             return view('indexcompany.landingcompany');
-        });
+        })->name('landingcompany');
 
         Route::get('/company', function () {
             return view('indexcompany.landingcompany');
