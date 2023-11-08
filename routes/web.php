@@ -65,7 +65,7 @@ Route::middleware(['roleCheck:BfiwyVUDrXOpmStr'])->group(function () {
     
     Route::get('/registerchoice', function () {
         return view('registerchoice');
-    });
+    })->name('registerchoice');
 });
 
 Route::get('/landing', function () {
