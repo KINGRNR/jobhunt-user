@@ -67,7 +67,7 @@ class AuthController extends Controller
                 case 'FOV4Qtgi5lcQ9kZ':
                     return response()->json([
                         'success' => true,
-                        'redirect' => route('landing'),
+                        'redirect' => route('landingcompany'),
                     ]);
                 case 'FOV4Qtgi5lcQ9kCY':
                     Auth::logout();
