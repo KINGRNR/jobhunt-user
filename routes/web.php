@@ -124,5 +124,11 @@ Route::middleware([loginCheck::class])->group(function () {
         Route::get('/company/profile', function () {
             return view('indexcompany.companyprofile');
         });
+        Route::get('/company/previewjob', function () {
+            return view('indexcompany.previewjob');
+        });
+        Route::get('/company/profile', function () {
+            return view('indexcompany.profile');
+        });
     });
 });

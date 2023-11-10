@@ -55,7 +55,7 @@
                 {{-- <button onclick="window.location='{{ route('logout') }}'" class="hidden min-[450px]:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Sign Out</button> --}}
 
                 <button id="dropdownProfileButton" data-dropdown-toggle="dropdownProfile"
-                    class="text-black focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative"
+                    class="hidden text-black focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center md:inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative"
                     type="button">
                     <div class=" w-6 h-6 rounded-full bg-black flex justify-center items-center left-1/2 -ml-4">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
@@ -77,7 +77,7 @@
                 </button>
 
                 <button id="dropdownProfileButton"
-                    class="text-white focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative "
+                    class="hidden text-white focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 text-center  lg:inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative "
                     style="background-color: #1B61AD;" type="button"><svg class="" style=""
                         xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                         <g clip-path="url(#clip0_2115_2158)">
@@ -100,7 +100,7 @@
                     class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-gray-700 dark:divide-gray-600">
                     <div class="px-4 py-3 text-sm text-gray-900 dark:text-black flex items-center space-x-2">
                         <!-- Profile Photo -->
-                        <img src="file/company/{{ session('photo_name') }}" alt="Profile Photo"
+                        <img src="file/company/{{ auth()->user()->name }}" alt="Profile Photo"
                             class="w-10 h-10 rounded-full">
                         <!-- Name and Email -->
                         <div>
@@ -183,13 +183,57 @@
         <div class="items-center hidden w-full md:flex md:w-auto md:order-1 md:flex-grow flex-row justify-end md:px-8"
             id="navbar-cta">
             <ul
-                class="flex flex-col justify-end font-medium p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent bg-black">
+                class="flex flex-col justify-end font-medium p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent bg-white">
                 @guest
                     <li class="inline min-[450px]:hidden">
                         <a href="#" class="block py-2 pl-3 pr-4 text-white md:p-0 hover-underline-animation"
                             aria-current="page">Login</a>
                     </li>
                 @endguest
+                <li>
+                    <button id="dropdownProfileButton" data-dropdown-toggle="dropdownProfile"
+                    class="inline-flex text-black focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center md:hidden items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative"
+                    type="button">
+                    <div class=" w-6 h-6 rounded-full bg-black flex justify-center items-center left-1/2 -ml-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
+                            fill="none">
+                            <path
+                                d="M9.35677 7.58317C10.9216 7.58317 12.1901 6.31464 12.1901 4.74984C12.1901 3.18503 10.9216 1.9165 9.35677 1.9165C7.79196 1.9165 6.52344 3.18503 6.52344 4.74984C6.52344 6.31464 7.79196 7.58317 9.35677 7.58317Z"
+                                fill="#1B61AD" />
+                            <path
+                                d="M9.35677 15.3747C12.0952 15.3747 14.3151 14.1061 14.3151 12.5413C14.3151 10.9765 12.0952 9.70801 9.35677 9.70801C6.61836 9.70801 4.39844 10.9765 4.39844 12.5413C4.39844 14.1061 6.61836 15.3747 9.35677 15.3747Z"
+                                fill="#1B61AD" />
+                        </svg>
+                    </div>
+                    <span class="ml-2">Halo, {{ auth()->user()->name }}!</span>
+                    <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 1 4 4 4-4" />
+                    </svg>
+                </button>
+                </li>
+                <li>
+                    <button id="dropdownProfileButton"
+                    class="inline-flex text-white focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 text-center  md:hidden items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative "
+                    style="background-color: #1B61AD;" type="button"><svg class="" style=""
+                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <g clip-path="url(#clip0_2115_2158)">
+                            <path
+                                d="M14.9993 10.8337H10.8327V15.0003C10.8327 15.4587 10.4577 15.8337 9.99935 15.8337C9.54102 15.8337 9.16602 15.4587 9.16602 15.0003V10.8337H4.99935C4.54102 10.8337 4.16602 10.4587 4.16602 10.0003C4.16602 9.54199 4.54102 9.16699 4.99935 9.16699H9.16602V5.00033C9.16602 4.54199 9.54102 4.16699 9.99935 4.16699C10.4577 4.16699 10.8327 4.54199 10.8327 5.00033V9.16699H14.9993C15.4577 9.16699 15.8327 9.54199 15.8327 10.0003C15.8327 10.4587 15.4577 10.8337 14.9993 10.8337Z"
+                                fill="white" />
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_2115_2158">
+                                <rect width="20" height="20" fill="white" />
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    Add Job
+
+                </button>
+
+                </li>
                 <li>
                     <a href="/company/landing"
                         class="block py-2 pl-3 pr-4 text-black md:p-0 hover-underline-animation"
@@ -402,7 +446,7 @@
     </div>
 </div> --}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script>
+{{-- <script>
     $(window).scroll(function() {
         if ($(this).scrollTop() > 10) {
             $('nav').removeClass("bg-transparent").addClass("bg-black");
@@ -410,8 +454,8 @@
             $('nav').removeClass("bg-black").addClass("bg-transparent");
         }
     });
-</script>
-<script>
+</script> --}}
+{{-- <script>
     $(document).ready(function() {
         onScroll();
     });
@@ -429,5 +473,5 @@
             });
             lastScrollTop = scrollTop;
         });
-    }
+    } --}}
 </script>
