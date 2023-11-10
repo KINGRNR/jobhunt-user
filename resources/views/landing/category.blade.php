@@ -15,7 +15,7 @@
 <p class="m-20 text-center lg:text-start"><span
         class="font-semibold text-gray-900 underline decoration-merah decoration-4 text-3xl">Popular</span><span
         class="font-semibold text-merah text-3xl"> Category</span></p>
-<div class="grid grid-cols-1 gap-4 lg:grid-cols-4 sm:grid-cols-2 m-10 sm:m-20">
+<div class="grid gap-4 grid-cols-1 m-10 sm:m-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
     <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
 
         <div class="grid grid-cols-1">

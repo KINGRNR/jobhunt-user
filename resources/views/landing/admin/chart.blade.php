@@ -16,8 +16,8 @@
         </div>
     </div>
 </div>
-<div class="grid grid-cols-5 mx-5 md:mx-10 lg:mx-20">
-    <div class="w-full max-w-full px-3 mb-6 mt-5">
+<div class="mx-5 md:mx-10 lg:mx-20 lg:grid lg:grid-cols-4">
+    <div class="px-3 mb-6 mt-5 md:grid-cols-3 lg:w-full max-w-full ">
         <div class="relative flex flex-col min-w-0 text-white break-words dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
             style="background-color: #256BE0;">
             <div class="svg-container" style="position: absolute; top: 0; right: 0;">
@@ -43,8 +43,8 @@
         </div>
     </div>
 
-    <div class="w-full max-w-full px-3 mb-6 mt-5">
-        <div class="relative flex flex-col text-white min-w-0 break-words dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border p-4"
+    <div class="px-3 mb-6 mt-5 md:grid-cols-3 lg:w-full max-w-full">
+        <div class="relative flex flex-col text-white min-w-0 break-words dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border py-4"
             style="background-color: #FF6978;">
             <div class="svg-container" style="position: absolute; bottom: 0; right: 0;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="81" height="46" viewBox="0 0 81 46"
@@ -56,7 +56,6 @@
             <div class="flex-auto p-4">
                 <div class="flex flex-row">
                     <div class="flex-none max-w-full px-3">
-                        <div>
                             <p
                                 class="mb-0 font-sans text-sm font-semibold leading-normal dark:text-white dark:opacity-60">
                                 Total Lowongan ditutup</p>
@@ -64,17 +63,16 @@
                                 <span class="text-sm font-bold leading-normal text-emerald-500">20</span>
                                 Lowongan
                             </p>
-                        </div>
                     </div>
                     <div class="px-3 text-right basis-1/3">
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
 
-    <div class="w-full max-w-full px-3 mb-6 mt-5">
-        <div class="relative flex flex-col text-white min-w-0 break-words dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border p-4"
+    <div class="px-3 mb-6 mt-5 md:grid-cols-3 lg:w-full max-w-full ">
+        <div class="relative flex flex-col text-white min-w-0 break-words dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border py-4"
             style="background-color: #33CDB2;">
             <div class="svg-container" style="position: absolute; bottom: 0; right: 0;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="94" height="109" viewBox="0 0 94 107" fill="none">
@@ -109,7 +107,7 @@
         </div>
     </div>
 
-    <div class="col-span-2 w-full max-w-full px-3 mb-6 mt-5">
+    <div class="px-3 mb-6 mt-5 md:grid-cols-3 lg:w-full max-w-full">
         <div class="relative flex flex-col min-w-0 break-words dark:bg-slate-850 dark:shadow-dark-xl rounded-2xl bg-clip-border"
             style="background-color: #F6F9FE;">
             <div class="flex-auto p-8">
@@ -136,7 +134,7 @@
     </div>
 
 </div>
-<div class="grid grid-cols-3 gap-4 mx-5 md:mx-10 lg:mx-20 mt-5">
+<div class=" gap-4 mx-5 md:mx-10 lg:mx-20 mt-5 lg:grid grid-cols-3">
     <div class="mb-3 p-5 bg-white rounded-2xl shadow-[0_4px_20px_10px_rgba(82,109,130,0.05)]">
         <p class="mx-5 font-semibold">Grafik Pelamar</p>
         <p class="mx-5 text-sm text-gray-500">Januari - Oktober</p>
