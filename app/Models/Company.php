@@ -21,6 +21,7 @@ class Company extends Model
         'company_logo',
         'company_role_id',
         'company_active',
+        'company_isverif',
         'company_user_id'
     ];
 

@@ -110,7 +110,7 @@
                     </div>
                     <ul class="py-2 text-sm text-gray-600 dark:text-gray-200" aria-labelledby="dropdownProfileButton">
                         <li class=""> <!-- JANGAN ASAL KOMEN LAH ANYING -->
-                            <a href="/" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i
+                            <a href="/company/profile" class="block px-4 py-2 hover:bg-gray-100 hover:text-gray-900"><i
                                     class="fa fa-user-o mx-3"></i>Company Profile</a>
                         </li>
                         <li class="">
