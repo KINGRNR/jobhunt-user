@@ -1,26 +1,10 @@
 <div class="container mx-auto border rounded-lg">
     <div class="flex justify-between">
         <p class="mx-5 my-5 font-semibold text-xl">Company Profile</p>
-        <button id="dropdownProfileButton"
-            class="hidden text-white focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-1 text-center  lg:inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative "
-            style="background-color: #1B61AD;" type="button"><svg class="" style=""
-                xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <g clip-path="url(#clip0_2115_2158)">
-                    <path d=" M14.9993 10.8337H10.8327V15.0003C10.8327 15.4587 10.4577 15.8337 9.99935
-        15.8337C9.54102 15.8337 9.16602 15.4587 9.16602 15.0003V10.8337H4.99935C4.54102 10.8337 4.16602 10.4587 4.16602
-        10.0003C4.16602 9.54199 4.54102 9.16699 4.99935 9.16699H9.16602V5.00033C9.16602 4.54199 9.54102 4.16699 9.99935
-        4.16699C10.4577 4.16699 10.8327 4.54199 10.8327 5.00033V9.16699H14.9993C15.4577 9.16699 15.8327 9.54199 15.8327
-        10.0003C15.8327 10.4587 15.4577 10.8337 14.9993 10.8337Z" fill="white">
-                    </path>
-                </g>
-                <defs>
-                    <clipPath id="clip0_2115_2158">
-                        <rect width="20" height="20" fill="white"></rect>
-                    </clipPath>
-                </defs>
-            </svg>
-            Add Job
-
+        <button
+            class="rounded-lg text-white focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium  text-sm  text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400  px-8 mr-5 my-3"
+            style="background-color: #1B61AD;" type="button">
+            Edit
         </button>
     </div>
     <div class="border"></div>
