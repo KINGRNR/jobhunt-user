@@ -18,7 +18,7 @@ class Notification extends Model
 
     protected $primaryKey = 'notification_id';
 
-    protected $fillable = ['notification_id','notification_title', 'notification_message', 'notification_by', 'notification_created_at', 'notification_jenis', 'notification_to', 'notification_read'];
+    protected $fillable = ['notification_id','notification_title', 'notification_message', 'notification_by', 'notification_created_at', 'notification_jenis', 'notification_to', 'notification_read', 'notification_reason'];
     const CREATED_AT = 'notification_created_at';
     const UPDATED_AT = 'notification_created_at';
 

@@ -1,7 +1,7 @@
 <div class="container mx-auto border rounded-lg">
     <div class="flex justify-between">
         <p class="mx-5 my-5 font-semibold text-xl">Company Profile</p>
-        <button
+        <button onclick="window.location.href = '/company/formprofile'"
             class="rounded-lg text-white focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium  text-sm  text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400  px-8 mr-5 my-3"
             style="background-color: #1B61AD;" type="button">
             Edit
