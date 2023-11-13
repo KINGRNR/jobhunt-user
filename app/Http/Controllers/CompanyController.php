@@ -46,7 +46,7 @@ class CompanyController extends Controller
                 'notification_message' => 'Halo Admin!, Ada company baru, segera proses & cek kelengkapan datanya!',
                 'notification_by' => $request->name,
                 'notification_jenis' => 1,
-                'notificaton_to' => 'FOV4Qtgi5lcQ9kCY',
+                'notification_to' => 'FOV4Qtgi5lcQ9kCY',
                 'notification_read' => 0,
             ]);
             // print_r($notification); exit;z

@@ -130,5 +130,8 @@ Route::middleware([loginCheck::class])->group(function () {
         Route::get('/company/profile', function () {
             return view('indexcompany.profile');
         });
+        Route::get('/company/formprofile', function () {
+            return view('indexcompany.formprofile');
+        });
     });
 });
