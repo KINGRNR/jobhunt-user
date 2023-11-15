@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\LoginWithGoogleController;
+use App\Http\Controllers\LoginWithGooglecontroller;
 
 use App\Http\Middleware\loginCheck;
 use App\Http\Middleware\roleCheck;
@@ -22,7 +22,7 @@ use App\Http\Middleware\roleCheck;
 |
 */
 
-Route::controller(LoginWithGoogleController::class)->group(function () {
+Route::controller(LoginWithGooglecontroller::class)->group(function () {
     Route::get('authorized/google', 'redirectToGoogle')->name('auth.google');
     Route::get('authorized/google/callback', 'handleGoogleCallback');
 });
