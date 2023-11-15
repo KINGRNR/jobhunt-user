@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginWithGoogleController;
+
 use App\Http\Middleware\loginCheck;
 use App\Http\Middleware\roleCheck;
 
@@ -20,6 +22,10 @@ use App\Http\Middleware\roleCheck;
 |
 */
 
+Route::controller(LoginWithGoogleController::class)->group(function () {
+    Route::get('authorized/google', 'redirectToGoogle')->name('auth.google');
+    Route::get('authorized/google/callback', 'handleGoogleCallback');
+});
 Route::middleware(['auth'])->group(function () {
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
@@ -28,6 +34,9 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/login', [AuthController::class, 'index'])->name('login');
     Route::post('/login', [AuthController::class, 'login'])->name('login.store');
     Route::post('/register', [AuthController::class, 'register'])->name('v_register');
+    Route::get('/registerstep2', function () {
+        return view('login');
+    })->name('loginstep2');
     Route::get('/register-company', function () {
         return view('registercompany');
     })->name('registercompany');
@@ -45,6 +54,9 @@ Route::post('/jobs_detail', [JobController::class, 'detail_job']);
 Route::get('/jobscount', [JobController::class, 'jobscount']);
 
 Route::middleware(['roleCheck:BfiwyVUDrXOpmStr'])->group(function () {
+    // Route::get('/', function () {
+    //     return view('welcome');
+    // })->name('index');
     Route::get('/', function () {
         return view('welcome');
     })->name('index');
@@ -62,7 +74,7 @@ Route::middleware(['roleCheck:BfiwyVUDrXOpmStr'])->group(function () {
     });
 
     Route::post('/register/company', [CompanyController::class, 'store'])->name('register.company');
-    
+
     Route::get('/registerchoice', function () {
         return view('registerchoice');
     })->name('registerchoice');
@@ -74,7 +86,7 @@ Route::get('/landing', function () {
 
 
 Route::middleware([loginCheck::class])->group(function () {
-    Route::group(['middleware' => ['roleCheck:BfiwyVUDrXOpmStr']], function(){
+    Route::group(['middleware' => ['roleCheck:BfiwyVUDrXOpmStr']], function () {
         Route::get('/resumeprev', [ResumeController::class, 'index']);
         Route::get('/userdata', [UserController::class, 'index']);
 
@@ -100,7 +112,7 @@ Route::middleware([loginCheck::class])->group(function () {
         });
     });
 
-    Route::group(['middleware' => ['roleCheck:FOV4Qtgi5lcQ9kZ']], function(){
+    Route::group(['middleware' => ['roleCheck:FOV4Qtgi5lcQ9kZ']], function () {
         Route::get('/company/landing', function () {
             return view('indexcompany.landingcompany');
         })->name('landingcompany');
