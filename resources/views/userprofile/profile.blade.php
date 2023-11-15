@@ -36,11 +36,18 @@
     <div class="mb-4 grid grid-cols-6 gap-4">
         <p class="text-gray-500">Username</p>
         <p class="col-span-5" id="username">-</p>
+        
     </div>
     <div class="mb-4 grid grid-cols-6 gap-4">
         <p class="text-gray-500">Email</p>
-        <p class="col-span-5" id="email">-</p>
+        <div class="flex items-center col-span-5">
+            <p class="mr-2" id="email">-</p>
+            <div class="google_badge">
+                
+            </div>
+        </div>
     </div>
+    
     <div class="mb-4 grid grid-cols-6 gap-4">
         <p class="text-gray-500">Password</p>
         <p class="col-span-5">-</p>
@@ -120,17 +127,40 @@
             type: 'GET',
             success: function(response) {
                 var data = response.users[0]
-                console.log(response);
                 $('#username').text(data.username);
                 $('#email').text(data.email);
                 $('#phone').text(data.phone_num);
                 $('#region').text(data.region);
+                checkGoogleConnect(data);
             },
             error: function(error) {
 
             }
         });
     }
+
+    checkGoogleConnect = (a) =>
+    {
+        
+        if(a.google_id){
+            // $('#email').addClass('text-green-600')
+            badge_gog = `<span class="flex items-center bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 italic ">Connected with Google OAuth 2.0
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <g clip-path="url(#clip0_44_11106)">
+            <path d="M9.00003 16.17L4.83003 12L3.41003 13.41L9.00003 19L21 6.99997L19.59 5.58997L9.00003 16.17Z" fill="#323232"/>
+        </g>
+        <defs>
+            <clipPath id="clip0_44_11106">
+                <rect width="24" height="24" fill="white"/>
+            </clipPath>
+        </defs>
+    </svg>
+</span>
+`
+            $('.google_badge').append(badge_gog)
+        }
+    }
+
     initIntegrationResume = () => {
         return new Promise((resolve, reject) => {
             $.ajax({
