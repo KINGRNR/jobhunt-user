@@ -22,7 +22,7 @@ class CompanyController extends Controller
                 $photoName = Str::random(15) . '_' . time() . '.' . $photoFile->getClientOriginalExtension();
                 $photoFile->move(public_path('file/company/'), $photoName);
             } else {
-                $file = null;
+                $photoFile = null;
             }
             // dd($request);
             $user = User::create([
@@ -41,7 +41,7 @@ class CompanyController extends Controller
                 'company_description' => $request->deskripsi,
                 'company_number' => $request->telp,
                 'company_position' => $request->position,
-                'company_logo' => $file,
+                // 'company_logo' => $file,
                 'company_user_id' => $user->id,
                 'company_role_id' => 'FOV4Qtgi5lcQ9kZ',
                 'company_active' => '1',
