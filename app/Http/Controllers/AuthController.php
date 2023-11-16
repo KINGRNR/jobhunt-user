@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\DetailUser;
 use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
@@ -38,6 +40,7 @@ class AuthController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    
     public function login(Request $request)
     {
         $validator = $this->validator($request->all());
@@ -49,7 +52,7 @@ class AuthController extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
             $user = User::where('email', $request->email)->firstOrFail();
             $photo = DB::table('resume')->where('resume_user_id', $user->id)->select('resume_official_photo')->first();
-            if($photo){
+            if ($photo) {
                 session(['user_photo' => $photo]);
             }
             session(['user' => $user]);
