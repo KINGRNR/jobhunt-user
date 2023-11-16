@@ -6,14 +6,21 @@ use App\Models\Company;
 use App\Models\User;
 use App\Models\Notification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 
 class CompanyController extends Controller
 {
     public function store(Request $request)
     {
         try {
+            $request->validate([
+                'file' => 'nullable|image|max:3000|mimes:jpeg,jpg,png',
+            ]);
             if ($request->hasFile('file')) {
-                $file = $request->file('file')->store('file/company/', 'eksternal_storage');
+                $photoFile = $request->file('file');
+                $photoName = Str::random(15) . '_' . time() . '.' . $photoFile->getClientOriginalExtension();
+                $photoFile->move(public_path('file/company/'), $photoName);
             } else {
                 $file = null;
             }
@@ -25,7 +32,7 @@ class CompanyController extends Controller
                 'password' => bcrypt($request->password),
                 'users_role_id' => 'FOV4Qtgi5lcQ9kZ'
             ]);
-            
+
             $company = Company::create([
                 'company_name' => $request->name,
                 'company_website' => $request->website,
@@ -38,7 +45,7 @@ class CompanyController extends Controller
                 'company_user_id' => $user->id,
                 'company_role_id' => 'FOV4Qtgi5lcQ9kZ',
                 'company_active' => '1',
-                'company_photo' => $file,
+                'company_photo' => $photoName,
                 'company_isverif' => 0,
             ]);
             $notification = Notification::create([
