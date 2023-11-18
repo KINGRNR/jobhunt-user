@@ -3,6 +3,7 @@
 <!-- banhhh tolong -->
 
     @include('landing.support.header.header_comp')
+    @include('company.formjob.hero')
     @include('company.formjob.index')
     @include('landing.support.footer.footer')
 
