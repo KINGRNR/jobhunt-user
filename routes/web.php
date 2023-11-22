@@ -7,6 +7,7 @@ use App\Http\Controllers\JobController;
 use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginWithGooglecontroller;
+use App\Http\Controllers\BlogController;
 
 use App\Http\Middleware\loginCheck;
 use App\Http\Middleware\roleCheck;
@@ -50,7 +51,14 @@ Route::middleware(['guest'])->group(function () {
 
 Route::post('/jobs', [JobController::class, 'index']);
 Route::post('/jobs_detail', [JobController::class, 'detail_job']);
+Route::post('/detail-blog', [BlogController::class, 'detail_blog']);
 
+Route::post('/blog-index', [BlogController::class, 'index']);
+Route::controller(BlogController::class)->group(function () {
+    foreach (['postCommentSingle'] as $key => $value) {
+        Route::post('/blog/' . $value, $value);
+    }
+});
 Route::get('/jobscount', [JobController::class, 'jobscount']);
 
 Route::middleware(['roleCheck:BfiwyVUDrXOpmStr'])->group(function () {
@@ -72,7 +80,12 @@ Route::middleware(['roleCheck:BfiwyVUDrXOpmStr'])->group(function () {
     Route::get('/detailjob', function () {
         return view('detailjob');
     });
-
+    Route::get('/blog', function () {
+        return view('blog');
+    });
+    Route::get('/content-blog', function () {
+        return view('contentblog');
+    });
     Route::post('/register/company', [CompanyController::class, 'store'])->name('register.company');
 
     Route::get('/registerchoice', function () {

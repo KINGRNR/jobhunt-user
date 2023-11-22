@@ -16,7 +16,10 @@ class JobController extends Controller
     }
     public function detail_job(Request $request)
     {
-        $id = $request->input('id');
+        // $id = $request->input('id');
+        $base64EncodedData = $request->post();
+
+        $id = base64_decode($base64EncodedData['id']);
         $jobs = DB::table('v_job')->where('job_id', $id)->get();
         return response()->json(['jobs' => $jobs]);
     }

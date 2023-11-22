@@ -12,7 +12,7 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     @vite(['resources/css/app.css'])
 </head>
-<nav class="fixed top-0 left-0 right-0 bg-transparent duration-150 z-50">
+<nav class="fixed top-0 left-0 right-0 bg-black duration-150 z-50">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="/" class="flex items-center">
             <svg id="logo-77" width="105" height="40" viewBox="0 0 105 40" fill="white"
@@ -429,7 +429,7 @@
     </div>
 </div> --}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-<script>
+{{-- <script>
     $(window).scroll(function() {
         if ($(this).scrollTop() > 10) {
             $('nav').removeClass("bg-transparent").addClass("bg-black");
@@ -437,7 +437,7 @@
             $('nav').removeClass("bg-black").addClass("bg-transparent");
         }
     });
-</script>
+</script> --}}
 <script>
     // $(document).ready(function() {
     //     onScroll();
