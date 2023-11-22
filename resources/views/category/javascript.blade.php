@@ -155,7 +155,7 @@
     }
     function detailJob(trigger){
         const params = trigger.getAttribute('data-id');
-        location.href = '/detailjob?id=' + params;
+        location.href = '/detailjob?id=' + btoa(params);
     }
     function updateSearchInfo(loadedDataCount, responseTime) {
         const dropdown = document.getElementById('search-info');
