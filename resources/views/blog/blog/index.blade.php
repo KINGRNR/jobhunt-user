@@ -43,8 +43,7 @@
         <div class="mx-auto max-w-screen-sm text-center">
             <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Our Blog
             </h2>
-            <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">We use an agile approach to test
-                assumptions and connect with the needs of your audience early and often.</p>
+            <p class="font-light text-red-500 sm:text-xl dark:text-gray-400">Just For Testing a New Feature!., dual database connection, Lazy Load implementation, & Knowing How Social Media Works</p>
         </div>
     </div>
     <div class="mx-auto container">
