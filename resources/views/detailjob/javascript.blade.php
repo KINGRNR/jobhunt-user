@@ -27,6 +27,7 @@
             },
             dataType: 'json',
             success: function(response) {
+                $('.main-data-job').empty()
                 job = response.jobs;
                 $.each(job, function(i, v) {
                     console.log(v);
@@ -41,7 +42,36 @@
                     $(`#company_name`).text(v.company_name);
                     $(`#company_website`).html('<i class="fa fa-link">&nbsp;</i>' + v
                         .company_website);
-                    jobMap(v.alamat_map_latitude, v.alamat_map_longitude);
+                    jobMap(v.job_map_latitude, v.job_map_longitude, v.detailed_address);
+                    var main = `<div class="p-4 mb-6 sm:p-6 col-span-4 md:col-span-4">
+        <p class="font-semibold text-xl mb-5 text-center md:text-left">Job Description</p>
+        <div class="mx-4 text-gray-800 font-normal leading-loose text-sm text-center md:text-left">${v.job_description}
+        </div>
+    </div>
+    <div class="p-4 col-span-6 md:col-span-2 lg:mb-6">
+        <p class="font-semibold text-xl mb-5 text-center md:text-left">Job Overview</p>
+        <article class="rounded-lg bg-white text-center p-4 border border-black sm:p-6 sm:text-center md:text-left lg:text-left">
+            <div class="leading-8">
+                <div class="text-sm mb-5">
+                    <p class="font-semibold"><i class="fa fa-money">&nbsp;</i>Job Salary</p>
+                    <p class="ml-5 text-gray-600">${v.job_expected_salary_range}</p>
+                </div>
+                <div class="text-sm mb-5">
+                    <p class="font-semibold"><i class="fa fa-venus-mars">&nbsp;</i>Gender</p>
+                    <p class="ml-5 text-gray-600">Male</p>
+                </div>
+                <div class="text-sm mb-5">
+                    <p class="font-semibold"><i class="fa fa-graduation-cap">&nbsp;</i>Qualification</p>
+                    <p class="ml-5 text-gray-600">Master Degree</p>
+                </div>
+                <div class="text-sm mb-5">
+                    <p class="font-semibold"><i class="fa fa-calendar">&nbsp;</i>Experience</p>
+                    <p class="ml-5 text-gray-600">1 year - 3 years</p>
+                </div>
+            </div>
+        </article>
+    </div>`;
+                    $('.main-data-job').append(main)
 
                 })
                 $('#loading-spinner').css('display', 'none');
@@ -53,8 +83,8 @@
         });
     }
 
-    jobMap = (lat, long) => {
-        quick.leafletMapShowStatic('map-job', lat, long);
+    jobMap = (lat, long, msg) => {
+        quick.leafletMapShowStatic('map-job', lat, long, msg);
     }
     $('#select-resume').change(function() {
         if ($(this).val() == "choose") {

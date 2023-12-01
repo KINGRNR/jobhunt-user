@@ -86,11 +86,20 @@ Route::middleware(['roleCheck:BfiwyVUDrXOpmStr'])->group(function () {
     Route::get('/content-blog', function () {
         return view('contentblog');
     });
+    Route::get('/create-blog', function () {
+        return view('formblog');
+    });
     Route::post('/register/company', [CompanyController::class, 'store'])->name('register.company');
 
     Route::get('/registerchoice', function () {
         return view('registerchoice');
     })->name('registerchoice');
+});
+
+Route::controller(JobController::class)->group(function () {
+    foreach ([ 'save', 'uploadFile', 'deleteFile'] as $key => $value) {
+        Route::post('/job/' . $value, $value);
+    }
 });
 
 Route::get('/landing', function () {
@@ -145,7 +154,7 @@ Route::middleware([loginCheck::class])->group(function () {
         });
         Route::get('/company/formjob', function () {
             return view('indexcompany.formjob');
-        });
+        })->name('formjob');
         Route::get('/company/profile', function () {
             return view('indexcompany.companyprofile');
         });
