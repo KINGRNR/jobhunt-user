@@ -76,7 +76,7 @@
                     </svg>
                 </button>
 
-                <button id="dropdownProfileButton"
+                <button id="dropdownProfileButton" onclick="window.location.href='/company/formjob'"
                     class="hidden text-white focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 text-center  lg:inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative "
                     style="background-color: #1B61AD;" type="button"><svg class="" style=""
                         xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
