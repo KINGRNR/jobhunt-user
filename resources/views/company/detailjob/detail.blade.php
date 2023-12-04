@@ -84,10 +84,9 @@
     <div class="grid grid-cols-1 mt-10 mr-10 lg:flex gap-6">
 
         <span
-            class="relative bg-figma-blue-gray-50 text-blue-800 text-sm flex items-center justify-center font-medium w-36 h-14 lg:h-10 rounded">Full
-            Time</span>
+            class="type"></span>
         <span
-            class="relative bg-green-100 text-green-600 text-sm flex items-center justify-center font-medium w-36 h-14 lg:h-10 rounded">Disetujui</span>
+            class="status"></span>
         <button data-dropdown-toggle="dropdown"
             class="relative bg-gray-200 text-sm flex items-center justify-center font-medium w-10 h-10  rounded rounded-full"
             style=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="6" viewBox="0 0 24 6"

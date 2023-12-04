@@ -30,7 +30,6 @@
                 $('.main-data-job').empty()
                 job = response.jobs;
                 $.each(job, function(i, v) {
-                    console.log(v);
                     $(`#btn-submitjob`).attr('data-id', v.job_id)
                     $(`#title_job`).text(v.job_name);
                     $(`#company_name`).text(v.company_name);
@@ -42,37 +41,9 @@
                     $(`#company_name`).text(v.company_name);
                     $(`#company_website`).html('<i class="fa fa-link">&nbsp;</i>' + v
                         .company_website);
+                        jobOverview(v)
                     jobMap(v.job_map_latitude, v.job_map_longitude, v.detailed_address);
-                    var main = `<div class="p-4 mb-6 sm:p-6 col-span-4 md:col-span-4">
-        <p class="font-semibold text-xl mb-5 text-center md:text-left">Job Description</p>
-        <div class="mx-4 text-gray-800 font-normal leading-loose text-sm text-center md:text-left">${v.job_description}
-        </div>
-    </div>
-    <div class="p-4 col-span-6 md:col-span-2 lg:mb-6">
-        <p class="font-semibold text-xl mb-5 text-center md:text-left">Job Overview</p>
-        <article class="rounded-lg bg-white text-center p-4 border border-black sm:p-6 sm:text-center md:text-left lg:text-left">
-            <div class="leading-8">
-                <div class="text-sm mb-5">
-                    <p class="font-semibold"><i class="fa fa-money">&nbsp;</i>Job Salary</p>
-                    <p class="ml-5 text-gray-600">${v.job_expected_salary_range}</p>
-                </div>
-                <div class="text-sm mb-5">
-                    <p class="font-semibold"><i class="fa fa-venus-mars">&nbsp;</i>Gender</p>
-                    <p class="ml-5 text-gray-600">Male</p>
-                </div>
-                <div class="text-sm mb-5">
-                    <p class="font-semibold"><i class="fa fa-graduation-cap">&nbsp;</i>Qualification</p>
-                    <p class="ml-5 text-gray-600">Master Degree</p>
-                </div>
-                <div class="text-sm mb-5">
-                    <p class="font-semibold"><i class="fa fa-calendar">&nbsp;</i>Experience</p>
-                    <p class="ml-5 text-gray-600">1 year - 3 years</p>
-                </div>
-            </div>
-        </article>
-    </div>`;
-                    $('.main-data-job').append(main)
-
+                    $(`.job-desc`).append(v.job_description)
                 })
                 $('#loading-spinner').css('display', 'none');
 
@@ -82,7 +53,114 @@
             }
         });
     }
+    jobOverview = (data) => {
+        var status = []
+        var type = []
+        var gender = []
+        var lulusan = []
+        var experience = []
 
+        if (data.job_status == 1) {
+            status =
+                `<span
+            class="relative bg-green-100 text-green-600 text-sm flex items-center justify-center font-medium w-36 h-14 lg:h-10 rounded">di Setujui</span>`;
+        } else if (data.job_status == 3) {
+            status =
+                `<span
+            class="relative bg-yellow-100 text-yellow-600 text-sm flex items-center justify-center font-medium w-36 h-14 lg:h-10 rounded">di Proses</span>`
+        } else {
+            status =
+                `<span
+            class="relative bg-red-100 text-red-600 text-sm flex items-center justify-center font-medium w-36 h-14 lg:h-10 rounded">di Tolak</span>`
+        }
+        if (data.job_type == 1) {
+            type = `<span
+            class="relative bg-figma-blue-gray-50 text-blue-800 text-sm flex items-center justify-center font-medium w-36 h-14 lg:h-10 rounded">Full
+            Time</span>
+        <span`
+        } else if (data.job_type == 2) {
+            type = `<span
+            class="relative bg-figma-blue-gray-50 text-blue-800 text-sm flex items-center justify-center font-medium w-36 h-14 lg:h-10 rounded">Part Time</span>
+        <span`
+        } else(
+            type = `<span
+            class="relative bg-figma-blue-gray-50 text-blue-800 text-sm flex items-center justify-center font-medium w-36 h-14 lg:h-10 rounded">Intern</span>
+        <span`
+        )
+
+        if (data.job_required_gender == 0) {
+            gender = "Perempuan";
+        } else if (data.job_required_gender == 1) {
+            gender = "Laki-Laki"
+        } else {
+            gender = "All In"
+        }
+        switch (data.job_education_level) {
+            case 0:
+                lulusan = "Lulusan SD/Sederajat"
+                break;
+            case 1:
+                lulusan = "Lulusan SMP/Sederajat";
+                break;
+            case 2:
+                lulusan = "Lulusan SMA/Sederajat";
+                break;
+            case 3:
+                lulusan = "Lulusan S1";
+                break;
+            case 4:
+                lulusan = "Lulusan S2";
+                break;
+            case 5:
+                lulusan = "Lulusan S3";
+                break;
+            default:
+                lulusan = "Tidak ada minimum pendidikan"
+                break;
+        }
+
+        switch (data.job_work_experience) {
+            case 0:
+                experience = "Kurang dari 1 Tahun"
+                break;
+            case 1:
+                experience = "1 - 5 Tahun"
+                break;
+            case 2:
+                experience = "5 - 10 Tahun"
+                break;
+            case 3:
+                experience = "10  - 20 Tahun"
+                break;
+            case 4:
+                experience = "Lebih dari 20 Tahun"
+                break;
+            default:
+                experience = "Tidak ada minimum pengalaman"
+                break;
+        }
+        var jobOverview = `<div class="leading-8">
+                <div class="text-sm mb-5">
+                    <p class="font-semibold"><i class="fa fa-money">&nbsp;</i>Expected Salary</p>
+                    <p class="ml-5 text-gray-600">${data.job_expected_salary_range ?? 'Penawaran Saat Offering'} </p>
+                </div>
+                <div class="text-sm mb-5">
+                    <p class="font-semibold"><i class="fa fa-venus-mars">&nbsp;</i>Gender</p>
+                    <p class="ml-5 text-gray-600">${gender}</p>
+                </div>
+                <div class="text-sm mb-5">
+                    <p class="font-semibold"><i class="fa fa-graduation-cap">&nbsp;</i>Qualification</p>
+                    <p class="ml-5 text-gray-600">${lulusan ?? 'Tidak ada minimum pendidikan'}</p>
+                </div>
+                <div class="text-sm mb-5">
+                    <p class="font-semibold"><i class="fa fa-calendar">&nbsp;</i>Experience</p>
+                    <p class="ml-5 text-gray-600">${experience}</p>
+                </div>
+            </div>`
+        // $('.status').html(status);
+        // $('.type').html(type);
+        $('#job-overview').append(jobOverview)
+    }
     jobMap = (lat, long, msg) => {
         quick.leafletMapShowStatic('map-job', lat, long, msg);
     }
