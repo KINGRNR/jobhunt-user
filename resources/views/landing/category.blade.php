@@ -1,3 +1,51 @@
+<style>
+    @keyframes slideInLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideInRight {
+        0% {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .animate-left-category {
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
+    .animate-right-category {
+        opacity: 0;
+        transform: translateX(100%);
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    }
+
+    .animate-left-category.active {
+        opacity: 1;
+        transform: translateX(0);
+        animation: slideInLeft 0.5s ease-in-out;
+    }
+
+    .animate-right-category.active {
+        opacity: 1;
+        transform: translateX(0);
+        animation: slideInRight 0.5s ease-in-out;
+    }
+</style>
+
 <div id="alert_resume" class="hidden container mx-auto mt-5 flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
     <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
       <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
@@ -15,8 +63,8 @@
 <p class="m-20 text-center lg:text-start"><span
         class="font-semibold text-gray-900 underline decoration-merah decoration-4 text-3xl">Popular</span><span
         class="font-semibold text-merah text-3xl"> Category</span></p>
-<div class="grid gap-4 grid-cols-1 m-10 sm:m-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
-    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
+<div class="grid gap-4 grid-cols-1 m-10 sm:m-20 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 " id="category_section">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6 animate-left-category">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -49,7 +97,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6 animate-left-category">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -82,7 +130,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6 animate-right-category">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -115,7 +163,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6 animate-right-category">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -148,7 +196,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6 animate-left-category">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -182,7 +230,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6 animate-left-category">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -216,7 +264,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6 animate-right-category">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -250,7 +298,7 @@
             </a>
         </div>
     </article>
-    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6">
+    <article class="rounded-lg bg-white p-4 shadow-sm transition hover:shadow-md sm:p-6 animate-right-category">
 
         <div class="grid grid-cols-1">
             <span class="flex justify-center">
@@ -285,5 +333,23 @@
         </div>
     </article>
 </div>
+<script>
+    $(document).scroll(function () {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach((entry, index) => {
+                setTimeout(() => {
+                        entry.target.classList.add('active');
+                    }, index * 100); 
+            });
+        }, { threshold: 0.5 });
+
+
+        const articles = $('.animate-left-category, .animate-right-category');
+
+        articles.each(function () {
+            observer.observe(this);
+        });
+    });
+</script>
 
 @include('landing.javascript')
