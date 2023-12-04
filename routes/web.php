@@ -50,6 +50,8 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::post('/jobs', [JobController::class, 'index']);
+Route::post('/jobsCompany', [JobController::class, 'indexCompany']);
+
 Route::post('/jobs_detail', [JobController::class, 'detail_job']);
 Route::post('/detail-blog', [BlogController::class, 'detail_blog']);
 
