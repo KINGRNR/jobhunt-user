@@ -8,6 +8,8 @@ use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginWithGooglecontroller;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+
 
 use App\Http\Middleware\loginCheck;
 use App\Http\Middleware\roleCheck;
@@ -22,7 +24,10 @@ use App\Http\Middleware\roleCheck;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 Route::controller(LoginWithGooglecontroller::class)->group(function () {
     Route::get('authorized/google', 'redirectToGoogle')->name('auth.google');
     Route::get('authorized/google/callback', 'handleGoogleCallback');
