@@ -13,7 +13,12 @@ class JobController extends Controller
     public function index(Request $request)
     {
         $id = $request->input('id');
-        $jobs = DB::table('v_job')->where('job_category', $id)->where('job_status', 1)->get();
+
+        if ($id == "jobhunt") {
+            $jobs = DB::table('v_job')->where('job_status', 1)->get();
+        } else {
+            $jobs = DB::table('v_job')->where('job_category', $id)->where('job_status', 1)->get();
+        }
         return response()->json(['jobs' => $jobs]);
     }
     public function indexCompany(Request $request)
