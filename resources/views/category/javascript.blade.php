@@ -43,6 +43,10 @@
             kategoriName = "Other";
             kodeKategori = '8';
             break;
+        case 'jobhunt':
+            kategoriName = "Semua Kategori";
+            kodeKategori = 'jobhunt';
+            break;
         default:
             break;
     }
