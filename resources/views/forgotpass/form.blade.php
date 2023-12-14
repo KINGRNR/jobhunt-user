@@ -13,8 +13,16 @@
                         </svg></button>
                     Home
                 </div>
-
-                <div class="mx-8 lg:mx-28 py-6 flex justify-start">
+                @if (Session::has('message'))
+                <div class="alert alert-success" role="alert">
+                    {{ Session::get('message') }}
+                </div>
+            @else
+            <div class="alert alert-success" role="alert">
+                    <h1 class="ms-5">Check Your Email</h1>
+                    {{ Session::get('message') }}
+                </div>
+                {{-- <div class="mx-8 lg:mx-28 py-6 flex justify-start">
                     <img src="svg/logoipsum-287.svg" class="w-48 h-16" alt="HTML tutorial">
                 </div>
 
@@ -24,11 +32,7 @@
                             <p class="block pb-8 text-3xl font-semibold text-gray-900">Forgot Password</p>
                         </div>
                     </div>
-                    @if (Session::has('message'))
-                    <div class="alert alert-success" role="alert">
-                        {{ Session::get('message') }}
-                    </div>
-                @endif
+
                     <form action="{{ route('forget.password.post') }}" method="POST">
                         @csrf
                         <div class="flex justify-center">
@@ -44,14 +48,14 @@
                                     @endif
                             </div>
                         </div>
-
                         <div class="grid grid-cols-3">
                             <button type="submit"
                                 class="rounded text-white bg-figma-biru-primary hover:bg-blue-800 duration-100 focus:ring-4 focus:ring-blue-300 font-medium text-sm p-3 my-4">Send
                                 Password Reset link</button>
                         </div>
                 </div>
-                </form>
+                </form> --}}
+                @endif
 
             </div>
         </div>

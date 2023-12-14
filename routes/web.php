@@ -9,8 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginWithGooglecontroller;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-
-
+use App\Http\Controllers\NotificationController;
 use App\Http\Middleware\loginCheck;
 use App\Http\Middleware\roleCheck;
 
@@ -101,6 +100,7 @@ Route::middleware(['roleCheck:BfiwyVUDrXOpmStr'])->group(function () {
     Route::get('/registerchoice', function () {
         return view('registerchoice');
     })->name('registerchoice');
+
 });
 
 Route::controller(JobController::class)->group(function () {
@@ -115,6 +115,8 @@ Route::get('/landing', function () {
 
 
 Route::middleware([loginCheck::class])->group(function () {
+    Route::get('notification', [NotificationController::class, 'index'])->name('notification.index');
+
     Route::group(['middleware' => ['roleCheck:BfiwyVUDrXOpmStr']], function () {
         Route::get('/resumeprev', [ResumeController::class, 'index']);
         Route::get('/userdata', [UserController::class, 'index']);
