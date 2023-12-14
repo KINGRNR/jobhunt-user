@@ -1,12 +1,12 @@
-
 <head>
     <title>Job Hunters | Company</title>
 
     <!-- local -->
     <link rel="icon" type="image/png" href="../file/logo/company.png">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.cdnfonts.com/css/poppins" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     @vite(['resources/css/app.css'])
 </head>
 
@@ -48,11 +48,9 @@
                     d="M20.5216 0C31.5673 0 40.5216 8.9543 40.5216 20C40.5216 31.0457 31.5673 40 20.5216 40C9.47591 40 0.521606 31.0457 0.521606 20C0.521606 8.9543 9.47591 0 20.5216 0ZM19.7987 1.49659C17.5171 1.81769 15.3445 3.65108 13.658 6.7174C13.1688 7.60683 12.7274 8.58946 12.3427 9.65044C14.6359 9.07417 17.155 8.73442 19.7987 8.68187V1.49659ZM10.6524 10.1308C11.1307 8.62958 11.7159 7.2484 12.3912 6.02065C13.2272 4.50059 14.2194 3.18795 15.3373 2.17977C9.2584 3.94523 4.46683 8.73679 2.70138 14.8157C3.70955 13.6978 5.0222 12.7056 6.54226 11.8696C7.77001 11.1943 9.15118 10.6091 10.6524 10.1308ZM10.172 11.8211C9.59577 14.1143 9.25603 16.6334 9.20348 19.2771H2.01819C2.3393 16.9954 4.17269 14.8228 7.23901 13.1364C8.12844 12.6472 9.11107 12.2058 10.172 11.8211ZM10.6496 19.2771C10.7093 16.392 11.1246 13.6834 11.8118 11.2902C14.205 10.603 16.9137 10.1876 19.7987 10.1279V13.2508C18.7224 16.0062 16.5272 18.2012 13.7717 19.2771H10.6496ZM9.20348 20.7229H2.01819C2.3393 23.0046 4.17269 25.1771 7.23901 26.8636C8.12844 27.3528 9.11107 27.7942 10.172 28.1789C9.59577 25.8857 9.25603 23.3666 9.20348 20.7229ZM11.8118 28.7098C11.1246 26.3166 10.7093 23.608 10.6496 20.7229H13.7717C16.5272 21.7988 18.7225 23.9938 19.7987 26.7492V29.8721C16.9137 29.8124 14.205 29.397 11.8118 28.7098ZM10.6524 29.8692C9.15118 29.3909 7.77001 28.8057 6.54226 28.1304C5.0222 27.2944 3.70955 26.3022 2.70138 25.1843C4.46683 31.2632 9.2584 36.0548 15.3373 37.8202C14.2194 36.812 13.2272 35.4994 12.3912 33.9793C11.7159 32.7516 11.1307 31.3704 10.6524 29.8692ZM19.7987 38.5034C17.5171 38.1823 15.3445 36.3489 13.658 33.2826C13.1688 32.3932 12.7274 31.4105 12.3427 30.3496C14.6359 30.9258 17.155 31.2656 19.7987 31.3181V38.5034ZM25.7059 37.8202C26.8238 36.812 27.816 35.4994 28.6521 33.9793C29.3273 32.7516 29.9125 31.3704 30.3908 29.8692C31.892 29.3909 33.2732 28.8057 34.501 28.1304C36.021 27.2944 37.3337 26.3022 38.3418 25.1843C36.5764 31.2632 31.7848 36.0548 25.7059 37.8202ZM28.7005 30.3496C28.3158 31.4105 27.8744 32.3932 27.3852 33.2826C25.6988 36.3489 23.5262 38.1823 21.2445 38.5034V31.3181C23.8882 31.2656 26.4073 30.9258 28.7005 30.3496ZM30.8712 28.1789C31.9321 27.7942 32.9148 27.3528 33.8042 26.8636C36.8705 25.1771 38.7039 23.0046 39.025 20.7229H31.8397C31.7872 23.3666 31.4474 25.8857 30.8712 28.1789ZM30.3937 20.7229C30.334 23.608 29.9186 26.3166 29.2314 28.7098C26.8382 29.397 24.1296 29.8124 21.2445 29.8721V26.7515C22.3204 23.9951 24.5161 21.7991 27.2724 20.7229H30.3937ZM31.8397 19.2771H39.025C38.7039 16.9954 36.8705 14.8228 33.8042 13.1364C32.9148 12.6472 31.9321 12.2058 30.8712 11.8211C31.4474 14.1143 31.7872 16.6334 31.8397 19.2771ZM29.2314 11.2902C29.9186 13.6834 30.334 16.392 30.3937 19.2771H27.2724C24.5161 18.2009 22.3204 16.0049 21.2445 13.2485V10.1279C24.1296 10.1876 26.8382 10.603 29.2314 11.2902ZM30.3908 10.1308C31.892 10.6091 33.2732 11.1943 34.501 11.8696C36.021 12.7056 37.3337 13.6978 38.3418 14.8157C36.5764 8.73679 31.7848 3.94523 25.7059 2.17977C26.8238 3.18795 27.816 4.50059 28.6521 6.02065C29.3273 7.2484 29.9125 8.62958 30.3908 10.1308ZM21.2445 1.49659C23.5262 1.81769 25.6988 3.65108 27.3852 6.7174C27.8744 7.60684 28.3158 8.58946 28.7005 9.65044C26.4073 9.07417 23.8882 8.73442 21.2445 8.68187V1.49659Z"
                     fill="black"></path>
             </svg>
-            {{-- <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">tes</span> --}}
         </a>
         <div class="flex md:order-2 space-x-4">
             @auth
-                {{-- <button onclick="window.location='{{ route('logout') }}'" class="hidden min-[450px]:inline text-white bg-transparent border border-white hover:bg-white hover:text-black hover:border-transparent focus:ring-white hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-2 text-center mr-0">Sign Out</button> --}}
 
                 <button id="dropdownProfileButton" data-dropdown-toggle="dropdownProfile"
                     class="hidden text-black focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center md:inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative"
@@ -95,7 +93,6 @@
 
                 </button>
 
-                <!-- Dropdown menu -->
                 <div id="dropdownProfile"
                     class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-60 dark:bg-gray-700 dark:divide-gray-600">
                     <div class="px-4 py-3 text-sm text-gray-900 dark:text-black flex items-center space-x-2">
@@ -192,46 +189,47 @@
                 @endguest
                 <li>
                     <button id="dropdownProfileButton" data-dropdown-toggle="dropdownProfile"
-                    class="inline-flex text-black focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center md:hidden items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative"
-                    type="button">
-                    <div class=" w-6 h-6 rounded-full bg-black flex justify-center items-center left-1/2 -ml-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18"
-                            fill="none">
-                            <path
-                                d="M9.35677 7.58317C10.9216 7.58317 12.1901 6.31464 12.1901 4.74984C12.1901 3.18503 10.9216 1.9165 9.35677 1.9165C7.79196 1.9165 6.52344 3.18503 6.52344 4.74984C6.52344 6.31464 7.79196 7.58317 9.35677 7.58317Z"
-                                fill="#1B61AD" />
-                            <path
-                                d="M9.35677 15.3747C12.0952 15.3747 14.3151 14.1061 14.3151 12.5413C14.3151 10.9765 12.0952 9.70801 9.35677 9.70801C6.61836 9.70801 4.39844 10.9765 4.39844 12.5413C4.39844 14.1061 6.61836 15.3747 9.35677 15.3747Z"
-                                fill="#1B61AD" />
+                        class="inline-flex text-black focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center md:hidden items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative"
+                        type="button">
+                        <div class=" w-6 h-6 rounded-full bg-black flex justify-center items-center left-1/2 -ml-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                viewBox="0 0 18 18" fill="none">
+                                <path
+                                    d="M9.35677 7.58317C10.9216 7.58317 12.1901 6.31464 12.1901 4.74984C12.1901 3.18503 10.9216 1.9165 9.35677 1.9165C7.79196 1.9165 6.52344 3.18503 6.52344 4.74984C6.52344 6.31464 7.79196 7.58317 9.35677 7.58317Z"
+                                    fill="#1B61AD" />
+                                <path
+                                    d="M9.35677 15.3747C12.0952 15.3747 14.3151 14.1061 14.3151 12.5413C14.3151 10.9765 12.0952 9.70801 9.35677 9.70801C6.61836 9.70801 4.39844 10.9765 4.39844 12.5413C4.39844 14.1061 6.61836 15.3747 9.35677 15.3747Z"
+                                    fill="#1B61AD" />
+                            </svg>
+                        </div>
+                        <span class="ml-2">Halo, {{ auth()->user()->name }}!</span>
+                        <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" d="m1 1 4 4 4-4" />
                         </svg>
-                    </div>
-                    <span class="ml-2">Halo, {{ auth()->user()->name }}!</span>
-                    <svg class="w-2.5 h-2.5 ml-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 1 4 4 4-4" />
-                    </svg>
-                </button>
+                    </button>
                 </li>
                 <li>
                     <button id="dropdownProfileButton"
-                    class="inline-flex text-white focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 text-center  md:hidden items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative "
-                    style="background-color: #1B61AD;" type="button"><svg class="" style=""
-                        xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <g clip-path="url(#clip0_2115_2158)">
-                            <path
-                                d="M14.9993 10.8337H10.8327V15.0003C10.8327 15.4587 10.4577 15.8337 9.99935 15.8337C9.54102 15.8337 9.16602 15.4587 9.16602 15.0003V10.8337H4.99935C4.54102 10.8337 4.16602 10.4587 4.16602 10.0003C4.16602 9.54199 4.54102 9.16699 4.99935 9.16699H9.16602V5.00033C9.16602 4.54199 9.54102 4.16699 9.99935 4.16699C10.4577 4.16699 10.8327 4.54199 10.8327 5.00033V9.16699H14.9993C15.4577 9.16699 15.8327 9.54199 15.8327 10.0003C15.8327 10.4587 15.4577 10.8337 14.9993 10.8337Z"
-                                fill="white" />
-                        </g>
-                        <defs>
-                            <clipPath id="clip0_2115_2158">
-                                <rect width="20" height="20" fill="white" />
-                            </clipPath>
-                        </defs>
-                    </svg>
-                    Add Job
+                        class="inline-flex text-white focus:ring-4 focus:outline-ring-4 focus:ring-blue-300 font-medium  text-sm px-5 py-2.5 text-center  md:hidden items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 border border-gray-400 relative "
+                        style="background-color: #1B61AD;" type="button"><svg class="" style=""
+                            xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                            fill="none">
+                            <g clip-path="url(#clip0_2115_2158)">
+                                <path
+                                    d="M14.9993 10.8337H10.8327V15.0003C10.8327 15.4587 10.4577 15.8337 9.99935 15.8337C9.54102 15.8337 9.16602 15.4587 9.16602 15.0003V10.8337H4.99935C4.54102 10.8337 4.16602 10.4587 4.16602 10.0003C4.16602 9.54199 4.54102 9.16699 4.99935 9.16699H9.16602V5.00033C9.16602 4.54199 9.54102 4.16699 9.99935 4.16699C10.4577 4.16699 10.8327 4.54199 10.8327 5.00033V9.16699H14.9993C15.4577 9.16699 15.8327 9.54199 15.8327 10.0003C15.8327 10.4587 15.4577 10.8337 14.9993 10.8337Z"
+                                    fill="white" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_2115_2158">
+                                    <rect width="20" height="20" fill="white" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        Add Job
 
-                </button>
+                    </button>
 
                 </li>
                 <li>
@@ -273,121 +271,9 @@
                             class="block px-4 py-2 font-medium text-center text-gray-700 rounded-t-lg bg-gray-50 dark:bg-gray-800 dark:text-white">
                             Notifications
                         </div>
-                        <div class="divide-y divide-gray-100 dark:divide-gray-700">
-                            <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <div class="flex-shrink-0">
-                                    <img class="rounded-full w-11 h-11"
-                                        src="/docs/images/people/profile-picture-1.jpg" alt="Jese image">
-                                    <div
-                                        class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-blue-600 border border-white rounded-full dark:border-gray-800">
-                                        <svg class="w-2 h-2 text-white" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                            viewBox="0 0 18 18">
-                                            <path
-                                                d="M1 18h16a1 1 0 0 0 1-1v-6h-4.439a.99.99 0 0 0-.908.6 3.978 3.978 0 0 1-7.306 0 .99.99 0 0 0-.908-.6H0v6a1 1 0 0 0 1 1Z" />
-                                            <path
-                                                d="M4.439 9a2.99 2.99 0 0 1 2.742 1.8 1.977 1.977 0 0 0 3.638 0A2.99 2.99 0 0 1 13.561 9H17.8L15.977.783A1 1 0 0 0 15 0H3a1 1 0 0 0-.977.783L.2 9h4.239Z" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="w-full pl-3">
-                                    <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">New message from <span
-                                            class="font-semibold text-gray-900 dark:text-white">Jese Leos</span>: "Hey,
-                                        what's up? All set for the presentation?"</div>
-                                    <div class="text-xs text-blue-600 dark:text-blue-500">a few moments ago</div>
-                                </div>
-                            </a>
-                            <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <div class="flex-shrink-0">
-                                    <img class="rounded-full w-11 h-11"
-                                        src="/docs/images/people/profile-picture-2.jpg" alt="Joseph image">
-                                    <div
-                                        class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-gray-900 border border-white rounded-full dark:border-gray-800">
-                                        <svg class="w-2 h-2 text-white" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                            viewBox="0 0 20 18">
-                                            <path
-                                                d="M6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Zm11-3h-2V5a1 1 0 0 0-2 0v2h-2a1 1 0 1 0 0 2h2v2a1 1 0 0 0 2 0V9h2a1 1 0 1 0 0-2Z" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="w-full pl-3">
-                                    <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400"><span
-                                            class="font-semibold text-gray-900 dark:text-white">Joseph Mcfall</span>
-                                        and <span class="font-medium text-gray-900 dark:text-white">5 others</span>
-                                        started following you.</div>
-                                    <div class="text-xs text-blue-600 dark:text-blue-500">10 minutes ago</div>
-                                </div>
-                            </a>
-                            <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <div class="flex-shrink-0">
-                                    <img class="rounded-full w-11 h-11"
-                                        src="/docs/images/people/profile-picture-3.jpg" alt="Bonnie image">
-                                    <div
-                                        class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-red-600 border border-white rounded-full dark:border-gray-800">
-                                        <svg class="w-2 h-2 text-white" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                            viewBox="0 0 20 18">
-                                            <path
-                                                d="M17.947 2.053a5.209 5.209 0 0 0-3.793-1.53A6.414 6.414 0 0 0 10 2.311 6.482 6.482 0 0 0 5.824.5a5.2 5.2 0 0 0-3.8 1.521c-1.915 1.916-2.315 5.392.625 8.333l7 7a.5.5 0 0 0 .708 0l7-7a6.6 6.6 0 0 0 2.123-4.508 5.179 5.179 0 0 0-1.533-3.793Z" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="w-full pl-3">
-                                    <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400"><span
-                                            class="font-semibold text-gray-900 dark:text-white">Bonnie Green</span> and
-                                        <span class="font-medium text-gray-900 dark:text-white">141 others</span> love
-                                        your story. See it and view more stories.
-                                    </div>
-                                    <div class="text-xs text-blue-600 dark:text-blue-500">44 minutes ago</div>
-                                </div>
-                            </a>
-                            <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <div class="flex-shrink-0">
-                                    <img class="rounded-full w-11 h-11"
-                                        src="/docs/images/people/profile-picture-4.jpg" alt="Leslie image">
-                                    <div
-                                        class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-green-400 border border-white rounded-full dark:border-gray-800">
-                                        <svg class="w-2 h-2 text-white" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                            viewBox="0 0 20 18">
-                                            <path
-                                                d="M18 0H2a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h2v4a1 1 0 0 0 1.707.707L10.414 13H18a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5 4h2a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2ZM5 4h5a1 1 0 1 1 0 2H5a1 1 0 0 1 0-2Zm2 5H5a1 1 0 0 1 0-2h2a1 1 0 0 1 0 2Zm9 0h-6a1 1 0 0 1 0-2h6a1 1 0 1 1 0 2Z" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="w-full pl-3">
-                                    <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400"><span
-                                            class="font-semibold text-gray-900 dark:text-white">Leslie
-                                            Livingston</span> mentioned you in a comment: <span
-                                            class="font-medium text-blue-500" href="#">@bonnie.green</span> what
-                                        do you say?</div>
-                                    <div class="text-xs text-blue-600 dark:text-blue-500">1 hour ago</div>
-                                </div>
-                            </a>
-                            <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <div class="flex-shrink-0">
-                                    <img class="rounded-full w-11 h-11"
-                                        src="/docs/images/people/profile-picture-5.jpg" alt="Robert image">
-                                    <div
-                                        class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-purple-500 border border-white rounded-full dark:border-gray-800">
-                                        <svg class="w-2 h-2 text-white" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                            viewBox="0 0 20 14">
-                                            <path
-                                                d="M11 0H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm8.585 1.189a.994.994 0 0 0-.9-.138l-2.965.983a1 1 0 0 0-.685.949v8a1 1 0 0 0 .675.946l2.965 1.02a1.013 1.013 0 0 0 1.032-.242A1 1 0 0 0 20 12V2a1 1 0 0 0-.415-.811Z" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="w-full pl-3">
-                                    <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400"><span
-                                            class="font-semibold text-gray-900 dark:text-white">Robert Brown</span>
-                                        posted a new video: Glassmorphism - learn how to implement the new design trend.
-                                    </div>
-                                    <div class="text-xs text-blue-600 dark:text-blue-500">3 hours ago</div>
-                                </div>
-                            </a>
+                        <div class="divide-y divide-gray-100 dark:divide-gray-700 notif-content overflow-y-auto h-96">
                         </div>
+                        
                         <a href="#"
                             class="block py-2 text-sm font-medium text-center text-gray-900 rounded-b-lg bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
                             <div class="inline-flex items-center ">
@@ -446,32 +332,45 @@
     </div>
 </div> --}}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-{{-- <script>
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 10) {
-            $('nav').removeClass("bg-transparent").addClass("bg-black");
-        } else {
-            $('nav').removeClass("bg-black").addClass("bg-transparent");
-        }
-    });
-</script> --}}
-{{-- <script>
+<script>
     $(document).ready(function() {
-        onScroll();
+        showNotif();
     });
-
-    function onScroll() {
-        var lastScrollTop, $bar = $('nav'),
-            height = $bar.height(),
-            $window = $(window),
-            offset = 10;
-
-        $window.on('scroll', function() {
-            var scrollTop = $window.scrollTop();
-            $bar.css({
-                top: scrollTop > lastScrollTop && scrollTop > 300 ? -height : 0
-            });
-            lastScrollTop = scrollTop;
+    showNotif = () => {
+        $.ajax({
+            url: "{{ route('notification.index') }}",
+            // type: 'POST',
+            // data: {
+            //     _token: '{{ csrf_token() }}',
+            //     id: id
+            // },
+            dataType: 'json',
+            success: function(response) {
+                console.log(response)
+                $.each(response.data, (i, v) => {
+                    var style = [];
+                    if (v.notification_read == 0){
+                        style = 'bg-gray-200 hover:bg-gray-300'
+                    } else {
+                        style = 'hover:bg-gray-100'
+                    }
+                    console.log(style)
+                    html = `<a href="#" class="flex px-4 py-3">
+                                <div class="flex-shrink-0">
+                                    <img class="rounded-full w-11 h-11" src="/docs/images/people/profile-picture-1.jpg" alt="">
+                                </div>
+                                <div class="w-full pl-3">
+                                    <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400">New message from <span class="font-bold text-gray-900 dark:text-white">${v.notification_by}</span><br><span class="font-semibold">${v.notification_title}</span><br>${v.notification_message.slice(0, 100)}...</div>
+                                    <div class="text-xs text-blue-600 dark:text-blue-500">${v.notification_created_at}</div> 
+                                </div>
+                            </a>`
+                    $('.notif-content').append(html)
+                })
+            },
+            error: function(error) {
+                console.log(error);
+            }
         });
-    } --}}
+    }
+</script>
 </script>
