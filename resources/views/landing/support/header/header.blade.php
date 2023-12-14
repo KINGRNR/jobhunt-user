@@ -250,28 +250,7 @@
                             Notifications
                         </div>
                         <div class="divide-y divide-gray-100 dark:divide-gray-700">
-                            <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
-                                <div class="flex-shrink-0">
-                                    <img class="rounded-full w-11 h-11"
-                                        src="/docs/images/people/profile-picture-2.jpg" alt="Joseph image">
-                                    <div
-                                        class="absolute flex items-center justify-center w-5 h-5 ml-6 -mt-5 bg-gray-900 border border-white rounded-full dark:border-gray-800">
-                                        <svg class="w-2 h-2 text-white" aria-hidden="true"
-                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                            viewBox="0 0 20 18">
-                                            <path
-                                                d="M6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Zm11-3h-2V5a1 1 0 0 0-2 0v2h-2a1 1 0 1 0 0 2h2v2a1 1 0 0 0 2 0V9h2a1 1 0 1 0 0-2Z" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <div class="w-full pl-3">
-                                    <div class="text-gray-500 text-sm mb-1.5 dark:text-gray-400"><span
-                                            class="font-semibold text-gray-900 dark:text-white">Joseph Mcfall</span>
-                                        and <span class="font-medium text-gray-900 dark:text-white">5 others</span>
-                                        started following you.</div>
-                                    <div class="text-xs text-blue-600 dark:text-blue-500">10 minutes ago</div>
-                                </div>
-                            </a>
+        
                             {{-- <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
                                 <div class="flex-shrink-0">
                                     <img class="rounded-full w-11 h-11"
