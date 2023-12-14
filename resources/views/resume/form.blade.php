@@ -199,10 +199,14 @@
                                         <span class="text-gray-600">Make sure the photo is formal or polite, and the
                                             face is clearly visible<span class="text-figma-biru-300">(Maks. 5mb,
                                                 png,jpeg,jpg)</span></span>
-                                        <div class="mt-2">
-                                            <img id="imagePreview"
-                                                class="hidden w-24 border border-2 rounded-full mt-2 "
-                                                alt="Preview" />
+
+                                        <div class="holder">
+                                            <button type="button" onclick="removePhoto(this)" data-id="1"
+                                                class=" text-white bg-merah hover:bg-blue-800 focus:ring-blue-800 hover:duration-150 focus:ring-4 focus:outline-none font-medium text-sm px-4 py-3 text-center rounded-lg">Remove
+                                                Photo</button>
+                                            <img id="imgPreview"
+                                                class="object-cover rounded-full w-[222px] h-[222px] border border-white border-4"
+                                                src="#" alt="pic" style="display: none;" />
                                         </div>
                                     </div>
 
@@ -329,23 +333,85 @@
         $('.select').select2({
             placeholder: 'Select an option'
         });
-        $("#resume_official_photo").change(function() {
-            var fileInput = document.getElementById('resume_official_photo');
-            var imagePreview = document.getElementById('imagePreview');
-            var currentImage = document.getElementById('currentImage');
+        // $("#resume_official_photo").change(function() {
+        //     var fileInput = document.getElementById('resume_official_photo');
+        //     var imagePreview = document.getElementById('imagePreview');
+        //     var currentImage = document.getElementById('currentImage');
 
-            if (fileInput.files && fileInput.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    imagePreview.src = e.target.result;
-                    imagePreview.classList.remove('hidden');
-                    currentImage.classList.add('hidden');
+        //     if (fileInput.files && fileInput.files[0]) {
+        //         var reader = new FileReader();
+        //         reader.onload = function(e) {
+        //             imagePreview.src = e.target.result;
+        //             imagePreview.classList.remove('hidden');
+        //             currentImage.classList.add('hidden');
+        //         };
+        //         reader.readAsDataURL(fileInput.files[0]);
+        //     }
+        // });
+        $("#resume_official_photo").change(function() {
+            const file = this.files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function(event) {
+                    $("#imgPreview").fadeIn()
+                        .attr("src", event.target.result);
                 };
-                reader.readAsDataURL(fileInput.files[0]);
+                reader.readAsDataURL(file);
             }
         });
     });
+    $('input').change(function() {
+        return "Any string value here forces a dialog box to \n" +
+            "appear before closing the window.";
+    });
 
+    // function closeIt() {
+    //     return "Any string value here forces a dialog box to \n" +
+    //         "appear before closing the window.";
+    // }
+    // window.onbeforeunload = saveDraft();
+    var form = "resume_form"
+    var data = $('[name="' + form + '"]')[0];
+    var formData = new FormData(data);
+
+    function saveDraft() {
+        $.ajax({
+            url: APP_URL + 'resume/save',
+            type: "POST",
+            processData: false,
+            contentType: false,
+            headers: {
+                'X-CSRF-TOKEN': csrfToken,
+            },
+            data: formData,
+
+            success: function(response) {
+                // if (response.success) {
+                //     $('#loading-spinner').css('display', 'none');
+                //     Swal.fire({
+                //         title: response.title,
+                //         text: response.message,
+                //         icon: (response.success) ? 'success' : "error",
+                //         confirmButtonText: "Oke!",
+
+                //     }).then(() => {
+                //         window.location.href = '/resumepreview';
+                //     });
+                // }
+            },
+            error: function(response) {
+                let err_msg = response.responseJSON
+                console.log(err_msg)
+                $('#loading-spinner').css('display', 'none');
+                Swal.fire({
+                    title: err_msg.title,
+                    text: err_msg.message,
+                    icon: (err_msg.success) ? 'success' : "error",
+                    confirmButtonText: "Oke!",
+                });
+            }
+        });
+    }
     ClassicEditor
         .create(document.querySelector('#resume_content'))
         .catch(error => {
@@ -357,7 +423,8 @@
             type: 'GET',
             success: function(response) {
                 var data = response.resume[0];
-                if (response.resume) {
+                console.log(data);
+                if (data) {
                     $('#resume_fullname').val(data.resume_fullname);
                     $('#resume_expected_salary').val(data.resume_expected_salary);
                     $('#resume_second_email').val(data.resume_second_email);
@@ -374,6 +441,8 @@
                     $('#resume_link').val(data.resume_link);
                     $('#resume_content').val(data.resume_content);
                     $('#resume_portofolio_link').val(data.resume_portofolio_link);
+                    $('#imgPreview').fadeIn().attr('src', APP_URL + 'file/user_photo/' + data
+                        .resume_official_photo);
                 }
             },
             error: function(error) {
@@ -403,58 +472,58 @@
             });
             return false;
         } else {
-        Swal.fire({
-            title: 'Konfirmasi',
-            text: 'Pastikan Data yang di inputkan sudah benar',
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonText: 'Ya',
-            cancelButtonText: 'Tidak',
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $('#loading-spinner').css('display', '')
-                $.ajax({
-                    url: APP_URL + 'resume/save',
-                    type: "POST",
-                    processData: false,
-                    contentType: false,
-                    headers: {
-                        'X-CSRF-TOKEN': csrfToken,
-                    },
-                    data: formData,
+            Swal.fire({
+                title: 'Konfirmasi',
+                text: 'Pastikan Data yang di inputkan sudah benar',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Ya',
+                cancelButtonText: 'Tidak',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#loading-spinner').css('display', '')
+                    $.ajax({
+                        url: APP_URL + 'resume/save',
+                        type: "POST",
+                        processData: false,
+                        contentType: false,
+                        headers: {
+                            'X-CSRF-TOKEN': csrfToken,
+                        },
+                        data: formData,
 
-                    success: function(response) {
-                        if (response.success) {
+                        success: function(response) {
+                            if (response.success) {
+                                $('#loading-spinner').css('display', 'none');
+                                Swal.fire({
+                                    title: response.title,
+                                    text: response.message,
+                                    icon: (response.success) ? 'success' : "error",
+                                    confirmButtonText: "Oke!",
+
+                                }).then(() => {
+                                    window.location.href = '/resumepreview';
+                                });
+                            }
+                        },
+                        error: function(response) {
+                            let err_msg = response.responseJSON
+                            console.log(err_msg)
                             $('#loading-spinner').css('display', 'none');
                             Swal.fire({
-                                title: response.title,
-                                text: response.message,
-                                icon: (response.success) ? 'success' : "error",
+                                title: err_msg.title,
+                                text: err_msg.message,
+                                icon: (err_msg.success) ? 'success' : "error",
                                 confirmButtonText: "Oke!",
-
-                            }).then(() => {
-                                window.location.href = '/resumepreview';
                             });
                         }
-                    },
-                    error: function(response) {
-                        let err_msg = response.responseJSON
-                        console.log(err_msg)
-                        $('#loading-spinner').css('display', 'none');
-                        Swal.fire({
-                            title: err_msg.title,
-                            text: err_msg.message,
-                            icon: (err_msg.success) ? 'success' : "error",
-                            confirmButtonText: "Oke!",
-                        });
-                    }
-                });
-            }
-        });
+                    });
+                }
+            });
+        }
     }
-}
 
     function validateForm() {
-      
+
     }
 </script>
