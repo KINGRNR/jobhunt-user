@@ -33,6 +33,7 @@
         }
     }
 </style>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <div class="loading-spinner-overlay" id="loading-spinner" style="display: none;">
     <div class="loading-spinner"></div>
     <p>Loading..</p>
@@ -146,6 +147,7 @@
 <script src="https://unpkg.com/htmx.org@1.9.2"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/assets/js/quickact.js"></script>
 <script>
     const togglePassword = document.querySelector("#togglePassword");
     const password = document.querySelector("#password");
@@ -174,19 +176,13 @@
 
         var formData = $(this).serialize();
 
-        $.ajax({
-            type: "POST",
+        quick.ajax({
             url: "{{ route('login.store') }}",
             data: formData,
-            headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}'
-            },
             success: function(res) {
                 window.location.href = res.redirect;
             },
             error: function(xhr, status, error) {
-                $('#loading-spinner').css('display', 'none')
-
                 Swal.fire({
                     icon: 'error',
                     text: 'Invalid email or password.',
@@ -194,6 +190,27 @@
                     timer: 3500,
                 });
             }
-        });
+        })
+        // $.ajax({
+        //     type: "POST",
+        //     url: "{{ route('login.store') }}",
+        //     data: formData,
+        //     headers: {
+        //         'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        //     },
+        //     success: function(res) {
+        //         window.location.href = res.redirect;
+        //     },
+        //     error: function(xhr, status, error) {
+        //         $('#loading-spinner').css('display', 'none')
+
+        //         Swal.fire({
+        //             icon: 'error',
+        //             text: 'Invalid email or password.',
+        //             showConfirmButton: true,
+        //             timer: 3500,
+        //         });
+        //     }
+        // });
     });
 </script>

@@ -65,6 +65,73 @@ var quick = {
         }
 
         addMarkerAtCoordinates(lt, ln);
+    },
+
+    ajax: function (config) {
+        config = $.extend(
+            true,
+            {
+              data: null,
+              url: null,
+              type: "POST",
+              dataType: null,
+              processData: true,
+              contentType: true,
+              success: function () {},
+              complete: function () {},
+              error: function () {},
+            },
+        );
+        $.ajax({
+            url: config.url,
+            type: config.type,
+            processData: config.processData,
+            contentType: config.processData,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: config.data,
+            success: function(response) {
+                config.success(response)
+                // if (response.success) {
+                //     $('#loading-spinner').css('display', 'none');
+                //     Swal.fire({
+                //         title: response.title,
+                //         text: response.message,
+                //         icon: (response.success) ? 'success' : "error",
+                //         confirmButtonText: "Oke!",
+
+                //     }).then(() => {
+                //         window.location.href = '/resumepreview';
+                //     });
+                // }
+                $('#loading-spinner').css('display', 'none')
+
+            },
+            error: function(response) {
+                config.error(response)
+                $('#loading-spinner').css('display', 'none')
+
+                // let err_msg = response.responseJSON
+                // console.log(err_msg)
+                // $('#loading-spinner').css('display', 'none');
+                // // Swal.fire({
+                // //     title: err_msg.title,
+                // //     text: err_msg.message,
+                // //     icon: (err_msg.success) ? 'success' : "error",
+                // //     confirmButtonText: "Oke!",
+                // // });
+                // Toast.fire({
+                //     title: err_msg.title,
+                //     text: err_msg.message,
+                //     icon: (err_msg.success) ? 'success' : "error",
+                //     timer: 3500,
+                // });
+            },
+            complate: function(response) {
+                config.complate(response)
+            }
+        });
     }
 };
 
