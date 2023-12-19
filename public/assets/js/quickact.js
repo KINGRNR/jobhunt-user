@@ -1,5 +1,12 @@
-
 var quick = {
+    block: function() {
+        $('#loading-spinner').css('display', '')    
+    },
+
+    unblock: function() {
+        $('#loading-spinner').css('display', 'none')
+    },
+
     convertDate: function (data) {
         var date = new Date(data);
 
@@ -67,6 +74,62 @@ var quick = {
         addMarkerAtCoordinates(lt, ln);
     },
 
+    swalNotif: function(data) {
+        data = $.extend ( 
+            true, 
+            {
+                title: 'error!',
+                text: 'niki error mas bro tolong hubung i dapit sekarang yo bolo:D',
+                icon: "error",
+                callback: function () {},
+            },
+            data
+        )
+        swal.fire({
+            title: data.title,
+            text: data.text,
+            icon: data.icon          
+        }).then(function (result) {
+            data.callback(result);
+        })
+    },
+
+    toastNotif: function(data) {
+        data = $.extend ( 
+            true, 
+            {
+                title: 'error!',
+                text: null,
+                icon: "error",
+                timer: 3500,
+                position: "top-end",
+                showConfirmButton: false,
+                timerProgressBar: true,
+                callback: function () {},
+            },
+            data
+        )
+        const Toast = Swal.mixin({
+            toast: true,
+            position: data.position,
+            showConfirmButton: data.showConfirmButton,
+            timer: data.timer,
+            timerProgressBar: data.timerProgressBar,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            },
+            didClose: (toast) => {
+                data.callback(toast)
+            }
+        })
+        Toast.fire({
+            title: data.title,
+            text: data.text,
+            icon: data.icon,
+        })
+    },
+
     ajax: function (config) {
         config = $.extend(
             true,
@@ -75,58 +138,41 @@ var quick = {
               url: null,
               type: "POST",
               dataType: null,
-              processData: true,
-              contentType: true,
+              processData: null,
+              contentType: null,
               success: function () {},
               complete: function () {},
               error: function () {},
             },
+            config
         );
+        quick.block()
         $.ajax({
             url: config.url,
             type: config.type,
             processData: config.processData,
-            contentType: config.processData,
+            contentType: config.contentType,
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             data: config.data,
             success: function(response) {
+                $('#loading-spinner').css('display', 'none')
                 config.success(response)
-                // if (response.success) {
-                //     $('#loading-spinner').css('display', 'none');
-                //     Swal.fire({
-                //         title: response.title,
-                //         text: response.message,
-                //         icon: (response.success) ? 'success' : "error",
-                //         confirmButtonText: "Oke!",
-
-                //     }).then(() => {
-                //         window.location.href = '/resumepreview';
-                //     });
-                // }
-                $('#loading-spinner').css('display', 'none')
-
             },
-            error: function(response) {
-                config.error(response)
+            error: function(xhr, status, error) {
                 $('#loading-spinner').css('display', 'none')
+                config.error(xhr, status, error)
 
-                // let err_msg = response.responseJSON
-                // console.log(err_msg)
-                // $('#loading-spinner').css('display', 'none');
-                // // Swal.fire({
-                // //     title: err_msg.title,
-                // //     text: err_msg.message,
-                // //     icon: (err_msg.success) ? 'success' : "error",
-                // //     confirmButtonText: "Oke!",
-                // // });
-                // Toast.fire({
-                //     title: err_msg.title,
-                //     text: err_msg.message,
-                //     icon: (err_msg.success) ? 'success' : "error",
-                //     timer: 3500,
-                // });
+                var messageError = xhr.responseJSON && xhr.responseJSON.message;
+                if (messageError) {
+                    quick.toastNotif({
+                        title: messageError,
+                        icon: "error"
+                    })   
+                } else {
+                    quick.toastNotif()
+                }
             },
             complate: function(response) {
                 config.complate(response)

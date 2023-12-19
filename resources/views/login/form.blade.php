@@ -89,7 +89,7 @@
                                 hx-swap="outerHTML" hx-push-url="true"
                                 class="text-sm text-figma-yellow-secondary font-medium hover:underline mb-4">Forgot
                                 password?</a>
-                            <button type="submit"
+                            <button type="submit" id="submit-button"
                                 class="text-white bg-figma-biru-primary hover:bg-blue-800 duration-100 focus:ring-4 focus:ring-blue-300 font-medium text-sm lg:w-[400px] lg-bigger:w-full p-3">SIGN
                                 IN</button>
                             <p class="text-sm text-center py-4 font-medium lg:w-[400px] lg-bigger:w-full">Don't have an
@@ -161,56 +161,27 @@
 
     $('#form-login').on('submit', function submit(e) {
         e.preventDefault();
-        $('#loading-spinner').css('display', '')
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
 
-        var formData = $(this).serialize();
+        formData = new FormData($(this)[0]);
 
         quick.ajax({
             url: "{{ route('login.store') }}",
             data: formData,
+            processData: false,
+            contentType: false,
             success: function(res) {
-                window.location.href = res.redirect;
-            },
-            error: function(xhr, status, error) {
-                Swal.fire({
-                    icon: 'error',
-                    text: 'Invalid email or password.',
-                    showConfirmButton: true,
-                    timer: 3500,
-                });
-            }
-        })
-        // $.ajax({
-        //     type: "POST",
-        //     url: "{{ route('login.store') }}",
-        //     data: formData,
-        //     headers: {
-        //         'X-CSRF-TOKEN': '{{ csrf_token() }}'
-        //     },
-        //     success: function(res) {
-        //         window.location.href = res.redirect;
-        //     },
-        //     error: function(xhr, status, error) {
-        //         $('#loading-spinner').css('display', 'none')
+                if (res.success) {
+                    $('#submit-button').prop('disabled', true).removeClass('bg-figma-biru-primary, hover:bg-blue-800').addClass('bg-gray-200').css('cursor', 'progress')
+                    quick.toastNotif({
+                        title: 'success',
+                        icon: 'success',
+                        callback: function() {
+                            window.location.href = res.redirect;
+                        }
+                    })
 
-        //         Swal.fire({
-        //             icon: 'error',
-        //             text: 'Invalid email or password.',
-        //             showConfirmButton: true,
-        //             timer: 3500,
-        //         });
-        //     }
-        // });
+                }
+            },
+        })
     });
 </script>
