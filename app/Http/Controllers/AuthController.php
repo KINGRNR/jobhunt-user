@@ -46,7 +46,7 @@ class AuthController extends Controller
         $validator = $this->validator($request->all());
 
         if ($validator->fails()) {
-            return response()->json(['errors' => $validator->errors()], 400);
+            return response()->json(['errors' => $validator->errors(), 'message' => 'inputan tidak sesuai'], 400);
         }
 
         if (Auth::attempt($request->only('email', 'password'))) {
@@ -127,10 +127,11 @@ class AuthController extends Controller
                 ], 400);
             }
         } catch (\Exception $e) {
+            $statusCode = method_exists($e, 'getStatusCode') ? $e->getStatusCode() : 500;
             return response()->json([
                 'success' => false,
                 'message' => 'An error occurred during user registration.'
-            ], 400);
+            ], $statusCode);
         }
     }
 }
