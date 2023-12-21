@@ -6,11 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 //use Malico\LaravelNanoid\Eloquent\InteractsWithNanoid;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class Feed extends Model
 {
+    use SoftDeletes;
+
     use HasFactory;
     //use InteractsWithNanoid;
     protected $table = 'feed_content';
@@ -25,6 +28,7 @@ class Feed extends Model
     protected $primaryKey = 'id_feed';
 
     const CREATED_AT = 'feed_created_at';
-    const UPDATED_AT = 'feed_created_at';
+    const UPDATED_AT = 'feed_updated_at';
+    const DELETED_AT = 'feed_deleted_at';
 
 }

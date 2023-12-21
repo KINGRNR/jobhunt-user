@@ -61,7 +61,7 @@ Route::post('/detail-blog', [BlogController::class, 'detail_blog']);
 
 Route::post('/blog-index', [BlogController::class, 'index']);
 Route::controller(BlogController::class)->group(function () {
-    foreach (['postCommentSingle', 'getComment', 'save', 'reaction', 'userindex'] as $key => $value) {
+    foreach (['postCommentSingle', 'getComment', 'save', 'reaction', 'userindex', 'urFeed', 'onDetail', 'saveUpdate', 'deleteFeed'] as $key => $value) {
         Route::post('/blog/' . $value, $value);
     }
 });

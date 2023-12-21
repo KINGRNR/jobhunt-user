@@ -41,7 +41,8 @@ class BlogController extends Controller
         $data['content'] = DB::table('v_feed')
             ->skip($offset)
             ->take($limit)
-            ->orderBy('feed_created_at', 'DESC') // Specify the column and the order direction
+            ->whereNull('feed_deleted_at') // Exclude soft-deleted records
+            ->orderBy('feed_created_at', 'DESC')
             ->get();
         $data['users'] = [];
 
@@ -203,7 +204,7 @@ class BlogController extends Controller
         Feed::create([
             'title_feed' => $data['title'],
             'description_feed' => $data['description'],
-            'pic_name' => $data['photo'],
+            'pic_name' => $data['photo'] ?? null,
             'feed_user_id' => $id
         ]);
         return response()->json([
@@ -211,6 +212,71 @@ class BlogController extends Controller
             'status' =>  'Success',
             'title' => 'Sukses!',
             'message' => 'Data Berhasil Tersimpan!',
+            'code' => 201
+        ]);
+    }
+    public function urFeed(Request $request)
+    {
+        $id = Session::get('user_id');
+
+        $data = DB::table('feed_content')->where('feed_user_id', $id)->whereNull('feed_deleted_at')->get();
+        return response()->json($data);
+    }
+    public function onDetail(Request $request)
+    {
+        $data = $request->post();
+        // print_r($data['id']); exit;
+        // $id = Session::get('user_id');
+
+        $data = DB::table('feed_content')->where('id_feed', $data['id'])->first();
+        return response()->json($data);
+    }
+    public function saveUpdate(Request $request)
+    {
+        // $data = $request->post();
+        $request->validate([
+            'pic_name' => 'nullable|image|max:3000|mimes:jpeg,jpg,png',
+            'title_feed' => 'required',
+            'description_feed' => 'required',
+        ]);
+        $data = $request->except(['pic_name']);
+        // $existingFeed = Feed::find($data['id_feed']);
+        // print_r($existingFeed); exit;
+        $existingFeed = Feed::where('id_feed', $data['id_feed'])->first();
+
+        if ($request->hasFile('pic_name')) {
+            $photoFile = $request->file('pic_name');
+            $photoName = Str::random(15) . '_' . time() . '.' . $photoFile->getClientOriginalExtension();
+
+            if ($photoFile->move(public_path('file/feed/'), $photoName)) {
+                $data['pic_name'] = $photoName;
+
+                // Delete the existing photo if it exists
+                if ($existingFeed && $existingFeed->pic_name) {
+                    unlink(public_path('file/feed/' . $existingFeed->pic_name));
+                    $existingFeed->pic_name = null; // Update the existing resume to clear the photo
+                }
+            }
+        }
+        // print_r($data); exit;
+        $existingFeed->update($data);
+        return response()->json([
+            'success' =>  true,
+            'status' =>  'Success',
+            'title' => 'Sukses!',
+            'message' => 'Data Berhasil Tersimpan!',
+            'code' => 201
+        ]);
+    }
+    public function deleteFeed(Request $request)
+    {
+        $data = $request->post();
+        $feed = Feed::where('id_feed', $data['id'])->delete();;
+        return response()->json([
+            'success' =>  true,
+            'status' =>  'Success',
+            'title' => 'Sukses!',
+            'message' => 'Data di Delete!',
             'code' => 201
         ]);
     }
