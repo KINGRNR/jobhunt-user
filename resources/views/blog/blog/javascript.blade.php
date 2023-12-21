@@ -134,10 +134,8 @@
                 limit: limit
             },
             success: function(response) {
-                console.log(response.id)
 
                 var data = response.content;
-                console.log(data.reaction)
                 $('#loading-spinner').fadeOut()
                 if (data.length > 0) {
                     $('.skeleton').empty()
@@ -463,6 +461,9 @@
                 } else {
                     $('#like, #dislike').removeClass('cursor-not-allowed');
                 }
+                $('#submit-btn').addClass(
+                    'bg-figma-biru-primary, hover:bg-blue-800').removeClass('bg-gray-200')
+                $('.animate-spin').fadeOut()
                 callback();
             },
             error: function(error) {
@@ -506,6 +507,8 @@
         var form = "form-feed"
         var data = $('[name="' + form + '"]')[0];
         var formData = new FormData(data);
+        $('#submit-btn').prop('disabled', true)
+
         quick.ajax({
             url: "/blog/save",
             data: formData,
@@ -513,16 +516,21 @@
             contentType: false,
             success: function(res) {
                 if (res.success) {
-                    $('#submit-button').prop('disabled', true).removeClass(
-                        'bg-figma-biru-primary, hover:bg-blue-800').addClass('bg-gray-200').css(
-                        'cursor', 'progress')
+
+                    // $('#submit-btn').removeClass(
+                    //     'bg-figma-biru-primary, hover:bg-blue-800').addClass('bg-gray-200')
+                    $('.animate-spin').fadeIn()
                     // $('#submit-btn').removeAttr('disabled')
                     quick.toastNotif({
                         title: 'success',
                         icon: 'success',
                         timer: 500,
                         callback: function() {
-                            window.location.href = '/blog';
+                            $('.content').empty()
+                            $('input, textarea').val('');
+                            $('#submit-btn').prop('disabled', false)
+
+                            initBlog()
                         }
                     })
 
@@ -606,7 +614,6 @@
 
 
                 if (res) {
-                    console.log(res.data)
                     if (res.data == "delete") {
                         $(a).removeAttr('data-likeUpdate', '1');
                     } else if (res.data == "update") {
@@ -647,7 +654,7 @@
             data: id,
             success: function(res) {
                 console.log(res);
-                $('#delete-button').attr('onclick', `deleteFeed(${res.id_feed})`);
+                $('#delete_btn').attr('onclick', `deleteFeed(${res.id_feed})`);
 
                 $('#id_feed').val(res.id_feed);
                 $('#update-title').val(res.title_feed);
@@ -668,6 +675,8 @@
         var form = "form-updatefeed"
         var data = $('[name="' + form + '"]')[0];
         var formData = new FormData(data);
+        $('#submit_btn').prop('disabled', true)
+
         quick.ajax({
             url: "/blog/saveUpdate",
             data: formData,
@@ -675,14 +684,18 @@
             contentType: false,
             success: function(res) {
                 if (res.success) {
-                    $('#submit-button').prop('disabled', true).removeClass(
-                        'bg-figma-biru-primary, hover:bg-blue-800').addClass('bg-gray-200').css(
-                        'cursor', 'progress')
+                    $('.animate-spin').fadeIn()
                     quick.toastNotif({
                         title: 'success',
                         icon: 'success',
+                        timer: 500,
                         callback: function() {
-                            window.location.href = '/blog';
+                            $('.content').empty()
+                            $('input, textarea').val('');
+                            $('#update-imgPreview').attr('src', '');
+                            $('#submit_btn').prop('disabled', false)
+
+                            initBlog()
                         }
                     })
 
@@ -694,6 +707,8 @@
         var id = {};
 
         id['id'] = a;
+        $('#delete_btn').prop('disabled', true)
+
         $.ajax({
             url: "/blog/deleteFeed",
             type: "POST",
@@ -709,6 +724,8 @@
                     quick.toastNotif({
                         title: 'success',
                         icon: 'success',
+                        timer: 500,
+
                         callback: function() {
                             window.location.href = '/blog';
                         }
