@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
+use App\Models\Feed;
+use App\Models\Reaction;
 
 
 class BlogController extends Controller
@@ -20,15 +22,31 @@ class BlogController extends Controller
         $offset = $request->input('offset', 0);
         $limit = $request->input('limit', 5); // Sesuaikan dengan jumlah data yang ingin dimuat setiap kali
 
-        $data['content'] = DB::connection('blog-only')->table("blog")
+        // $data['content'] = DB::connection('blog-only')->table("blog")
+        //     ->skip($offset)
+        //     ->take($limit)
+        //     ->get();
+        $id = Session::get('user_id');
+
+        $data['id'] = $id;
+        // print_r($id);
+        $data['reaction'] = null;
+        if ($id) {
+            $reactions = DB::table('feed_reaction')->where('id_user', $id)->get();
+
+            if ($reactions->isNotEmpty()) {
+                $data['reaction'] = $reactions;
+            }
+        }
+        $data['content'] = DB::table('v_feed')
             ->skip($offset)
             ->take($limit)
+            ->orderBy('feed_created_at', 'DESC') // Specify the column and the order direction
             ->get();
-
         $data['users'] = [];
 
         foreach ($data['content'] as $content) {
-            $userId = $content->user_id;
+            $userId = $content->feed_user_id;
 
             // Mengambil nama pengguna dari tabel 'users' berdasarkan 'user_id'
             $user = DB::table('users')
@@ -41,7 +59,7 @@ class BlogController extends Controller
         }
 
         foreach ($data['content'] as &$content) {
-            $userId = $content->user_id;
+            $userId = $content->feed_user_id;
 
             if (isset($data['users'][$userId])) {
                 $content->user = $data['users'][$userId];
@@ -50,20 +68,71 @@ class BlogController extends Controller
 
         return response()->json($data);
     }
+    // public function reactCheck()
+    // {
+    //     $id = Session::get('user_id');
 
-    public function detail_blog(Request $request)
+    //     DB::table('feed_reaction')->where()
+    // }
+    // public function detail_blog(Request $request)
+    // {
+    //     $base64EncodedData = $request->post();
+
+    //     $id = base64_decode($base64EncodedData['id']);
+    //     $data['blog'] = DB::connection('blog-only')->table("blog")->where('id', $id)->first();
+    //     $data['user'] = DB::table('users')
+    //         ->leftJoin('resume', 'users.id', '=', 'resume.resume_user_id')
+    //         ->where('users.id', $data['blog']->user_id)
+    //         ->select('users.id', 'users.name', 'resume.resume_official_photo', 'resume.resume_professional_title')
+    //         ->first();
+
+    //     return response()->json(['data' => $data]);
+    // }
+    public function reaction(Request $request)
     {
-        $base64EncodedData = $request->post();
+        $data = $request->post();
+        // print_r($data['reaction']);
+        $id = Session::get('user_id');
 
-        $id = base64_decode($base64EncodedData['id']);
-        $data['blog'] = DB::connection('blog-only')->table("blog")->where('id', $id)->first();
-        $data['user'] = DB::table('users')
-            ->leftJoin('resume', 'users.id', '=', 'resume.resume_user_id')
-            ->where('users.id', $data['blog']->user_id)
-            ->select('users.id', 'users.name', 'resume.resume_official_photo', 'resume.resume_professional_title')
+        $existingRecord = Reaction::where('id_user', $id)
+            ->where('id_feed', $data['id_feed'])
             ->first();
 
-        return response()->json(['data' => $data]);
+        if ($data['already_reacted']) {
+            $existingRecord->update([
+                'reaction' => null,
+            ]);
+            $opr = "delete";
+        } else if ($existingRecord) {
+            $opr = $existingRecord->update([
+                'reaction' => $data['reaction'],
+            ]);
+            $opr = "update";
+        } else {
+            $opr = Reaction::create([
+                'id_user' => $id,
+                'id_feed' => $data['id_feed'],
+                'reaction' => $data['reaction'],
+            ]);
+            $opr = "new";
+        }
+        return response()->json([
+            'data' => $opr,
+            'success' =>  true,
+            'status' =>  'Success',
+            'title' => 'Sukses!',
+            'message' => 'Data Berhasil Tersimpan!',
+            'code' => 201
+        ]);
+    }
+
+
+    public function userindex(Request $request)
+    {
+        $id = Session::get('user_id');
+
+        $data = DB::table('resume')->where('resume_user_id', $id)->first();
+        return response()->json($data);
     }
     public function postCommentSingle(Request $request)
     {
@@ -99,5 +168,50 @@ class BlogController extends Controller
                 'code' => 500,
             ]);
         }
+    }
+    public function getComment(Request $request)
+    {
+        $data = $request->post();
+        $id = base64_decode($data['id']);
+
+
+        $opr = DB::Connection('blog-only')->table('comment')->where('comment_blog_id', $id)->get();
+        print_r($opr);
+        exit;
+    }
+
+    public function save(Request $request)
+    {
+        $id = Session::get('user_id');
+
+
+        $request->validate([
+            'photo' => 'nullable|image|max:3000|mimes:jpeg,jpg,png',
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+        $data = $request->except(['photo']);
+        if ($request->hasFile('photo')) {
+            $photoFile = $request->file('photo');
+            $photoName = Str::random(15) . '_' . time() . '.' . $photoFile->getClientOriginalExtension();
+
+            if ($photoFile->move(public_path('file/feed/'), $photoName)) {
+                $data['photo'] = $photoName;
+            }
+        };
+
+        Feed::create([
+            'title_feed' => $data['title'],
+            'description_feed' => $data['description'],
+            'pic_name' => $data['photo'],
+            'feed_user_id' => $id
+        ]);
+        return response()->json([
+            'success' =>  true,
+            'status' =>  'Success',
+            'title' => 'Sukses!',
+            'message' => 'Data Berhasil Tersimpan!',
+            'code' => 201
+        ]);
     }
 }
