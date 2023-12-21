@@ -5,12 +5,17 @@
 
     // var jobs = [];
     $(() => {
-        initBlog();
-        checkCreatedFeed();
+        init()
+        // initBlog();
+        // checkCreatedFeed();
         // checkMobileSize();
-        initUser();
+        // initUser();
         // $(window).resize(checkMobileSize);
     });
+    init = async () => {
+        await initBlog();
+        await checkCreatedFeed();
+    }
 
     function initShowAlert() {
         // Check if the alert element already exists
