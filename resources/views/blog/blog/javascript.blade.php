@@ -8,13 +8,13 @@
         init()
         // initBlog();
         // checkCreatedFeed();
-        // checkMobileSize();
         // initUser();
         // $(window).resize(checkMobileSize);
     });
     init = async () => {
         await initBlog();
         await checkCreatedFeed();
+        checkMobileSize();
     }
 
     function initShowAlert() {
