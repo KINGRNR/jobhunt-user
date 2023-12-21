@@ -8,6 +8,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -51,9 +52,9 @@ class AuthController extends Controller
 
         if (Auth::attempt($request->only('email', 'password'))) {
             $user = User::where('email', $request->email)->firstOrFail();
-            $photo = DB::table('resume')->where('resume_user_id', $user->id)->select('resume_official_photo')->first();
+            $photo = DB::table('resume')->where('resume_user_id', $user->id)->first();
             if ($photo) {
-                session(['user_photo' => $photo]);
+                session(['user_photo' => $photo->resume_official_photo]);
             }
             session(['user' => $user]);
             session(['user_id' => $user->id]);
@@ -94,6 +95,8 @@ class AuthController extends Controller
      */
     public function logout()
     {
+        Session::flush();
+
         Auth::logout();
         return redirect()->route('index');
     }
