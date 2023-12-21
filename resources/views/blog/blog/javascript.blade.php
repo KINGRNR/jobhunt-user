@@ -7,8 +7,8 @@
     $(() => {
         initBlog();
         checkCreatedFeed();
-        checkMobileSize();
-        // initUser();
+        // checkMobileSize();
+        initUser();
         // $(window).resize(checkMobileSize);
     });
 
