@@ -1,0 +1,6 @@
+Database Feed Mechanism
+
+Table : Postingan(high), Comment(high), Like/Dislike(reaction)(high), bookmark,
+
+Struktur : Table Postingan : id(prime), title*, description*, created_at*, updated_at*, deleted_at*(soft delete), image/video*(name of the file)
+            Table Comment : id(prime), id_user*, id_post*, text*, order_by_dual_channel*(1 or 2, if 2 is reply and 3 reply is @, example, komen pertama di reply-> komen ke 2 sebagai anaknya, seterusnya akan berada di level 2)
