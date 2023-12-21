@@ -6,6 +6,7 @@
     // var jobs = [];
     $(() => {
         initBlog();
+        checkCreatedFeed();
         // checkMobileSize();
         // initUser();
         // $(window).resize(checkMobileSize);
@@ -75,7 +76,6 @@
             $(window).on('scroll', scrollHandler);
         }
     }
-
     $('#load-more-btn').on('click', function() {
         if (!loading) {
             $('#loading-spinner').fadeIn();
@@ -99,16 +99,17 @@
             success: function(response) {
                 console.log(response)
                 if (response) {
-                var user = `<div class="bg-white rounded-lg border border-gray-200 p-4 lg:h-64 ml-20 ">
+                    var user = `<div class="bg-white rounded-lg border border-gray-200 p-4 lg:h-64 ml-20 ">
             <img class="w-16 h-16 rounded-full mb-4 object-cover" src="file/user_photo/${response.resume_official_photo}" alt="Profile Image">
             <h3 class="text-xl font-semibold">${response.resume_fullname}</h3>
             <p class="text-gray-500">${response.resume_second_email}</p>
             <p class="text-gray-500">${response.resume_professional_title}</p>
-        </div>`} else {
-            user =  `<div class="bg-white rounded-lg border border-gray-200 p-4 lg:h-64 ml-20 ">
+        </div>`
+                } else {
+                    user = `<div class="bg-white rounded-lg border border-gray-200 p-4 lg:h-64 ml-20 ">
             <h3 class="text-xl font-semibold">Create Ur Own Resume</h3>
         </div>`
-        }
+                }
                 $('.side-content').append(user);
             },
             error: function(error) {
@@ -118,7 +119,6 @@
             }
         });
     };
-
     initBlog = (callback) => {
         $.ajax({
             url: '/blog-index',
@@ -130,7 +130,7 @@
             },
             success: function(response) {
                 console.log(response.id)
-                
+
                 var data = response.content;
                 console.log(data.reaction)
                 $('#loading-spinner').fadeOut()
@@ -274,7 +274,7 @@
                     $('#load-more-btn').hide();
                 }
                 checkLike(response)
-                if(response.id == null){
+                if (response.id == null) {
                     $('#like, #dislike').addClass('cursor-not-allowed');
                 } else {
                     $('#like, #dislike').removeClass('cursor-not-allowed');
@@ -298,33 +298,27 @@
             },
             success: function(response) {
 
-                if(response.reaction){
+                if (response.reaction) {
                     console.log("true")
-                $.each(response.reaction, function(i, v) {
-                    var btn = $('[data-id="' + v.id_feed + '"][data-like="' + v
-                        .reaction + '"]');
-                    btn.attr('data-likeUpdate', '1');
-                    btn.addClass('bg-blue-700')
-                })
-            } else {
-                console.log("cek ombak")
-                $('#like').attr('[data-user="' + response.id +'"]')
-            }
+                    $.each(response.reaction, function(i, v) {
+                        var btn = $('[data-id="' + v.id_feed + '"][data-like="' + v
+                            .reaction + '"]');
+                        btn.attr('data-likeUpdate', '1');
+                        btn.addClass('bg-blue-700')
+                    })
+                } else {
+                    console.log("cek ombak")
+                    $('#like').attr('[data-user="' + response.id + '"]')
+                }
             }
         })
     }
-
-    // function postReaction(a) {
-
-
-    // }
     detailBlog = (key) => {
         var urlKey = btoa($(key).attr('data-id'))
         window.location.href = "/content-blog?key=" + urlKey
     }
-
-
     save = () => {
+        $('#submit-btn').attr('disabled')
         var form = "form-feed"
         var data = $('[name="' + form + '"]')[0];
         var formData = new FormData(data);
@@ -338,9 +332,11 @@
                     $('#submit-button').prop('disabled', true).removeClass(
                         'bg-figma-biru-primary, hover:bg-blue-800').addClass('bg-gray-200').css(
                         'cursor', 'progress')
+                    // $('#submit-btn').removeAttr('disabled')
                     quick.toastNotif({
                         title: 'success',
                         icon: 'success',
+                        timer: 500,
                         callback: function() {
                             window.location.href = '/blog';
                         }
@@ -392,6 +388,144 @@
                     // });
                 }
             },
+        });
+    }
+    checkCreatedFeed = () => {
+        $.ajax({
+            url: "/blog/urFeed",
+            type: "POST",
+            headers: {
+                'X-CSRF-TOKEN': csrfToken,
+            },
+            success: function(res) {
+                console.log(res);
+                $.each(res, function(i, v) {
+                    if (v.pic_name) {
+                        photo = `<img src="/file/feed/${v.pic_name}"
+                            class="mb-5 rounded-lg w-full" alt="Image 1">`
+                    } else {
+                        photo = `<span>tidak ada photo untuk ditampilkan</span>`
+                    }
+                    var createdFeed = `<article
+            class="mb-5 w-full transition ease-in-out delay-150   duration-300 max-w-2xl p-8 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+            <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
+                <a href="#">${v.title_feed}</a>
+            </h2>
+            <p class="mb-4 text-gray-500 dark:text-gray-400">${v.description_feed}</p>
+            <button data-modal-target="edit-form" data-modal-toggle="edit-form" onclick="onDetail(${v.id_feed})">
+               ${photo}
+            </button>
+        </article>`
+                    $('.list-feed').append(createdFeed);
+
+                })
+
+
+                if (res) {
+                    console.log(res.data)
+                    if (res.data == "delete") {
+                        $(a).removeAttr('data-likeUpdate', '1');
+                    } else if (res.data == "update") {
+                        $(a).addClass('bg-blue-700')
+                        $(a).attr('data-likeUpdate', '1');
+
+                    }
+                    // $('#submit-button').prop('disabled', true).removeClass('bg-figma-biru-primary hover:bg-blue-800').addClass('bg-gray-200').css('cursor', 'progress');
+
+                    // Menampilkan notifikasi
+                    // quick.toastNotif({
+                    //     title: 'success',
+                    //     icon: 'success',
+                    //     callback: function() {
+                    //         window.location.href = '/blog';
+                    //     }
+                    // });
+                }
+            },
+        });
+    }
+    onDetail = (a) => {
+        console.log(a);
+        var id = {};
+
+        id['id'] = a;
+        $.ajax({
+            url: "/blog/onDetail",
+            type: "POST",
+            headers: {
+                'X-CSRF-TOKEN': csrfToken,
+            },
+            data: id,
+            success: function(res) {
+                console.log(res);
+                $('#delete-button').attr('onclick', `deleteFeed(${res.id_feed})`);
+
+                $('#id_feed').val(res.id_feed);
+                $('#update-title').val(res.title_feed);
+                $('#update-description').val(res.description_feed);
+                if (res && res.pic_name) {
+                    var img = new Image();
+                    img.onload = function() {
+                        $('#update-imgPreview').fadeIn().attr('src', img.src);
+                        $('.loader').hide();
+
+                    };
+                    img.src = APP_URL + 'file/feed/' + res.pic_name;
+                }
+            },
+        });
+    }
+    saveUpdate = () => {
+        var form = "form-updatefeed"
+        var data = $('[name="' + form + '"]')[0];
+        var formData = new FormData(data);
+        quick.ajax({
+            url: "/blog/saveUpdate",
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(res) {
+                if (res.success) {
+                    $('#submit-button').prop('disabled', true).removeClass(
+                        'bg-figma-biru-primary, hover:bg-blue-800').addClass('bg-gray-200').css(
+                        'cursor', 'progress')
+                    quick.toastNotif({
+                        title: 'success',
+                        icon: 'success',
+                        callback: function() {
+                            window.location.href = '/blog';
+                        }
+                    })
+
+                }
+            },
+        })
+    }
+    deleteFeed = (a) => {
+        var id = {};
+
+        id['id'] = a;
+        $.ajax({
+            url: "/blog/deleteFeed",
+            type: "POST",
+            headers: {
+                'X-CSRF-TOKEN': csrfToken,
+            },
+            data: id,
+            success: function(res) {
+                if (res.success) {
+                    $('#submit-button').prop('disabled', true).removeClass(
+                        'bg-figma-biru-primary, hover:bg-blue-800').addClass('bg-gray-200').css(
+                        'cursor', 'progress')
+                    quick.toastNotif({
+                        title: 'success',
+                        icon: 'success',
+                        callback: function() {
+                            window.location.href = '/blog';
+                        }
+                    })
+
+                }            },
         });
     }
 </script>
