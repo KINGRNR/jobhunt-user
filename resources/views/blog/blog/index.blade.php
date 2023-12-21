@@ -52,10 +52,14 @@
         <!-- Profile Box Content Goes Here -->
         <!-- For example: -->
         @auth
-        <div class="bg-white rounded-lg border border-gray-200 p-4 lg:h-64 ml-20 ">
+        <div class="bg-white rounded-lg border border-gray-200 p-4 lg:h-64 lg:ml-20 ">
             <img class="object-cover w-16 h-16 rounded-full mb-4" src="/file/user_photo/{{ session('user_photo') }}" alt="Profile Image">
             <h3 class="text-xl font-semibold">{{ auth()->user()->name }}</h3>
             <p class="text-gray-500">{{auth()->user()->email,}}</p>
+        </div>
+        <h3 class="font-semibold mt-5 lg:ml-20">Feed Created By you</h3>
+
+        <div class="list-feed h-96 lg:ml-20 overflow-y-auto">
         </div>
         @else
         <div class="bg-white rounded-lg border border-gray-200 p-4 lg:h-64 ml-20 ">
