@@ -18,32 +18,31 @@ class LoginWithGooglecontroller extends Controller
 
     public function handleGoogleCallback()
     {
-
         try {
             $user = Socialite::driver('google')->user();
-            $finduser = User::where('google_id', $user->id)->first();
+            $finduser = User::where('email', $user->email)->first();
+
             if ($finduser) {
+                $finduser->update(['google_id' => $user->id]);
+
                 session(['user' => $finduser]);
                 session(['user_id' => $finduser->id]);
                 session(['user_role' => $finduser->users_role_id]);
                 Auth::login($finduser);
+
                 return redirect()->route('index');
             } else {
                 $newUser = User::create([
                     'name' => $user->name,
-                    // 'photo_profile' => $user->avatar,
                     'email' => $user->email,
                     'google_id' => $user->id,
                     'users_role_id' => "BfiwyVUDrXOpmStr",
                     'password' => 0,
-                    // 'first_name' => $user->user['given_name'],
-                    // 'last_name' => $user->user['family_name'] ?? ''
                 ]);
-                $finduserReg = User::where('google_id', $user->id)->first();
 
-                session(['user' => $finduserReg]);
-                session(['user_id' => $finduserReg->id]);
-                session(['user_role' => $finduserReg->users_role_id]);
+                session(['user' => $newUser]);
+                session(['user_id' => $newUser->id]);
+                session(['user_role' => $newUser->users_role_id]);
                 Auth::login($newUser);
 
                 return redirect()->route('index');
