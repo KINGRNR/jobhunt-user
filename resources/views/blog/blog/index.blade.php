@@ -38,7 +38,18 @@
     <p>Loading..</p>
 
 </div> --}}
+<div id="loadingOverlay" class="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-white z-10">
+    <div class="bg-white p-8 rounded shadow-lg w-96 flex flex-col items-center justify-center relative">
+        <img src="/file/logo/user.png" class="img-jobhunt" alt="">
+        <h1 class="mt-2 mb-2">Welcome to Our Feed!</h1>
+        <div id="progressContainer" class="relative w-full h-2.5 bg-gray-200 rounded overflow-hidden">
+            <div id="progressBar" class="absolute top-0 left-0 h-full bg-blue-600 rounded"
+                style="width: 0%; transition: width 0.5s ease;"></div>
+        </div>
+    </div>
 
+
+</div>
 <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-8 lg:px-6">
     <div class="mx-auto max-w-screen-sm text-center">
         <h2 class="text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Hello Feed
@@ -183,8 +194,8 @@
                                 </span>
                             </span>
                         </button>
-                            
-                     
+
+
                     </article>
                     <!-- Repeat the above structure for additional articles -->
                 </div>

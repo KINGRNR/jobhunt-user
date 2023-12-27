@@ -12,13 +12,45 @@
         // $(window).resize(checkMobileSize);
     });
     init = async () => {
+        const loadingContainer = document.getElementById('loadingContainer');
+        const progressBar = document.getElementById('progressBar');
+
         await initBlog();
+        setProgressBarWidth(progressBar, 44, null);
+
         await checkCreatedFeed();
-        checkMobileSize();
+        setProgressBarWidth(progressBar, 66, null);
+
+        // await checkMobileSize();
+        setProgressBarWidth(progressBar, 100, 1);
+        loadingContainer.style.display = 'none';
     }
 
+    function setProgressBarWidth(progressBar, width, isClosed) {
+        let currentWidth = parseFloat(progressBar.style.width) || 0;
+        const step = 1;
+        const intervalTime = 10; 
+
+        const interval = setInterval(() => {
+            if (currentWidth >= width) {
+                clearInterval(interval);
+
+                setTimeout(() => {
+                    if (isClosed == 1) {
+                        // $('.img-jobhunt').addClass('animate-ping');
+                        $('#loadingOverlay').addClass('animate-ping').fadeOut();
+                    }
+                }, 500); 
+            } else {
+                currentWidth += step;
+                progressBar.style.width = `${currentWidth}%`;
+            }
+        }, intervalTime);
+    }
+
+
+
     function initShowAlert() {
-        // Check if the alert element already exists
         if ($('#toast-simple').length > 0) {
             return; // If it exists, do nothing
         }
@@ -93,93 +125,65 @@
         }
     });
     initUser = () => {
-        $.ajax({
-            url: "/blog/userindex",
-            type: 'POST',
-            data: {
+        axios.post("/blog/userindex", {
                 _token: '{{ csrf_token() }}',
                 offset: offset,
                 limit: limit
-            },
-            success: function(response) {
-                console.log(response)
-                if (response) {
+            })
+            .then(function(response) {
+                console.log(response);
+                if (response.data) {
                     var user = `<div class="bg-white rounded-lg border border-gray-200 p-4 lg:h-64 ml-20 ">
-            <img class="w-16 h-16 rounded-full mb-4 object-cover" src="file/user_photo/${response.resume_official_photo}" alt="Profile Image">
-            <h3 class="text-xl font-semibold">${response.resume_fullname}</h3>
-            <p class="text-gray-500">${response.resume_second_email}</p>
-            <p class="text-gray-500">${response.resume_professional_title}</p>
-        </div>`
+                <img class="w-16 h-16 rounded-full mb-4 object-cover" src="file/user_photo/${response.data.resume_official_photo}" alt="Profile Image">
+                <h3 class="text-xl font-semibold">${response.data.resume_fullname}</h3>
+                <p class="text-gray-500">${response.data.resume_second_email}</p>
+                <p class="text-gray-500">${response.data.resume_professional_title}</p>
+            </div>`;
                 } else {
                     user = `<div class="bg-white rounded-lg border border-gray-200 p-4 lg:h-64 ml-20 ">
-            <h3 class="text-xl font-semibold">Create Ur Own Resume</h3>
-        </div>`
+                <h3 class="text-xl font-semibold">Create Ur Own Resume</h3>
+            </div>`;
                 }
                 $('.side-content').append(user);
-            },
-            error: function(error) {
-                callback();
-
+            })
+            .catch(function(error) {
                 console.log(error);
-            }
-        });
+            });
     };
+
     initBlog = (callback) => {
-        $.ajax({
-            url: '/blog-index',
-            type: 'POST',
-            data: {
+        axios.post('/blog-index', {
                 _token: '{{ csrf_token() }}',
                 offset: offset,
                 limit: limit
-            },
-            success: function(response) {
+            })
+            .then(response => {
+                var data = response.data.content;
+                $('#loading-spinner').fadeOut();
 
-                var data = response.content;
-                $('#loading-spinner').fadeOut()
                 if (data.length > 0) {
-                    $('.skeleton').empty()
+                    $('.skeleton').empty();
 
-                    $.each(data, function(i, v) {
-                        var buttonReaction = []
-                        var photo = []
+                    data.forEach(v => {
+                        var buttonReaction = [];
+                        var photo = [];
                         buttonReaction = `
                         <button type="button" id="like" onclick="postReaction(this)"  data-id="${v.id_feed}" data-like="1"
                         class="text-blue-700 border border-gray-200 hover:bg-gray-200 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none">
-                            <g clip-path="url(#clip0_44_3401)">
-                                <path
-                                    d="M13.12 2.06L7.58 7.6C7.21 7.97 7 8.48 7 9.01V19C7 20.1 7.9 21 9 21H18C18.8 21 19.52 20.52 19.84 19.79L23.1 12.18C23.94 10.2 22.49 8 20.34 8H14.69L15.64 3.42C15.74 2.92 15.59 2.41 15.23 2.05C14.64 1.47 13.7 1.47 13.12 2.06ZM3 21C4.1 21 5 20.1 5 19V11C5 9.9 4.1 9 3 9C1.9 9 1 9.9 1 11V19C1 20.1 1.9 21 3 21Z"
-                                    fill="#323232" />
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="blue">
+                            <g clip-path="url(#clip0_44_12176)">
+                                <path d="M22 9.24L14.81 8.62L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27L18.18 21L16.55 13.97L22 9.24ZM12 15.4L8.24 17.67L9.24 13.39L5.92 10.51L10.3 10.13L12 6.1L13.71 10.14L18.09 10.52L14.77 13.4L15.77 17.68L12 15.4Z" fill="#323232"/>
                             </g>
                             <defs>
-                                <clipPath id="clip0_44_3401">
-                                    <rect width="24" height="24" fill="white" />
+                                <clipPath id="clip0_44_12176">
+                                <rect width="24" height="24" fill="white"/>
                                 </clipPath>
                             </defs>
-                        </svg>
+                            </svg>
                         <span
                             class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-blue-800 bg-gray-200 rounded-full">
                             2
                         </span>
-                    </button>
-                    <button type="button" id="dislike" onclick="postReaction(this)" data-id="${v.id_feed}" data-like="0"
-                        class="text-blue-700 border border-gray-200 hover:bg-gray-200 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <g clip-path="url(#clip0_44_3398)">
-                              <path d="M10.8799 21.94L16.4099 16.4C16.7799 16.03 16.9899 15.52 16.9899 14.99V5C16.9899 3.9 16.0899 3 14.9899 3H5.9999C5.1999 3 4.4799 3.48 4.1699 4.21L0.9099 11.82C0.0598996 13.8 1.5099 16 3.6599 16H9.3099L8.3599 20.58C8.2599 21.08 8.4099 21.59 8.7699 21.95C9.3599 22.53 10.2999 22.53 10.8799 21.94ZM20.9999 3C19.8999 3 18.9999 3.9 18.9999 5V13C18.9999 14.1 19.8999 15 20.9999 15C22.0999 15 22.9999 14.1 22.9999 13V5C22.9999 3.9 22.0999 3 20.9999 3Z" fill="#323232"/>
-                            </g>
-                            <defs>
-                              <clipPath id="clip0_44_3398">
-                                <rect width="24" height="24" fill="white"/>
-                              </clipPath>
-                            </defs>
-                          </svg>
-                        {{-- <span
-                            class="inline-flex items-center justify-center w-4 h-4 ms-2 text-xs font-semibold text-blue-800 bg-gray-200 rounded-full">
-                            2
-                        </span> --}}
                     </button>`
                         if (v.pic_name) {
                             photo = `<img src="/file/feed/${v.pic_name}"
@@ -455,23 +459,23 @@
                 } else {
                     $('#load-more-btn').hide();
                 }
-                checkLike(response)
-                if (response.id == null) {
+                checkLike(response);
+
+                if (response.data.id == null) {
                     $('#like, #dislike').addClass('cursor-not-allowed');
                 } else {
                     $('#like, #dislike').removeClass('cursor-not-allowed');
                 }
-                $('#submit-btn').addClass(
-                    'bg-figma-biru-primary, hover:bg-blue-800').removeClass('bg-gray-200')
-                $('.animate-spin').fadeOut()
-                callback();
-            },
-            error: function(error) {
-                callback();
 
-                console.log(error);
-            }
-        });
+                $('#submit-btn').addClass('bg-figma-biru-primary, hover:bg-blue-800').removeClass(
+                    'bg-gray-200');
+                $('.animate-spin').fadeOut();
+                callback();
+            })
+            .catch(error => {
+                callback();
+                console.error(error);
+            });
     };
 
     function checkLike() {
@@ -503,236 +507,192 @@
         window.location.href = "/content-blog?key=" + urlKey
     }
     save = () => {
-        $('#submit-btn').attr('disabled')
-        var form = "form-feed"
-        var data = $('[name="' + form + '"]')[0];
-        var formData = new FormData(data);
-        $('#submit-btn').prop('disabled', true)
+        $('#submit-btn').attr('disabled');
+        var form = "form-feed";
+        var data = new FormData($('[name="' + form + '"]')[0]);
+        $('#submit-btn').prop('disabled', true);
 
-        quick.ajax({
-            url: "/blog/save",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function(res) {
-                if (res.success) {
-
-                    // $('#submit-btn').removeClass(
-                    //     'bg-figma-biru-primary, hover:bg-blue-800').addClass('bg-gray-200')
-                    $('.animate-spin').fadeIn()
-                    // $('#submit-btn').removeAttr('disabled')
+        axios.post("/blog/save", data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'X-CSRF-TOKEN': csrfToken
+                }
+            })
+            .then(function(response) {
+                if (response.data.success) {
+                    $('.animate-spin').fadeIn();
                     quick.toastNotif({
                         title: 'success',
                         icon: 'success',
                         timer: 500,
                         callback: function() {
-                            $('.content').empty()
+                            $('.content').empty();
                             $('input, textarea').val('');
-                            $('#submit-btn').prop('disabled', false)
-
-                            initBlog()
+                            $('#submit-btn').prop('disabled', false);
+                            initBlog();
                         }
-                    })
-
+                    });
                 }
-            },
-        })
-    }
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    };
+
     postReaction = (a) => {
-        var data = {};
-        if ($(a).hasClass('bg-blue-700')) {
-            $(a).removeClass('bg-blue-700');
-        }
-        if ($(a).hasClass('bg-blue-700')) {
-            $(a).removeClass('bg-blue-700');
-        }
-        data['reaction'] = $(a).attr('data-like') || '';
-        data['id_user'] = $(a).attr('data-user') || '';
-        data['id_feed'] = $(a).attr('data-id') || '';
-        data['already_reacted'] = $(a).attr('data-likeUpdate') || '';
-
-        $.ajax({
-            url: "/blog/reaction",
-            type: "POST",
-            headers: {
-                'X-CSRF-TOKEN': csrfToken,
-            },
-            data: data,
-            success: function(res) {
-                if (res) {
-                    console.log(res.data)
-                    if (res.data == "delete") {
-                        $(a).removeAttr('data-likeUpdate', '1');
-                    } else if (res.data == "update") {
-                        $(a).addClass('bg-blue-700')
-                        $(a).attr('data-likeUpdate', '1');
-
-                    }
-                    // $('#submit-button').prop('disabled', true).removeClass('bg-figma-biru-primary hover:bg-blue-800').addClass('bg-gray-200').css('cursor', 'progress');
-
-                    // Menampilkan notifikasi
-                    // quick.toastNotif({
-                    //     title: 'success',
-                    //     icon: 'success',
-                    //     callback: function() {
-                    //         window.location.href = '/blog';
-                    //     }
-                    // });
+        var data = {
+            reaction: $(a).attr('data-like') || '',
+            id_user: $(a).attr('data-user') || '',
+            id_feed: $(a).attr('data-id') || '',
+            already_reacted: $(a).attr('data-likeUpdate') || ''
+        };
+        console.log(a)
+        axios.post("/blog/reaction", data, {
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken
                 }
-            },
-        });
-    }
+            })
+            .then(function(response) {
+                console.log(response.data.data);
+
+                if (response.data.data) {
+                    if (response.data.data == "delete") {
+                        $(a).removeAttr('data-likeUpdate', '1');
+                        $(a).removeClass('bg-blue-700');
+                    } else if (response.data.data == "update" || response.data.data == "new") {
+                        $(a).addClass('bg-blue-700');
+                        $(a).attr('data-likeUpdate', '1');
+                    }
+                }
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    };
+
     checkCreatedFeed = () => {
-        $.ajax({
-            url: "/blog/urFeed",
-            type: "POST",
-            headers: {
-                'X-CSRF-TOKEN': csrfToken,
-            },
-            success: function(res) {
-                console.log(res);
-                $.each(res, function(i, v) {
-                    if (v.pic_name) {
-                        photo = `<img src="/file/feed/${v.pic_name}"
-                            class="mb-5 rounded-lg w-full" alt="Image 1">`
-                    } else {
-                        photo = `<span>tidak ada photo untuk ditampilkan</span>`
-                    }
-                    var createdFeed = `<article
-            class="mb-5 w-full transition ease-in-out delay-150   duration-300 max-w-2xl p-8 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
-            <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-                <a href="#">${v.title_feed}</a>
-            </h2>
-            <p class="mb-4 text-gray-500 dark:text-gray-400">${v.description_feed}</p>
-            <button data-modal-target="edit-form" data-modal-toggle="edit-form" onclick="onDetail(${v.id_feed})">
-               ${photo}
-            </button>
-        </article>`
-                    $('.list-feed').append(createdFeed);
-
-                })
-
-
-                if (res) {
-                    if (res.data == "delete") {
-                        $(a).removeAttr('data-likeUpdate', '1');
-                    } else if (res.data == "update") {
-                        $(a).addClass('bg-blue-700')
-                        $(a).attr('data-likeUpdate', '1');
-
-                    }
-                    // $('#submit-button').prop('disabled', true).removeClass('bg-figma-biru-primary hover:bg-blue-800').addClass('bg-gray-200').css('cursor', 'progress');
-
-                    // Menampilkan notifikasi
-                    // quick.toastNotif({
-                    //     title: 'success',
-                    //     icon: 'success',
-                    //     callback: function() {
-                    //         window.location.href = '/blog';
-                    //     }
-                    // });
+        axios.post("/blog/urFeed", null, {
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken
                 }
-            },
-        });
-    }
+            })
+            .then(function(response) {
+                console.log(response);
+                response.data.forEach(function(v) {
+                    var photo = v.pic_name ?
+                        `<img src="/file/feed/${v.pic_name}" class="mb-5 rounded-lg w-full" alt="Image 1">` :
+                        `<span>tidak ada photo untuk ditampilkan</span>`;
+                    var createdFeed = `<article class="mb-5 w-full transition ease-in-out delay-150 duration-300 max-w-2xl p-8 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+                <h2 class="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
+                    <a href="#">${v.title_feed}</a>
+                </h2>
+                <p class="mb-4 text-gray-500 dark:text-gray-400">${v.description_feed}</p>
+                <button data-modal-toggle="edit-form" onclick="onDetail(${v.id_feed})">
+                   ${photo}
+                </button>
+            </article>`;
+                    $('.list-feed').append(createdFeed);
+                });
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    };
 
     function showCommentSection(a) {
         console.log(a);
         $('.comment-section-' + a).fadeToggle();
     }
     onDetail = (a) => {
-        console.log(a);
-        var id = {};
+        var id = {
+            id: a
+        };
 
-        id['id'] = a;
-        $.ajax({
-            url: "/blog/onDetail",
-            type: "POST",
-            headers: {
-                'X-CSRF-TOKEN': csrfToken,
-            },
-            data: id,
-            success: function(res) {
-                console.log(res);
-                $('#delete_btn').attr('onclick', `deleteFeed(${res.id_feed})`);
+        axios.post("/blog/onDetail", id, {
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken,
+                }
+            })
+            .then(function(response) {
+                console.log(response);
+                $('#delete_btn').attr('onclick', `deleteFeed(${response.data.id_feed})`);
 
-                $('#id_feed').val(res.id_feed);
-                $('#update-title').val(res.title_feed);
-                $('#update-description').val(res.description_feed);
-                if (res && res.pic_name) {
+                $('#id_feed').val(response.data.id_feed);
+                $('#update-title').val(response.data.title_feed);
+                $('#update-description').val(response.data.description_feed);
+                if (response.data && response.data.pic_name) {
                     var img = new Image();
                     img.onload = function() {
                         $('#update-imgPreview').fadeIn().attr('src', img.src);
                         $('.loader').hide();
-
                     };
-                    img.src = APP_URL + 'file/feed/' + res.pic_name;
+                    img.src = APP_URL + 'file/feed/' + response.data.pic_name;
                 }
-            },
-        });
-    }
-    saveUpdate = () => {
-        var form = "form-updatefeed"
-        var data = $('[name="' + form + '"]')[0];
-        var formData = new FormData(data);
-        $('#submit_btn').prop('disabled', true)
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    };
 
-        quick.ajax({
-            url: "/blog/saveUpdate",
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function(res) {
-                if (res.success) {
-                    $('.animate-spin').fadeIn()
+    saveUpdate = () => {
+        var form = "form-updatefeed";
+        var data = new FormData($('[name="' + form + '"]')[0]);
+
+        axios.post("/blog/saveUpdate", data, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'X-CSRF-TOKEN': csrfToken
+                }
+            })
+            .then(function(response) {
+                if (response.data.success) {
+                    $('.animate-spin').fadeIn();
                     quick.toastNotif({
                         title: 'success',
                         icon: 'success',
                         timer: 500,
                         callback: function() {
-                            $('.content').empty()
+                            $('.content').empty();
                             $('input, textarea').val('');
                             $('#update-imgPreview').attr('src', '');
-                            $('#submit_btn').prop('disabled', false)
-
-                            initBlog()
+                            $('#submit_btn').prop('disabled', false);
+                            initBlog();
                         }
-                    })
-
+                    });
                 }
-            },
-        })
-    }
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    };
+
     deleteFeed = (a) => {
-        var id = {};
+        var id = {
+            id: a
+        };
 
-        id['id'] = a;
-        $('#delete_btn').prop('disabled', true)
-
-        $.ajax({
-            url: "/blog/deleteFeed",
-            type: "POST",
-            headers: {
-                'X-CSRF-TOKEN': csrfToken,
-            },
-            data: id,
-            success: function(res) {
-                if (res.success) {
+        axios.post("/blog/deleteFeed", id, {
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken,
+                }
+            })
+            .then(function(response) {
+                if (response.data.success) {
                     $('#submit-button').prop('disabled', true).removeClass(
-                        'bg-figma-biru-primary, hover:bg-blue-800').addClass('bg-gray-200').css(
-                        'cursor', 'progress')
+                        'bg-figma-biru-primary hover:bg-blue-800').addClass('bg-gray-200').css('cursor',
+                        'progress');
                     quick.toastNotif({
                         title: 'success',
                         icon: 'success',
                         timer: 500,
-
                         callback: function() {
                             window.location.href = '/blog';
                         }
-                    })
-
+                    });
                 }
-            },
-        });
-    }
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
+    };
 </script>
