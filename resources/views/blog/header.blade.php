@@ -14,7 +14,9 @@
 </head>
 
 <!-- component -->
+
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 
 {{-- <div class="flex justify-center h-screen"tabindex="-1">
