@@ -6,6 +6,7 @@
     // var jobs = [];
     $(() => {
         init()
+        checkMobileSize()
         // initBlog();
         // checkCreatedFeed();
         // initUser();
@@ -21,7 +22,6 @@
         await checkCreatedFeed();
         setProgressBarWidth(progressBar, 66, null);
 
-        // await checkMobileSize();
         setProgressBarWidth(progressBar, 100, 1);
         loadingContainer.style.display = 'none';
     }
@@ -29,7 +29,7 @@
     function setProgressBarWidth(progressBar, width, isClosed) {
         let currentWidth = parseFloat(progressBar.style.width) || 0;
         const step = 1;
-        const intervalTime = 10; 
+        const intervalTime = 10;
 
         const interval = setInterval(() => {
             if (currentWidth >= width) {
@@ -40,7 +40,7 @@
                         // $('.img-jobhunt').addClass('animate-ping');
                         $('#loadingOverlay').addClass('animate-ping').fadeOut();
                     }
-                }, 500); 
+                }, 500);
             } else {
                 currentWidth += step;
                 progressBar.style.width = `${currentWidth}%`;
@@ -131,7 +131,6 @@
                 limit: limit
             })
             .then(function(response) {
-                console.log(response);
                 if (response.data) {
                     var user = `<div class="bg-white rounded-lg border border-gray-200 p-4 lg:h-64 ml-20 ">
                 <img class="w-16 h-16 rounded-full mb-4 object-cover" src="file/user_photo/${response.data.resume_official_photo}" alt="Profile Image">
@@ -462,10 +461,11 @@
                 checkLike(response);
 
                 if (response.data.id == null) {
-                    $('#like, #dislike').addClass('cursor-not-allowed');
+                    $('#like, #dislike').addClass('cursor-not-allowed').attr('disabled', true);
                 } else {
-                    $('#like, #dislike').removeClass('cursor-not-allowed');
+                    $('#like, #dislike').removeClass('cursor-not-allowed').attr('disabled', false);
                 }
+
 
                 $('#submit-btn').addClass('bg-figma-biru-primary, hover:bg-blue-800').removeClass(
                     'bg-gray-200');
@@ -488,7 +488,6 @@
             success: function(response) {
 
                 if (response.reaction) {
-                    console.log("true")
                     $.each(response.reaction, function(i, v) {
                         var btn = $('[data-id="' + v.id_feed + '"][data-like="' + v
                             .reaction + '"]');
@@ -496,7 +495,6 @@
                         btn.addClass('bg-blue-700')
                     })
                 } else {
-                    console.log("cek ombak")
                     $('#like').attr('[data-user="' + response.id + '"]')
                 }
             }
@@ -546,15 +544,12 @@
             id_feed: $(a).attr('data-id') || '',
             already_reacted: $(a).attr('data-likeUpdate') || ''
         };
-        console.log(a)
         axios.post("/blog/reaction", data, {
                 headers: {
                     'X-CSRF-TOKEN': csrfToken
                 }
             })
             .then(function(response) {
-                console.log(response.data.data);
-
                 if (response.data.data) {
                     if (response.data.data == "delete") {
                         $(a).removeAttr('data-likeUpdate', '1');
@@ -577,7 +572,6 @@
                 }
             })
             .then(function(response) {
-                console.log(response);
                 response.data.forEach(function(v) {
                     var photo = v.pic_name ?
                         `<img src="/file/feed/${v.pic_name}" class="mb-5 rounded-lg w-full" alt="Image 1">` :
@@ -600,7 +594,6 @@
     };
 
     function showCommentSection(a) {
-        console.log(a);
         $('.comment-section-' + a).fadeToggle();
     }
     onDetail = (a) => {
@@ -614,7 +607,6 @@
                 }
             })
             .then(function(response) {
-                console.log(response);
                 $('#delete_btn').attr('onclick', `deleteFeed(${response.data.id_feed})`);
 
                 $('#id_feed').val(response.data.id_feed);
