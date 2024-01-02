@@ -14,7 +14,9 @@ class ApplyJob extends Model
         'job_apply_job_id',
         'job_apply_resume_user_id',
         'job_apply_status',
-        'job_apply_resume_id'
+        'job_apply_resume_id',
+        'job_apply_job_detail',
+        'job_apply_resume_detail',
     ];
     public $timestamps = false;
 }
