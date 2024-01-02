@@ -17,7 +17,7 @@
                         alt="image photo profile">
                 </div>
                 <div class="">
-                    <button data-modal-hide="popup-modal" type="button"
+                    <button data-modal-hide="popup-modal" type="button" onclick="window.location.href='/editprofile'"
                         class="text-white bg-figma-biru-300 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-gray-200 border-2 border-figma-biru-300 text-sm font-medium px-5 py-2.5 focus:z-10 w-44 mt-36">
                         Edit Data&nbsp;<i class="fa fa-pencil"></i></button>
                 </div>
@@ -30,30 +30,25 @@
 <hr class="mx-5 my-5 border border-1 border-black">
 <div class="container mx-auto my-12 grid grid-cols-1">
     <div class="mb-4 grid grid-cols-6 gap-4">
-        <p class="text-gray-500">Full Name</p>
+        <p class="text-gray-500">Full Name <span class="text-figma-biru-300 text-xs">(Integrate With Resume)</span></p>
         <p class="col-span-5 fullname">-</p>
     </div>
     <div class="mb-4 grid grid-cols-6 gap-4">
         <p class="text-gray-500">Username</p>
         <p class="col-span-5" id="username">-</p>
-        
+
     </div>
     <div class="mb-4 grid grid-cols-6 gap-4">
         <p class="text-gray-500">Email</p>
         <div class="flex items-center col-span-5">
             <p class="mr-2" id="email">-</p>
             <div class="google_badge">
-                
+
             </div>
         </div>
     </div>
-    
     <div class="mb-4 grid grid-cols-6 gap-4">
-        <p class="text-gray-500">Password</p>
-        <p class="col-span-5">-</p>
-    </div>
-    <div class="mb-4 grid grid-cols-6 gap-4">
-        <p class="text-gray-500">Gender</p>
+        <p class="text-gray-500">Gender <span class="text-figma-biru-300 text-xs">(Integrate With Resume)</span></p>
         <p class="col-span-5 gender">-</p>
     </div>
     <div class="mb-4 grid grid-cols-6 gap-4">
@@ -127,7 +122,7 @@
             type: 'GET',
             success: function(response) {
                 var data = response.users[0]
-                $('#username').text(data.username);
+                $('#username').text(data.name);
                 $('#email').text(data.email);
                 $('#phone').text(data.phone_num);
                 $('#region').text(data.region);
@@ -139,10 +134,9 @@
         });
     }
 
-    checkGoogleConnect = (a) =>
-    {
-        
-        if(a.google_id){
+    checkGoogleConnect = (a) => {
+
+        if (a.google_id) {
             // $('#email').addClass('text-green-600')
             badge_gog = `<span class="flex items-center bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 italic ">Connected with Google OAuth 2.0
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

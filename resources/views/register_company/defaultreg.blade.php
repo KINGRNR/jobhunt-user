@@ -12,10 +12,6 @@
         <div class="order-1">
 
             <div class="grid grid-cols-1" id="content">
-
-                {{-- back button --}}
-
-                {{-- change whatever you want in here --}}
                 <form id="form-register-company">
                     @include('register_company.form1')
                     @include('register_company.form2')

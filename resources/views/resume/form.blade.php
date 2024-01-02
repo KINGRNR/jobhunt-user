@@ -354,21 +354,7 @@
         $('.select').select2({
             placeholder: 'Select an option'
         });
-        // $("#resume_official_photo").change(function() {
-        //     var fileInput = document.getElementById('resume_official_photo');
-        //     var imagePreview = document.getElementById('imagePreview');
-        //     var currentImage = document.getElementById('currentImage');
 
-        //     if (fileInput.files && fileInput.files[0]) {
-        //         var reader = new FileReader();
-        //         reader.onload = function(e) {
-        //             imagePreview.src = e.target.result;
-        //             imagePreview.classList.remove('hidden');
-        //             currentImage.classList.add('hidden');
-        //         };
-        //         reader.readAsDataURL(fileInput.files[0]);
-        //     }
-        // });
         $("#resume_official_photo").change(function() {
             const file = this.files[0];
             if (file) {
