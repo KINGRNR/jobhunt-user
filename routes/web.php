@@ -89,6 +89,9 @@ Route::middleware(['roleCheck:BfiwyVUDrXOpmStr'])->group(function () {
     Route::get('/blog', function () {
         return view('blog');
     });
+    Route::get('/riwayatlamaran', function () {
+        return view('riwayatlamaran');
+    });
     Route::get('/content-blog', function () {
         return view('contentblog');
     });
@@ -175,6 +178,9 @@ Route::middleware([loginCheck::class])->group(function () {
         });
         Route::get('/company/formprofile', function () {
             return view('indexcompany.formprofile');
+        });
+        Route::get('/blog', function () {
+            return view('blog');
         });
     });
 });
