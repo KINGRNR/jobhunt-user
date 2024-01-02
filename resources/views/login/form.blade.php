@@ -171,14 +171,14 @@
             contentType: false,
             success: function(res) {
                 if (res.success) {
-                    $('#submit-button').prop('disabled', true).removeClass('bg-figma-biru-primary, hover:bg-blue-800').addClass('bg-gray-200').css('cursor', 'progress')
+                    $('#submit-button').prop('disabled', true).removeClass(
+                        'bg-figma-biru-primary, hover:bg-blue-800').addClass('bg-gray-200').css(
+                        'cursor', 'progress')
                     quick.toastNotif({
                         title: 'success',
                         icon: 'success',
-                        callback: function() {
-                            window.location.href = res.redirect;
-                        }
                     })
+                    window.location.href = res.redirect;
 
                 }
             },
