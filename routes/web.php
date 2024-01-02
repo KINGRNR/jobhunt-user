@@ -52,7 +52,9 @@ Route::middleware(['guest'])->group(function () {
         return view('forgotpass');
     });
 });
-
+Route::get('/blog', function () {
+    return view('blog');
+});
 Route::post('/jobs', [JobController::class, 'index']);
 Route::post('/jobsCompany', [JobController::class, 'indexCompany']);
 
@@ -88,9 +90,7 @@ Route::middleware(['roleCheck:BfiwyVUDrXOpmStr'])->group(function () {
     Route::get('/detailjob', function () {
         return view('detailjob');
     });
-    Route::get('/blog', function () {
-        return view('blog');
-    });
+
     Route::get('/riwayatlamaran', function () {
         return view('riwayatlamaran');
     });
@@ -180,9 +180,6 @@ Route::middleware([loginCheck::class])->group(function () {
         });
         Route::get('/company/formprofile', function () {
             return view('indexcompany.formprofile');
-        });
-        Route::get('/blog', function () {
-            return view('blog');
         });
     });
 });
