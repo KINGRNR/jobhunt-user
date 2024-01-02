@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Resume;
 use App\Models\ApplyJob;
+use App\Models\Job;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
@@ -21,6 +22,7 @@ class ResumeController extends Controller
     public function save(Request $request)
     {
         $id = Session::get('user_id');
+
 
         $request->validate([
             'resume_official_photo' => 'nullable|image|max:3000|mimes:jpeg,jpg,png',
@@ -94,11 +96,20 @@ class ResumeController extends Controller
                     'message' => 'Anda sudah pernah Apply di pekerjaan ini dengan status masih pengajuan / sudah diterima.',
                 ]);
             }
-
+            $resume = Resume::where('resume_id', $req['data_resume'])->first();
+            $encodedRes = base64_encode($resume);
+            $job = Job::where('job_id', $req['data_id'])->first();
+            $encodedJob = base64_encode($job);
+            // print_r($encodedRes);
+            // print_r(base64_decode($encodedRes));
+            // exit;
             $data['job_apply_status'] = 0;
             $data['job_apply_job_id'] = $req['data_id'];
             $data['job_apply_resume_id'] = $req['data_resume'];
             $data['job_apply_resume_user_id'] = $id;
+            $data['job_apply_job_detail'] = $encodedJob;    
+            $data['job_apply_resume_detail'] = $encodedRes;
+
             $operation = ApplyJob::create($data);
 
             return response()->json([

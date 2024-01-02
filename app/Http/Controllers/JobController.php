@@ -38,6 +38,7 @@ class JobController extends Controller
         $jobs = DB::table('v_job')->where('job_id', $id)->get();
         return response()->json(['jobs' => $jobs]);
     }
+    
     public function jobscount()
     {
         $jobCounts = DB::table('v_job')
@@ -100,4 +101,23 @@ class JobController extends Controller
         //     throw $th;
         // }
     }
+    public function getriwayatlamaran()
+    {
+        $id = Session::get('user_id');
+    
+        $data = DB::table('job_apply')
+            ->where('job_apply_resume_user_id', $id)
+            ->get();
+        
+        if ($data->isNotEmpty()) {
+            foreach ($data as $jobApplication) {
+                $jobId = $jobApplication->job_apply_job_id;
+                $companyName = DB::table('v_job')->where('job_id', $jobId)->value('company_name');
+                $jobApplication->company_name = $companyName;
+            }
+        }
+    
+        return response()->json(['data' => $data]);
+    }
+    
 }

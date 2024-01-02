@@ -71,6 +71,8 @@ Route::middleware(['roleCheck:BfiwyVUDrXOpmStr'])->group(function () {
     // Route::get('/', function () {
     //     return view('welcome');
     // })->name('index');
+    Route::post('/riwayatlamaranget', [JobController::class, 'getriwayatlamaran'])->name('riwayatlamaranget.get');
+
     Route::get('/', function () {
         return view('welcome');
     })->name('index');
