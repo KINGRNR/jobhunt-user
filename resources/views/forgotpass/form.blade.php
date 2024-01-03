@@ -19,10 +19,10 @@
                 </div>
             @else
             <div class="alert alert-success" role="alert">
-                    <h1 class="ms-5">Check Your Email</h1>
+                    {{-- <h1 class="ms-5">Check Your Email</h1> --}}
                     {{ Session::get('message') }}
                 </div>
-                {{-- <div class="mx-8 lg:mx-28 py-6 flex justify-start">
+                <div class="mx-8 lg:mx-28 py-6 flex justify-start">
                     <img src="svg/logoipsum-287.svg" class="w-48 h-16" alt="HTML tutorial">
                 </div>
 
@@ -54,7 +54,7 @@
                                 Password Reset link</button>
                         </div>
                 </div>
-                </form> --}}
+                </form>
                 @endif
 
             </div>
